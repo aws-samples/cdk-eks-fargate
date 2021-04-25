@@ -1,11 +1,29 @@
-## My Project
+## CDK with EKS on Fargate
 
-TODO: Fill this README out!
+This repo contains code sample demonstrating how to leverage cdk, cdk8s and cdk8s+ to provision an ESK cluster with Fargate node groups, deploy workloads and expose Kubernetes services.
 
-Be sure to:
+![High Level Architecture](https://github.com/aws-samples/cdk-eks-fargate/blob/main/eks.png?raw=true)
 
-* Change the title in this README
-* Edit your repository description on GitHub
+### Prerequisites
+In addition to an AWS account with permissions to create and manage Amazon EKS cluster, S3 bucket, AWS fargate and the Application Load Balancer, the following tools are also required:
+- AWS CDK >= 1.93.0.
+- Kubernetes command line tool `kubectl`.
+- A current version of nodejs.
+
+### What is being deployed
+- VPC with private subnets.
+- EKS cluster with Fargate nodegroup.
+- Application Load Balancer.
+- S3 bucket for K8s workloads.
+
+### Usage
+Simply deploy the stack with AWS CDK
+```
+git clone git@github.com:aws-samples/cdk-eks-fargate.git
+cd cdk-eks-fargate
+npm install
+cdk deploy
+```
 
 ## Security
 
