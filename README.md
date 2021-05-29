@@ -6,7 +6,7 @@ This repo contains code sample demonstrating how to leverage cdk, cdk8s and cdk8
 
 ### Prerequisites
 In addition to an AWS account with permissions to create and manage Amazon EKS cluster, S3 bucket, AWS fargate and the Application Load Balancer, the following tools are also required:
-- AWS CDK >= 1.93.0.
+- AWS CDK >= 1.93.0 and cdk bootstrap is already done.
 - Kubernetes command line tool `kubectl`.
 - A current version of nodejs.
 
@@ -22,8 +22,10 @@ Simply deploy the stack with AWS CDK
 git clone git@github.com:aws-samples/cdk-eks-fargate.git
 cd cdk-eks-fargate
 npm install
+npm run build
 cdk deploy
 ```
+Please note the dployment will fail if your AWS account is not CDK bootstrapped yet. In the case, simply run "cdk bootstrap" then re-run "cdk deploy" again.
 
 ## Security
 
