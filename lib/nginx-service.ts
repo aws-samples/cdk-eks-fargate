@@ -113,7 +113,7 @@ export class NginxService extends cdk8s.Chart {
                 namespace: namespace.name,
                 annotations: {
                     'kubernetes.io/ingress.class': 'alb',
-                    'alb.ingress.kubernetes.io/scheme': 'internal', // Set ALB for K8S Ingress as internal-facing service.
+                    'alb.ingress.kubernetes.io/scheme': 'internal', // Set ALB for K8S Ingress as internet-facing service.
                     'alb.ingress.kubernetes.io/target-type': 'ip',
                 },
                 labels: { app: 'nginx' },
