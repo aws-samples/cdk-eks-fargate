@@ -75,6 +75,7 @@ export class AwsLoadBalancerController extends cdk.Construct {
                 'ec2:ModifyInstanceAttribute',
                 'ec2:ModifyNetworkInterfaceAttribute',
                 'ec2:RevokeSecurityGroupIngress',
+                'ec2:DescribeAvailabilityZones'
             ],
             resources: ['*'],
         });
