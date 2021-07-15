@@ -23,6 +23,7 @@ import * as s3 from '@aws-cdk/aws-s3';
 
 import { AwsLoadBalancerController } from './aws-loadbalancer-controller';
 import { NginxService } from './nginx-service';
+import { EksFargateLogging } from './eks-fargate-logging'
 
 export interface CdkEksFargateStackProps extends cdk.StackProps {
     vpcId?: string;
@@ -40,7 +41,7 @@ export class CdkEksFargateStack extends cdk.Stack {
 
         // Create a EKS cluster with Fargate profile.
         const cluster = new eks.FargateCluster(this, 'my-cluster', {
-            version: eks.KubernetesVersion.V1_18,
+            version: eks.KubernetesVersion.V1_20,
             mastersRole: masterRole,
             clusterName: props.clusterName,
             outputClusterName: true,
@@ -121,6 +122,29 @@ export class CdkEksFargateStack extends cdk.Stack {
                 vpc: cluster.vpc,
             }
         );
+
+        const loggingIamPolicy = new iam.ManagedPolicy(this, 'eks-fargate-logging-iam-policy', {
+            statements: [
+              new iam.PolicyStatement({
+                effect: iam.Effect.ALLOW,
+                actions: [
+                    'logs:CreateLogStream',
+                    'logs:CreateLogGroup',
+                    'logs:DescribeLogStreams',
+                    'logs:PutLogEvents'
+                ],
+                resources: ['*'],
+              }),
+            ],
+        });
+        customerAppFargateProfile.podExecutionRole.addManagedPolicy(loggingIamPolicy);
+
+        const loggingChart = cluster.addCdk8sChart(
+            'eks-fargate-logging',
+            new EksFargateLogging(cdk8sApp, 'eks-fargate-logging-chart')
+        );
+
+        loggingChart.node.addDependency(customerAppFargateProfile);
 
         const k8sAppChart = cluster.addCdk8sChart(
             'nginx-app-service',
