@@ -1,6 +1,6 @@
 ## CDK with EKS on Fargate
 
-This repo contains code sample demonstrating how to leverage cdk, cdk8s and cdk8s+ to provision an ESK cluster with Fargate node groups, deploy workloads and expose Kubernetes services.
+This repo contains code sample demonstrating how to leverage cdk, cdk8s and cdk8s+ to provision an EKS cluster with Fargate node groups, deploy workloads and expose Kubernetes services.
 
 ![High Level Architecture](https://github.com/aws-samples/cdk-eks-fargate/blob/main/eks.png?raw=true)
 
