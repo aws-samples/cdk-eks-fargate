@@ -41,7 +41,7 @@ export class CdkEksFargateStack extends cdk.Stack {
 
     // Create a EKS cluster with Fargate profile.
     const cluster = new eks.FargateCluster(this, 'my-cluster', {
-      version: eks.KubernetesVersion.V1_20,
+      version: eks.KubernetesVersion.V1_21,
       mastersRole: masterRole,
       clusterName: props.clusterName,
       outputClusterName: true,
