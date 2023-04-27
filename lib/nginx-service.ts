@@ -41,7 +41,7 @@ export class NginxService extends cdk8s.Chart {
     });
 
     // Create K8S Service Account associated with IAM role for the 2048-game deployment.
-    const serviceAccount = new KubeServiceAccount(
+    const serviceAccount = new kplus.ServiceAccount(
       this,
       props.serviceAccountName,
       {
