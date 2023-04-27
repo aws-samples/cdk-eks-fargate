@@ -219,8 +219,7 @@ export class KubeValidatingWebhookConfigurationList extends ApiObject {
 }
 
 /**
- * 
- Storage version of a specific resource.
+ * Storage version of a specific resource.
  *
  * @schema io.k8s.api.apiserverinternal.v1alpha1.StorageVersion
  */
@@ -761,8 +760,9 @@ export class KubeReplicaSetList extends ApiObject {
 
 /**
  * StatefulSet represents a set of pods with consistent identities. Identities are defined as:
- - Network: A single stable DNS and hostname.
- - Storage: As many VolumeClaims as requested.
+  - Network: A single stable DNS and hostname.
+  - Storage: As many VolumeClaims as requested.
+
 The StatefulSet guarantees that a given network identity will always map to the same storage identity.
  *
  * @schema io.k8s.api.apps.v1.StatefulSet
@@ -1359,40 +1359,40 @@ export class KubeScale extends ApiObject {
 /**
  * HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler
+ * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscaler
  */
-export class KubeHorizontalPodAutoscalerV2Beta1 extends ApiObject {
+export class KubeHorizontalPodAutoscalerV2 extends ApiObject {
   /**
-   * Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler"
+   * Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2.HorizontalPodAutoscaler"
    */
   public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'autoscaling/v2beta1',
+    apiVersion: 'autoscaling/v2',
     kind: 'HorizontalPodAutoscaler',
   }
 
   /**
-   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler".
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2.HorizontalPodAutoscaler".
    *
    * This can be used to inline resource manifests inside other objects (e.g. as templates).
    *
    * @param props initialization props
    */
-  public static manifest(props: KubeHorizontalPodAutoscalerV2Beta1Props = {}): any {
+  public static manifest(props: KubeHorizontalPodAutoscalerV2Props = {}): any {
     return {
-      ...KubeHorizontalPodAutoscalerV2Beta1.GVK,
-      ...toJson_KubeHorizontalPodAutoscalerV2Beta1Props(props),
+      ...KubeHorizontalPodAutoscalerV2.GVK,
+      ...toJson_KubeHorizontalPodAutoscalerV2Props(props),
     };
   }
 
   /**
-   * Defines a "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler" API object
+   * Defines a "io.k8s.api.autoscaling.v2.HorizontalPodAutoscaler" API object
    * @param scope the scope in which to define this object
    * @param id a scope-local name for the object
    * @param props initialization props
    */
-  public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerV2Beta1Props = {}) {
+  public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerV2Props = {}) {
     super(scope, id, {
-      ...KubeHorizontalPodAutoscalerV2Beta1.GVK,
+      ...KubeHorizontalPodAutoscalerV2.GVK,
       ...props,
     });
   }
@@ -1404,49 +1404,49 @@ export class KubeHorizontalPodAutoscalerV2Beta1 extends ApiObject {
     const resolved = super.toJson();
 
     return {
-      ...KubeHorizontalPodAutoscalerV2Beta1.GVK,
-      ...toJson_KubeHorizontalPodAutoscalerV2Beta1Props(resolved),
+      ...KubeHorizontalPodAutoscalerV2.GVK,
+      ...toJson_KubeHorizontalPodAutoscalerV2Props(resolved),
     };
   }
 }
 
 /**
- * HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.
+ * HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList
+ * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerList
  */
-export class KubeHorizontalPodAutoscalerListV2Beta1 extends ApiObject {
+export class KubeHorizontalPodAutoscalerListV2 extends ApiObject {
   /**
-   * Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList"
+   * Returns the apiVersion and kind for "io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerList"
    */
   public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'autoscaling/v2beta1',
+    apiVersion: 'autoscaling/v2',
     kind: 'HorizontalPodAutoscalerList',
   }
 
   /**
-   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList".
+   * Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerList".
    *
    * This can be used to inline resource manifests inside other objects (e.g. as templates).
    *
    * @param props initialization props
    */
-  public static manifest(props: KubeHorizontalPodAutoscalerListV2Beta1Props): any {
+  public static manifest(props: KubeHorizontalPodAutoscalerListV2Props): any {
     return {
-      ...KubeHorizontalPodAutoscalerListV2Beta1.GVK,
-      ...toJson_KubeHorizontalPodAutoscalerListV2Beta1Props(props),
+      ...KubeHorizontalPodAutoscalerListV2.GVK,
+      ...toJson_KubeHorizontalPodAutoscalerListV2Props(props),
     };
   }
 
   /**
-   * Defines a "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList" API object
+   * Defines a "io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerList" API object
    * @param scope the scope in which to define this object
    * @param id a scope-local name for the object
    * @param props initialization props
    */
-  public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerListV2Beta1Props) {
+  public constructor(scope: Construct, id: string, props: KubeHorizontalPodAutoscalerListV2Props) {
     super(scope, id, {
-      ...KubeHorizontalPodAutoscalerListV2Beta1.GVK,
+      ...KubeHorizontalPodAutoscalerListV2.GVK,
       ...props,
     });
   }
@@ -1458,8 +1458,8 @@ export class KubeHorizontalPodAutoscalerListV2Beta1 extends ApiObject {
     const resolved = super.toJson();
 
     return {
-      ...KubeHorizontalPodAutoscalerListV2Beta1.GVK,
-      ...toJson_KubeHorizontalPodAutoscalerListV2Beta1Props(resolved),
+      ...KubeHorizontalPodAutoscalerListV2.GVK,
+      ...toJson_KubeHorizontalPodAutoscalerListV2Props(resolved),
     };
   }
 }
@@ -1784,114 +1784,6 @@ export class KubeJobList extends ApiObject {
     return {
       ...KubeJobList.GVK,
       ...toJson_KubeJobListProps(resolved),
-    };
-  }
-}
-
-/**
- * CronJob represents the configuration of a single cron job.
- *
- * @schema io.k8s.api.batch.v1beta1.CronJob
- */
-export class KubeCronJobV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.batch.v1beta1.CronJob"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'batch/v1beta1',
-    kind: 'CronJob',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.batch.v1beta1.CronJob".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeCronJobV1Beta1Props = {}): any {
-    return {
-      ...KubeCronJobV1Beta1.GVK,
-      ...toJson_KubeCronJobV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.batch.v1beta1.CronJob" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeCronJobV1Beta1Props = {}) {
-    super(scope, id, {
-      ...KubeCronJobV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeCronJobV1Beta1.GVK,
-      ...toJson_KubeCronJobV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
- * CronJobList is a collection of cron jobs.
- *
- * @schema io.k8s.api.batch.v1beta1.CronJobList
- */
-export class KubeCronJobListV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.batch.v1beta1.CronJobList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'batch/v1beta1',
-    kind: 'CronJobList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.batch.v1beta1.CronJobList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeCronJobListV1Beta1Props): any {
-    return {
-      ...KubeCronJobListV1Beta1.GVK,
-      ...toJson_KubeCronJobListV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.batch.v1beta1.CronJobList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeCronJobListV1Beta1Props) {
-    super(scope, id, {
-      ...KubeCronJobListV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeCronJobListV1Beta1.GVK,
-      ...toJson_KubeCronJobListV1Beta1Props(resolved),
     };
   }
 }
@@ -2390,17 +2282,18 @@ export class KubeConfigMapList extends ApiObject {
 
 /**
  * Endpoints is a collection of endpoints that implement the actual service. Example:
-  Name: "mysvc",
-  Subsets: [
-    {
-      Addresses: [{"ip": "10.10.1.1"}, {"ip": "10.10.2.2"}],
-      Ports: [{"name": "a", "port": 8675}, {"name": "b", "port": 309}]
-    },
-    {
-      Addresses: [{"ip": "10.10.3.3"}],
-      Ports: [{"name": "a", "port": 93}, {"name": "b", "port": 76}]
-    },
- ]
+
+	 Name: "mysvc",
+	 Subsets: [
+	   {
+	     Addresses: [{"ip": "10.10.1.1"}, {"ip": "10.10.2.2"}],
+	     Ports: [{"name": "a", "port": 8675}, {"name": "b", "port": 309}]
+	   },
+	   {
+	     Addresses: [{"ip": "10.10.3.3"}],
+	     Ports: [{"name": "a", "port": 93}, {"name": "b", "port": 76}]
+	   },
+	]
  *
  * @schema io.k8s.api.core.v1.Endpoints
  */
@@ -4020,222 +3913,6 @@ export class KubeEndpointSliceList extends ApiObject {
 }
 
 /**
- * EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
- *
- * @schema io.k8s.api.discovery.v1beta1.EndpointSlice
- */
-export class KubeEndpointSliceV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.discovery.v1beta1.EndpointSlice"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'discovery.k8s.io/v1beta1',
-    kind: 'EndpointSlice',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.discovery.v1beta1.EndpointSlice".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeEndpointSliceV1Beta1Props): any {
-    return {
-      ...KubeEndpointSliceV1Beta1.GVK,
-      ...toJson_KubeEndpointSliceV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.discovery.v1beta1.EndpointSlice" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeEndpointSliceV1Beta1Props) {
-    super(scope, id, {
-      ...KubeEndpointSliceV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeEndpointSliceV1Beta1.GVK,
-      ...toJson_KubeEndpointSliceV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
- * EndpointSliceList represents a list of endpoint slices
- *
- * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList
- */
-export class KubeEndpointSliceListV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.discovery.v1beta1.EndpointSliceList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'discovery.k8s.io/v1beta1',
-    kind: 'EndpointSliceList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.discovery.v1beta1.EndpointSliceList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeEndpointSliceListV1Beta1Props): any {
-    return {
-      ...KubeEndpointSliceListV1Beta1.GVK,
-      ...toJson_KubeEndpointSliceListV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.discovery.v1beta1.EndpointSliceList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeEndpointSliceListV1Beta1Props) {
-    super(scope, id, {
-      ...KubeEndpointSliceListV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeEndpointSliceListV1Beta1.GVK,
-      ...toJson_KubeEndpointSliceListV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
- * Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.
- *
- * @schema io.k8s.api.events.v1beta1.Event
- */
-export class KubeEventV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.events.v1beta1.Event"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'events.k8s.io/v1beta1',
-    kind: 'Event',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.events.v1beta1.Event".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeEventV1Beta1Props): any {
-    return {
-      ...KubeEventV1Beta1.GVK,
-      ...toJson_KubeEventV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.events.v1beta1.Event" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeEventV1Beta1Props) {
-    super(scope, id, {
-      ...KubeEventV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeEventV1Beta1.GVK,
-      ...toJson_KubeEventV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
- * EventList is a list of Event objects.
- *
- * @schema io.k8s.api.events.v1beta1.EventList
- */
-export class KubeEventListV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.events.v1beta1.EventList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'events.k8s.io/v1beta1',
-    kind: 'EventList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.events.v1beta1.EventList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeEventListV1Beta1Props): any {
-    return {
-      ...KubeEventListV1Beta1.GVK,
-      ...toJson_KubeEventListV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.events.v1beta1.EventList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeEventListV1Beta1Props) {
-    super(scope, id, {
-      ...KubeEventListV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeEventListV1Beta1.GVK,
-      ...toJson_KubeEventListV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
  * FlowSchema defines the schema of a group of flows. Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
  *
  * @schema io.k8s.api.flowcontrol.v1beta1.FlowSchema
@@ -4447,6 +4124,222 @@ export class KubePriorityLevelConfigurationListV1Beta1 extends ApiObject {
     return {
       ...KubePriorityLevelConfigurationListV1Beta1.GVK,
       ...toJson_KubePriorityLevelConfigurationListV1Beta1Props(resolved),
+    };
+  }
+}
+
+/**
+ * FlowSchema defines the schema of a group of flows. Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchema
+ */
+export class KubeFlowSchemaV1Beta2 extends ApiObject {
+  /**
+   * Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1beta2.FlowSchema"
+   */
+  public static readonly GVK: GroupVersionKind = {
+    apiVersion: 'flowcontrol.apiserver.k8s.io/v1beta2',
+    kind: 'FlowSchema',
+  }
+
+  /**
+   * Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1beta2.FlowSchema".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
+   * @param props initialization props
+   */
+  public static manifest(props: KubeFlowSchemaV1Beta2Props = {}): any {
+    return {
+      ...KubeFlowSchemaV1Beta2.GVK,
+      ...toJson_KubeFlowSchemaV1Beta2Props(props),
+    };
+  }
+
+  /**
+   * Defines a "io.k8s.api.flowcontrol.v1beta2.FlowSchema" API object
+   * @param scope the scope in which to define this object
+   * @param id a scope-local name for the object
+   * @param props initialization props
+   */
+  public constructor(scope: Construct, id: string, props: KubeFlowSchemaV1Beta2Props = {}) {
+    super(scope, id, {
+      ...KubeFlowSchemaV1Beta2.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...KubeFlowSchemaV1Beta2.GVK,
+      ...toJson_KubeFlowSchemaV1Beta2Props(resolved),
+    };
+  }
+}
+
+/**
+ * FlowSchemaList is a list of FlowSchema objects.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaList
+ */
+export class KubeFlowSchemaListV1Beta2 extends ApiObject {
+  /**
+   * Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1beta2.FlowSchemaList"
+   */
+  public static readonly GVK: GroupVersionKind = {
+    apiVersion: 'flowcontrol.apiserver.k8s.io/v1beta2',
+    kind: 'FlowSchemaList',
+  }
+
+  /**
+   * Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1beta2.FlowSchemaList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
+   * @param props initialization props
+   */
+  public static manifest(props: KubeFlowSchemaListV1Beta2Props): any {
+    return {
+      ...KubeFlowSchemaListV1Beta2.GVK,
+      ...toJson_KubeFlowSchemaListV1Beta2Props(props),
+    };
+  }
+
+  /**
+   * Defines a "io.k8s.api.flowcontrol.v1beta2.FlowSchemaList" API object
+   * @param scope the scope in which to define this object
+   * @param id a scope-local name for the object
+   * @param props initialization props
+   */
+  public constructor(scope: Construct, id: string, props: KubeFlowSchemaListV1Beta2Props) {
+    super(scope, id, {
+      ...KubeFlowSchemaListV1Beta2.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...KubeFlowSchemaListV1Beta2.GVK,
+      ...toJson_KubeFlowSchemaListV1Beta2Props(resolved),
+    };
+  }
+}
+
+/**
+ * PriorityLevelConfiguration represents the configuration of a priority level.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfiguration
+ */
+export class KubePriorityLevelConfigurationV1Beta2 extends ApiObject {
+  /**
+   * Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfiguration"
+   */
+  public static readonly GVK: GroupVersionKind = {
+    apiVersion: 'flowcontrol.apiserver.k8s.io/v1beta2',
+    kind: 'PriorityLevelConfiguration',
+  }
+
+  /**
+   * Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfiguration".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
+   * @param props initialization props
+   */
+  public static manifest(props: KubePriorityLevelConfigurationV1Beta2Props = {}): any {
+    return {
+      ...KubePriorityLevelConfigurationV1Beta2.GVK,
+      ...toJson_KubePriorityLevelConfigurationV1Beta2Props(props),
+    };
+  }
+
+  /**
+   * Defines a "io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfiguration" API object
+   * @param scope the scope in which to define this object
+   * @param id a scope-local name for the object
+   * @param props initialization props
+   */
+  public constructor(scope: Construct, id: string, props: KubePriorityLevelConfigurationV1Beta2Props = {}) {
+    super(scope, id, {
+      ...KubePriorityLevelConfigurationV1Beta2.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...KubePriorityLevelConfigurationV1Beta2.GVK,
+      ...toJson_KubePriorityLevelConfigurationV1Beta2Props(resolved),
+    };
+  }
+}
+
+/**
+ * PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationList
+ */
+export class KubePriorityLevelConfigurationListV1Beta2 extends ApiObject {
+  /**
+   * Returns the apiVersion and kind for "io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationList"
+   */
+  public static readonly GVK: GroupVersionKind = {
+    apiVersion: 'flowcontrol.apiserver.k8s.io/v1beta2',
+    kind: 'PriorityLevelConfigurationList',
+  }
+
+  /**
+   * Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
+   * @param props initialization props
+   */
+  public static manifest(props: KubePriorityLevelConfigurationListV1Beta2Props): any {
+    return {
+      ...KubePriorityLevelConfigurationListV1Beta2.GVK,
+      ...toJson_KubePriorityLevelConfigurationListV1Beta2Props(props),
+    };
+  }
+
+  /**
+   * Defines a "io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationList" API object
+   * @param scope the scope in which to define this object
+   * @param id a scope-local name for the object
+   * @param props initialization props
+   */
+  public constructor(scope: Construct, id: string, props: KubePriorityLevelConfigurationListV1Beta2Props) {
+    super(scope, id, {
+      ...KubePriorityLevelConfigurationListV1Beta2.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...KubePriorityLevelConfigurationListV1Beta2.GVK,
+      ...toJson_KubePriorityLevelConfigurationListV1Beta2Props(resolved),
     };
   }
 }
@@ -4776,6 +4669,114 @@ export class KubeNetworkPolicyList extends ApiObject {
 }
 
 /**
+ * ClusterCIDR represents a single configuration for per-Node Pod CIDR allocations when the MultiCIDRRangeAllocator is enabled (see the config for kube-controller-manager).  A cluster may have any number of ClusterCIDR resources, all of which will be considered when allocating a CIDR for a Node.  A ClusterCIDR is eligible to be used for a given Node when the node selector matches the node in question and has free CIDRs to allocate.  In case of multiple matching ClusterCIDR resources, the allocator will attempt to break ties using internal heuristics, but any ClusterCIDR whose node selector matches the Node may be used.
+ *
+ * @schema io.k8s.api.networking.v1alpha1.ClusterCIDR
+ */
+export class KubeClusterCidrv1Alpha1 extends ApiObject {
+  /**
+   * Returns the apiVersion and kind for "io.k8s.api.networking.v1alpha1.ClusterCIDR"
+   */
+  public static readonly GVK: GroupVersionKind = {
+    apiVersion: 'networking.k8s.io/v1alpha1',
+    kind: 'ClusterCIDR',
+  }
+
+  /**
+   * Renders a Kubernetes manifest for "io.k8s.api.networking.v1alpha1.ClusterCIDR".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
+   * @param props initialization props
+   */
+  public static manifest(props: KubeClusterCidrv1Alpha1Props = {}): any {
+    return {
+      ...KubeClusterCidrv1Alpha1.GVK,
+      ...toJson_KubeClusterCidrv1Alpha1Props(props),
+    };
+  }
+
+  /**
+   * Defines a "io.k8s.api.networking.v1alpha1.ClusterCIDR" API object
+   * @param scope the scope in which to define this object
+   * @param id a scope-local name for the object
+   * @param props initialization props
+   */
+  public constructor(scope: Construct, id: string, props: KubeClusterCidrv1Alpha1Props = {}) {
+    super(scope, id, {
+      ...KubeClusterCidrv1Alpha1.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...KubeClusterCidrv1Alpha1.GVK,
+      ...toJson_KubeClusterCidrv1Alpha1Props(resolved),
+    };
+  }
+}
+
+/**
+ * ClusterCIDRList contains a list of ClusterCIDR.
+ *
+ * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRList
+ */
+export class KubeClusterCidrListV1Alpha1 extends ApiObject {
+  /**
+   * Returns the apiVersion and kind for "io.k8s.api.networking.v1alpha1.ClusterCIDRList"
+   */
+  public static readonly GVK: GroupVersionKind = {
+    apiVersion: 'networking.k8s.io/v1alpha1',
+    kind: 'ClusterCIDRList',
+  }
+
+  /**
+   * Renders a Kubernetes manifest for "io.k8s.api.networking.v1alpha1.ClusterCIDRList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
+   * @param props initialization props
+   */
+  public static manifest(props: KubeClusterCidrListV1Alpha1Props): any {
+    return {
+      ...KubeClusterCidrListV1Alpha1.GVK,
+      ...toJson_KubeClusterCidrListV1Alpha1Props(props),
+    };
+  }
+
+  /**
+   * Defines a "io.k8s.api.networking.v1alpha1.ClusterCIDRList" API object
+   * @param scope the scope in which to define this object
+   * @param id a scope-local name for the object
+   * @param props initialization props
+   */
+  public constructor(scope: Construct, id: string, props: KubeClusterCidrListV1Alpha1Props) {
+    super(scope, id, {
+      ...KubeClusterCidrListV1Alpha1.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...KubeClusterCidrListV1Alpha1.GVK,
+      ...toJson_KubeClusterCidrListV1Alpha1Props(resolved),
+    };
+  }
+}
+
+/**
  * RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://kubernetes.io/docs/concepts/containers/runtime-class/
  *
  * @schema io.k8s.api.node.v1.RuntimeClass
@@ -4879,222 +4880,6 @@ export class KubeRuntimeClassList extends ApiObject {
     return {
       ...KubeRuntimeClassList.GVK,
       ...toJson_KubeRuntimeClassListProps(resolved),
-    };
-  }
-}
-
-/**
- * RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
- *
- * @schema io.k8s.api.node.v1alpha1.RuntimeClass
- */
-export class KubeRuntimeClassV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.node.v1alpha1.RuntimeClass"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'node.k8s.io/v1alpha1',
-    kind: 'RuntimeClass',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.node.v1alpha1.RuntimeClass".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeRuntimeClassV1Alpha1Props): any {
-    return {
-      ...KubeRuntimeClassV1Alpha1.GVK,
-      ...toJson_KubeRuntimeClassV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.node.v1alpha1.RuntimeClass" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeRuntimeClassV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeRuntimeClassV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeRuntimeClassV1Alpha1.GVK,
-      ...toJson_KubeRuntimeClassV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * RuntimeClassList is a list of RuntimeClass objects.
- *
- * @schema io.k8s.api.node.v1alpha1.RuntimeClassList
- */
-export class KubeRuntimeClassListV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.node.v1alpha1.RuntimeClassList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'node.k8s.io/v1alpha1',
-    kind: 'RuntimeClassList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.node.v1alpha1.RuntimeClassList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeRuntimeClassListV1Alpha1Props): any {
-    return {
-      ...KubeRuntimeClassListV1Alpha1.GVK,
-      ...toJson_KubeRuntimeClassListV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.node.v1alpha1.RuntimeClassList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeRuntimeClassListV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeRuntimeClassListV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeRuntimeClassListV1Alpha1.GVK,
-      ...toJson_KubeRuntimeClassListV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
- *
- * @schema io.k8s.api.node.v1beta1.RuntimeClass
- */
-export class KubeRuntimeClassV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.node.v1beta1.RuntimeClass"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'node.k8s.io/v1beta1',
-    kind: 'RuntimeClass',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.node.v1beta1.RuntimeClass".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeRuntimeClassV1Beta1Props): any {
-    return {
-      ...KubeRuntimeClassV1Beta1.GVK,
-      ...toJson_KubeRuntimeClassV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.node.v1beta1.RuntimeClass" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeRuntimeClassV1Beta1Props) {
-    super(scope, id, {
-      ...KubeRuntimeClassV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeRuntimeClassV1Beta1.GVK,
-      ...toJson_KubeRuntimeClassV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
- * RuntimeClassList is a list of RuntimeClass objects.
- *
- * @schema io.k8s.api.node.v1beta1.RuntimeClassList
- */
-export class KubeRuntimeClassListV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.node.v1beta1.RuntimeClassList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'node.k8s.io/v1beta1',
-    kind: 'RuntimeClassList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.node.v1beta1.RuntimeClassList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeRuntimeClassListV1Beta1Props): any {
-    return {
-      ...KubeRuntimeClassListV1Beta1.GVK,
-      ...toJson_KubeRuntimeClassListV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.node.v1beta1.RuntimeClassList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeRuntimeClassListV1Beta1Props) {
-    super(scope, id, {
-      ...KubeRuntimeClassListV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeRuntimeClassListV1Beta1.GVK,
-      ...toJson_KubeRuntimeClassListV1Beta1Props(resolved),
     };
   }
 }
@@ -5257,222 +5042,6 @@ export class KubePodDisruptionBudgetList extends ApiObject {
     return {
       ...KubePodDisruptionBudgetList.GVK,
       ...toJson_KubePodDisruptionBudgetListProps(resolved),
-    };
-  }
-}
-
-/**
- * PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods
- *
- * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudget
- */
-export class KubePodDisruptionBudgetV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodDisruptionBudget"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'policy/v1beta1',
-    kind: 'PodDisruptionBudget',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodDisruptionBudget".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubePodDisruptionBudgetV1Beta1Props = {}): any {
-    return {
-      ...KubePodDisruptionBudgetV1Beta1.GVK,
-      ...toJson_KubePodDisruptionBudgetV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudget" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubePodDisruptionBudgetV1Beta1Props = {}) {
-    super(scope, id, {
-      ...KubePodDisruptionBudgetV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubePodDisruptionBudgetV1Beta1.GVK,
-      ...toJson_KubePodDisruptionBudgetV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
- * PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
- *
- * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList
- */
-export class KubePodDisruptionBudgetListV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'policy/v1beta1',
-    kind: 'PodDisruptionBudgetList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubePodDisruptionBudgetListV1Beta1Props): any {
-    return {
-      ...KubePodDisruptionBudgetListV1Beta1.GVK,
-      ...toJson_KubePodDisruptionBudgetListV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubePodDisruptionBudgetListV1Beta1Props) {
-    super(scope, id, {
-      ...KubePodDisruptionBudgetListV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubePodDisruptionBudgetListV1Beta1.GVK,
-      ...toJson_KubePodDisruptionBudgetListV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
- * PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container. Deprecated in 1.21.
- *
- * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicy
- */
-export class KubePodSecurityPolicyV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodSecurityPolicy"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'policy/v1beta1',
-    kind: 'PodSecurityPolicy',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodSecurityPolicy".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubePodSecurityPolicyV1Beta1Props = {}): any {
-    return {
-      ...KubePodSecurityPolicyV1Beta1.GVK,
-      ...toJson_KubePodSecurityPolicyV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicy" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubePodSecurityPolicyV1Beta1Props = {}) {
-    super(scope, id, {
-      ...KubePodSecurityPolicyV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubePodSecurityPolicyV1Beta1.GVK,
-      ...toJson_KubePodSecurityPolicyV1Beta1Props(resolved),
-    };
-  }
-}
-
-/**
- * PodSecurityPolicyList is a list of PodSecurityPolicy objects.
- *
- * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList
- */
-export class KubePodSecurityPolicyListV1Beta1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.policy.v1beta1.PodSecurityPolicyList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'policy/v1beta1',
-    kind: 'PodSecurityPolicyList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodSecurityPolicyList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubePodSecurityPolicyListV1Beta1Props): any {
-    return {
-      ...KubePodSecurityPolicyListV1Beta1.GVK,
-      ...toJson_KubePodSecurityPolicyListV1Beta1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubePodSecurityPolicyListV1Beta1Props) {
-    super(scope, id, {
-      ...KubePodSecurityPolicyListV1Beta1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubePodSecurityPolicyListV1Beta1.GVK,
-      ...toJson_KubePodSecurityPolicyListV1Beta1Props(resolved),
     };
   }
 }
@@ -5910,438 +5479,6 @@ export class KubeRoleList extends ApiObject {
 }
 
 /**
- * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.ClusterRole
- */
-export class KubeClusterRoleV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRole"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
-    kind: 'ClusterRole',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRole".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeClusterRoleV1Alpha1Props = {}): any {
-    return {
-      ...KubeClusterRoleV1Alpha1.GVK,
-      ...toJson_KubeClusterRoleV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.rbac.v1alpha1.ClusterRole" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeClusterRoleV1Alpha1Props = {}) {
-    super(scope, id, {
-      ...KubeClusterRoleV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeClusterRoleV1Alpha1.GVK,
-      ...toJson_KubeClusterRoleV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBinding
- */
-export class KubeClusterRoleBindingV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
-    kind: 'ClusterRoleBinding',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeClusterRoleBindingV1Alpha1Props): any {
-    return {
-      ...KubeClusterRoleBindingV1Alpha1.GVK,
-      ...toJson_KubeClusterRoleBindingV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeClusterRoleBindingV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeClusterRoleBindingV1Alpha1.GVK,
-      ...toJson_KubeClusterRoleBindingV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * ClusterRoleBindingList is a collection of ClusterRoleBindings. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList
- */
-export class KubeClusterRoleBindingListV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
-    kind: 'ClusterRoleBindingList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeClusterRoleBindingListV1Alpha1Props): any {
-    return {
-      ...KubeClusterRoleBindingListV1Alpha1.GVK,
-      ...toJson_KubeClusterRoleBindingListV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeClusterRoleBindingListV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeClusterRoleBindingListV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeClusterRoleBindingListV1Alpha1.GVK,
-      ...toJson_KubeClusterRoleBindingListV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * ClusterRoleList is a collection of ClusterRoles. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleList
- */
-export class KubeClusterRoleListV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.ClusterRoleList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
-    kind: 'ClusterRoleList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeClusterRoleListV1Alpha1Props): any {
-    return {
-      ...KubeClusterRoleListV1Alpha1.GVK,
-      ...toJson_KubeClusterRoleListV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeClusterRoleListV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeClusterRoleListV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeClusterRoleListV1Alpha1.GVK,
-      ...toJson_KubeClusterRoleListV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.Role
- */
-export class KubeRoleV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.Role"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
-    kind: 'Role',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.Role".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeRoleV1Alpha1Props = {}): any {
-    return {
-      ...KubeRoleV1Alpha1.GVK,
-      ...toJson_KubeRoleV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.rbac.v1alpha1.Role" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeRoleV1Alpha1Props = {}) {
-    super(scope, id, {
-      ...KubeRoleV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeRoleV1Alpha1.GVK,
-      ...toJson_KubeRoleV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.RoleBinding
- */
-export class KubeRoleBindingV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleBinding"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
-    kind: 'RoleBinding',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleBinding".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeRoleBindingV1Alpha1Props): any {
-    return {
-      ...KubeRoleBindingV1Alpha1.GVK,
-      ...toJson_KubeRoleBindingV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.rbac.v1alpha1.RoleBinding" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeRoleBindingV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeRoleBindingV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeRoleBindingV1Alpha1.GVK,
-      ...toJson_KubeRoleBindingV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.RoleBindingList
- */
-export class KubeRoleBindingListV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleBindingList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
-    kind: 'RoleBindingList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleBindingList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeRoleBindingListV1Alpha1Props): any {
-    return {
-      ...KubeRoleBindingListV1Alpha1.GVK,
-      ...toJson_KubeRoleBindingListV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.rbac.v1alpha1.RoleBindingList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeRoleBindingListV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeRoleBindingListV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeRoleBindingListV1Alpha1.GVK,
-      ...toJson_KubeRoleBindingListV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * RoleList is a collection of Roles. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.RoleList
- */
-export class KubeRoleListV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.rbac.v1alpha1.RoleList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'rbac.authorization.k8s.io/v1alpha1',
-    kind: 'RoleList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeRoleListV1Alpha1Props): any {
-    return {
-      ...KubeRoleListV1Alpha1.GVK,
-      ...toJson_KubeRoleListV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.rbac.v1alpha1.RoleList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeRoleListV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeRoleListV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeRoleListV1Alpha1.GVK,
-      ...toJson_KubeRoleListV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
  * PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
  *
  * @schema io.k8s.api.scheduling.v1.PriorityClass
@@ -6445,114 +5582,6 @@ export class KubePriorityClassList extends ApiObject {
     return {
       ...KubePriorityClassList.GVK,
       ...toJson_KubePriorityClassListProps(resolved),
-    };
-  }
-}
-
-/**
- * DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
- *
- * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass
- */
-export class KubePriorityClassV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.scheduling.v1alpha1.PriorityClass"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'scheduling.k8s.io/v1alpha1',
-    kind: 'PriorityClass',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1alpha1.PriorityClass".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubePriorityClassV1Alpha1Props): any {
-    return {
-      ...KubePriorityClassV1Alpha1.GVK,
-      ...toJson_KubePriorityClassV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.scheduling.v1alpha1.PriorityClass" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubePriorityClassV1Alpha1Props) {
-    super(scope, id, {
-      ...KubePriorityClassV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubePriorityClassV1Alpha1.GVK,
-      ...toJson_KubePriorityClassV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * PriorityClassList is a collection of priority classes.
- *
- * @schema io.k8s.api.scheduling.v1alpha1.PriorityClassList
- */
-export class KubePriorityClassListV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.scheduling.v1alpha1.PriorityClassList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'scheduling.k8s.io/v1alpha1',
-    kind: 'PriorityClassList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1alpha1.PriorityClassList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubePriorityClassListV1Alpha1Props): any {
-    return {
-      ...KubePriorityClassListV1Alpha1.GVK,
-      ...toJson_KubePriorityClassListV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.scheduling.v1alpha1.PriorityClassList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubePriorityClassListV1Alpha1Props) {
-    super(scope, id, {
-      ...KubePriorityClassListV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubePriorityClassListV1Alpha1.GVK,
-      ...toJson_KubePriorityClassListV1Alpha1Props(resolved),
     };
   }
 }
@@ -6769,6 +5798,122 @@ export class KubeCsiNodeList extends ApiObject {
     return {
       ...KubeCsiNodeList.GVK,
       ...toJson_KubeCsiNodeListProps(resolved),
+    };
+  }
+}
+
+/**
+ * CSIStorageCapacity stores the result of one CSI GetCapacity call. For a given StorageClass, this describes the available capacity in a particular topology segment.  This can be used when considering where to instantiate new PersistentVolumes.
+
+For example this can express things like: - StorageClass "standard" has "1234 GiB" available in "topology.kubernetes.io/zone=us-east1" - StorageClass "localssd" has "10 GiB" available in "kubernetes.io/hostname=knode-abc123"
+
+The following three cases all imply that no capacity is available for a certain combination: - no object exists with suitable topology and storage class name - such an object exists, but the capacity is unset - such an object exists, but the capacity is zero
+
+The producer of these objects can decide which approach is more suitable.
+
+They are consumed by the kube-scheduler when a CSI driver opts into capacity-aware scheduling with CSIDriverSpec.StorageCapacity. The scheduler compares the MaximumVolumeSize against the requested size of pending volumes to filter out unsuitable nodes. If MaximumVolumeSize is unset, it falls back to a comparison against the less precise Capacity. If that is also unset, the scheduler assumes that capacity is insufficient and tries some other node.
+ *
+ * @schema io.k8s.api.storage.v1.CSIStorageCapacity
+ */
+export class KubeCsiStorageCapacity extends ApiObject {
+  /**
+   * Returns the apiVersion and kind for "io.k8s.api.storage.v1.CSIStorageCapacity"
+   */
+  public static readonly GVK: GroupVersionKind = {
+    apiVersion: 'storage.k8s.io/v1',
+    kind: 'CSIStorageCapacity',
+  }
+
+  /**
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1.CSIStorageCapacity".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
+   * @param props initialization props
+   */
+  public static manifest(props: KubeCsiStorageCapacityProps): any {
+    return {
+      ...KubeCsiStorageCapacity.GVK,
+      ...toJson_KubeCsiStorageCapacityProps(props),
+    };
+  }
+
+  /**
+   * Defines a "io.k8s.api.storage.v1.CSIStorageCapacity" API object
+   * @param scope the scope in which to define this object
+   * @param id a scope-local name for the object
+   * @param props initialization props
+   */
+  public constructor(scope: Construct, id: string, props: KubeCsiStorageCapacityProps) {
+    super(scope, id, {
+      ...KubeCsiStorageCapacity.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...KubeCsiStorageCapacity.GVK,
+      ...toJson_KubeCsiStorageCapacityProps(resolved),
+    };
+  }
+}
+
+/**
+ * CSIStorageCapacityList is a collection of CSIStorageCapacity objects.
+ *
+ * @schema io.k8s.api.storage.v1.CSIStorageCapacityList
+ */
+export class KubeCsiStorageCapacityList extends ApiObject {
+  /**
+   * Returns the apiVersion and kind for "io.k8s.api.storage.v1.CSIStorageCapacityList"
+   */
+  public static readonly GVK: GroupVersionKind = {
+    apiVersion: 'storage.k8s.io/v1',
+    kind: 'CSIStorageCapacityList',
+  }
+
+  /**
+   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1.CSIStorageCapacityList".
+   *
+   * This can be used to inline resource manifests inside other objects (e.g. as templates).
+   *
+   * @param props initialization props
+   */
+  public static manifest(props: KubeCsiStorageCapacityListProps): any {
+    return {
+      ...KubeCsiStorageCapacityList.GVK,
+      ...toJson_KubeCsiStorageCapacityListProps(props),
+    };
+  }
+
+  /**
+   * Defines a "io.k8s.api.storage.v1.CSIStorageCapacityList" API object
+   * @param scope the scope in which to define this object
+   * @param id a scope-local name for the object
+   * @param props initialization props
+   */
+  public constructor(scope: Construct, id: string, props: KubeCsiStorageCapacityListProps) {
+    super(scope, id, {
+      ...KubeCsiStorageCapacityList.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...KubeCsiStorageCapacityList.GVK,
+      ...toJson_KubeCsiStorageCapacityListProps(resolved),
     };
   }
 }
@@ -7002,233 +6147,7 @@ The following three cases all imply that no capacity is available for a certain 
 
 The producer of these objects can decide which approach is more suitable.
 
-They are consumed by the kube-scheduler if the CSIStorageCapacity beta feature gate is enabled there and a CSI driver opts into capacity-aware scheduling with CSIDriver.StorageCapacity.
- *
- * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacity
- */
-export class KubeCsiStorageCapacityV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.storage.v1alpha1.CSIStorageCapacity"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'storage.k8s.io/v1alpha1',
-    kind: 'CSIStorageCapacity',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.CSIStorageCapacity".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeCsiStorageCapacityV1Alpha1Props): any {
-    return {
-      ...KubeCsiStorageCapacityV1Alpha1.GVK,
-      ...toJson_KubeCsiStorageCapacityV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.storage.v1alpha1.CSIStorageCapacity" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeCsiStorageCapacityV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeCsiStorageCapacityV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeCsiStorageCapacityV1Alpha1.GVK,
-      ...toJson_KubeCsiStorageCapacityV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * CSIStorageCapacityList is a collection of CSIStorageCapacity objects.
- *
- * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacityList
- */
-export class KubeCsiStorageCapacityListV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.storage.v1alpha1.CSIStorageCapacityList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'storage.k8s.io/v1alpha1',
-    kind: 'CSIStorageCapacityList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.CSIStorageCapacityList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeCsiStorageCapacityListV1Alpha1Props): any {
-    return {
-      ...KubeCsiStorageCapacityListV1Alpha1.GVK,
-      ...toJson_KubeCsiStorageCapacityListV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.storage.v1alpha1.CSIStorageCapacityList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeCsiStorageCapacityListV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeCsiStorageCapacityListV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeCsiStorageCapacityListV1Alpha1.GVK,
-      ...toJson_KubeCsiStorageCapacityListV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
-
-VolumeAttachment objects are non-namespaced.
- *
- * @schema io.k8s.api.storage.v1alpha1.VolumeAttachment
- */
-export class KubeVolumeAttachmentV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.storage.v1alpha1.VolumeAttachment"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'storage.k8s.io/v1alpha1',
-    kind: 'VolumeAttachment',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.VolumeAttachment".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeVolumeAttachmentV1Alpha1Props): any {
-    return {
-      ...KubeVolumeAttachmentV1Alpha1.GVK,
-      ...toJson_KubeVolumeAttachmentV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.storage.v1alpha1.VolumeAttachment" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeVolumeAttachmentV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeVolumeAttachmentV1Alpha1.GVK,
-      ...toJson_KubeVolumeAttachmentV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * VolumeAttachmentList is a collection of VolumeAttachment objects.
- *
- * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentList
- */
-export class KubeVolumeAttachmentListV1Alpha1 extends ApiObject {
-  /**
-   * Returns the apiVersion and kind for "io.k8s.api.storage.v1alpha1.VolumeAttachmentList"
-   */
-  public static readonly GVK: GroupVersionKind = {
-    apiVersion: 'storage.k8s.io/v1alpha1',
-    kind: 'VolumeAttachmentList',
-  }
-
-  /**
-   * Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.VolumeAttachmentList".
-   *
-   * This can be used to inline resource manifests inside other objects (e.g. as templates).
-   *
-   * @param props initialization props
-   */
-  public static manifest(props: KubeVolumeAttachmentListV1Alpha1Props): any {
-    return {
-      ...KubeVolumeAttachmentListV1Alpha1.GVK,
-      ...toJson_KubeVolumeAttachmentListV1Alpha1Props(props),
-    };
-  }
-
-  /**
-   * Defines a "io.k8s.api.storage.v1alpha1.VolumeAttachmentList" API object
-   * @param scope the scope in which to define this object
-   * @param id a scope-local name for the object
-   * @param props initialization props
-   */
-  public constructor(scope: Construct, id: string, props: KubeVolumeAttachmentListV1Alpha1Props) {
-    super(scope, id, {
-      ...KubeVolumeAttachmentListV1Alpha1.GVK,
-      ...props,
-    });
-  }
-
-  /**
-   * Renders the object to Kubernetes JSON.
-   */
-  public toJson(): any {
-    const resolved = super.toJson();
-
-    return {
-      ...KubeVolumeAttachmentListV1Alpha1.GVK,
-      ...toJson_KubeVolumeAttachmentListV1Alpha1Props(resolved),
-    };
-  }
-}
-
-/**
- * CSIStorageCapacity stores the result of one CSI GetCapacity call. For a given StorageClass, this describes the available capacity in a particular topology segment.  This can be used when considering where to instantiate new PersistentVolumes.
-
-For example this can express things like: - StorageClass "standard" has "1234 GiB" available in "topology.kubernetes.io/zone=us-east1" - StorageClass "localssd" has "10 GiB" available in "kubernetes.io/hostname=knode-abc123"
-
-The following three cases all imply that no capacity is available for a certain combination: - no object exists with suitable topology and storage class name - such an object exists, but the capacity is unset - such an object exists, but the capacity is zero
-
-The producer of these objects can decide which approach is more suitable.
-
-They are consumed by the kube-scheduler if the CSIStorageCapacity beta feature gate is enabled there and a CSI driver opts into capacity-aware scheduling with CSIDriver.StorageCapacity.
+They are consumed by the kube-scheduler when a CSI driver opts into capacity-aware scheduling with CSIDriverSpec.StorageCapacity. The scheduler compares the MaximumVolumeSize against the requested size of pending volumes to filter out unsuitable nodes. If MaximumVolumeSize is unset, it falls back to a comparison against the less precise Capacity. If that is also unset, the scheduler assumes that capacity is insufficient and tries some other node.
  *
  * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacity
  */
@@ -7649,18 +6568,18 @@ export function toJson_KubeMutatingWebhookConfigurationProps(obj: KubeMutatingWe
  */
 export interface KubeMutatingWebhookConfigurationListProps {
   /**
-   * List of MutatingWebhookConfiguration.
-   *
-   * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#items
-   */
-  readonly items: KubeMutatingWebhookConfigurationProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of MutatingWebhookConfiguration.
+   *
+   * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#items
+   */
+  readonly items: KubeMutatingWebhookConfigurationProps[];
 
 }
 
@@ -7671,8 +6590,8 @@ export interface KubeMutatingWebhookConfigurationListProps {
 export function toJson_KubeMutatingWebhookConfigurationListProps(obj: KubeMutatingWebhookConfigurationListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeMutatingWebhookConfigurationProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeMutatingWebhookConfigurationProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -7723,18 +6642,18 @@ export function toJson_KubeValidatingWebhookConfigurationProps(obj: KubeValidati
  */
 export interface KubeValidatingWebhookConfigurationListProps {
   /**
-   * List of ValidatingWebhookConfiguration.
-   *
-   * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#items
-   */
-  readonly items: KubeValidatingWebhookConfigurationProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ValidatingWebhookConfiguration.
+   *
+   * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#items
+   */
+  readonly items: KubeValidatingWebhookConfigurationProps[];
 
 }
 
@@ -7745,8 +6664,8 @@ export interface KubeValidatingWebhookConfigurationListProps {
 export function toJson_KubeValidatingWebhookConfigurationListProps(obj: KubeValidatingWebhookConfigurationListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeValidatingWebhookConfigurationProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeValidatingWebhookConfigurationProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -7754,7 +6673,6 @@ export function toJson_KubeValidatingWebhookConfigurationListProps(obj: KubeVali
 /* eslint-enable max-len, quote-props */
 
 /**
- *
  * Storage version of a specific resource.
  *
  * @schema io.k8s.api.apiserverinternal.v1alpha1.StorageVersion
@@ -7798,18 +6716,18 @@ export function toJson_KubeStorageVersionV1Alpha1Props(obj: KubeStorageVersionV1
  */
 export interface KubeStorageVersionListV1Alpha1Props {
   /**
-   * Items holds a list of StorageVersion
-   *
-   * @schema io.k8s.api.apiserverinternal.v1alpha1.StorageVersionList#items
-   */
-  readonly items: KubeStorageVersionV1Alpha1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apiserverinternal.v1alpha1.StorageVersionList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items holds a list of StorageVersion
+   *
+   * @schema io.k8s.api.apiserverinternal.v1alpha1.StorageVersionList#items
+   */
+  readonly items: KubeStorageVersionV1Alpha1Props[];
 
 }
 
@@ -7820,8 +6738,8 @@ export interface KubeStorageVersionListV1Alpha1Props {
 export function toJson_KubeStorageVersionListV1Alpha1Props(obj: KubeStorageVersionListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeStorageVersionV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeStorageVersionV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -7835,18 +6753,18 @@ export function toJson_KubeStorageVersionListV1Alpha1Props(obj: KubeStorageVersi
  */
 export interface KubeControllerRevisionProps {
   /**
-   * Data is the serialized representation of the state.
-   *
-   * @schema io.k8s.api.apps.v1.ControllerRevision#data
-   */
-  readonly data?: any;
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1.ControllerRevision#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * Data is the serialized representation of the state.
+   *
+   * @schema io.k8s.api.apps.v1.ControllerRevision#data
+   */
+  readonly data?: any;
 
   /**
    * Revision indicates the revision of the state represented by Data.
@@ -7864,8 +6782,8 @@ export interface KubeControllerRevisionProps {
 export function toJson_KubeControllerRevisionProps(obj: KubeControllerRevisionProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'data': obj.data,
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'data': obj.data,
     'revision': obj.revision,
   };
   // filter undefined values
@@ -7880,18 +6798,18 @@ export function toJson_KubeControllerRevisionProps(obj: KubeControllerRevisionPr
  */
 export interface KubeControllerRevisionListProps {
   /**
-   * Items is the list of ControllerRevisions
-   *
-   * @schema io.k8s.api.apps.v1.ControllerRevisionList#items
-   */
-  readonly items: KubeControllerRevisionProps[];
-
-  /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1.ControllerRevisionList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of ControllerRevisions
+   *
+   * @schema io.k8s.api.apps.v1.ControllerRevisionList#items
+   */
+  readonly items: KubeControllerRevisionProps[];
 
 }
 
@@ -7902,8 +6820,8 @@ export interface KubeControllerRevisionListProps {
 export function toJson_KubeControllerRevisionListProps(obj: KubeControllerRevisionListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeControllerRevisionProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeControllerRevisionProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -7954,18 +6872,18 @@ export function toJson_KubeDaemonSetProps(obj: KubeDaemonSetProps | undefined): 
  */
 export interface KubeDaemonSetListProps {
   /**
-   * A list of daemon sets.
-   *
-   * @schema io.k8s.api.apps.v1.DaemonSetList#items
-   */
-  readonly items: KubeDaemonSetProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1.DaemonSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * A list of daemon sets.
+   *
+   * @schema io.k8s.api.apps.v1.DaemonSetList#items
+   */
+  readonly items: KubeDaemonSetProps[];
 
 }
 
@@ -7976,8 +6894,8 @@ export interface KubeDaemonSetListProps {
 export function toJson_KubeDaemonSetListProps(obj: KubeDaemonSetListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeDaemonSetProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeDaemonSetProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8028,18 +6946,18 @@ export function toJson_KubeDeploymentProps(obj: KubeDeploymentProps | undefined)
  */
 export interface KubeDeploymentListProps {
   /**
-   * Items is the list of Deployments.
-   *
-   * @schema io.k8s.api.apps.v1.DeploymentList#items
-   */
-  readonly items: KubeDeploymentProps[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.apps.v1.DeploymentList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of Deployments.
+   *
+   * @schema io.k8s.api.apps.v1.DeploymentList#items
+   */
+  readonly items: KubeDeploymentProps[];
 
 }
 
@@ -8050,8 +6968,8 @@ export interface KubeDeploymentListProps {
 export function toJson_KubeDeploymentListProps(obj: KubeDeploymentListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeDeploymentProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeDeploymentProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8102,18 +7020,18 @@ export function toJson_KubeReplicaSetProps(obj: KubeReplicaSetProps | undefined)
  */
 export interface KubeReplicaSetListProps {
   /**
-   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-   *
-   * @schema io.k8s.api.apps.v1.ReplicaSetList#items
-   */
-  readonly items: KubeReplicaSetProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.apps.v1.ReplicaSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+   *
+   * @schema io.k8s.api.apps.v1.ReplicaSetList#items
+   */
+  readonly items: KubeReplicaSetProps[];
 
 }
 
@@ -8124,8 +7042,8 @@ export interface KubeReplicaSetListProps {
 export function toJson_KubeReplicaSetListProps(obj: KubeReplicaSetListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeReplicaSetProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeReplicaSetProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8136,6 +7054,7 @@ export function toJson_KubeReplicaSetListProps(obj: KubeReplicaSetListProps | un
  * StatefulSet represents a set of pods with consistent identities. Identities are defined as:
  * - Network: A single stable DNS and hostname.
  * - Storage: As many VolumeClaims as requested.
+ *
  * The StatefulSet guarantees that a given network identity will always map to the same storage identity.
  *
  * @schema io.k8s.api.apps.v1.StatefulSet
@@ -8179,18 +7098,18 @@ export function toJson_KubeStatefulSetProps(obj: KubeStatefulSetProps | undefine
  */
 export interface KubeStatefulSetListProps {
   /**
-   * Items is the list of stateful sets.
-   *
-   * @schema io.k8s.api.apps.v1.StatefulSetList#items
-   */
-  readonly items: KubeStatefulSetProps[];
-
-  /**
    * Standard list's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1.StatefulSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of stateful sets.
+   *
+   * @schema io.k8s.api.apps.v1.StatefulSetList#items
+   */
+  readonly items: KubeStatefulSetProps[];
 
 }
 
@@ -8201,8 +7120,8 @@ export interface KubeStatefulSetListProps {
 export function toJson_KubeStatefulSetListProps(obj: KubeStatefulSetListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeStatefulSetProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeStatefulSetProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8475,18 +7394,18 @@ export function toJson_KubeHorizontalPodAutoscalerProps(obj: KubeHorizontalPodAu
  */
 export interface KubeHorizontalPodAutoscalerListProps {
   /**
-   * list of horizontal pod autoscaler objects.
-   *
-   * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#items
-   */
-  readonly items: KubeHorizontalPodAutoscalerProps[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * list of horizontal pod autoscaler objects.
+   *
+   * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#items
+   */
+  readonly items: KubeHorizontalPodAutoscalerProps[];
 
 }
 
@@ -8497,8 +7416,8 @@ export interface KubeHorizontalPodAutoscalerListProps {
 export function toJson_KubeHorizontalPodAutoscalerListProps(obj: KubeHorizontalPodAutoscalerListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8545,34 +7464,34 @@ export function toJson_KubeScaleProps(obj: KubeScaleProps | undefined): Record<s
 /**
  * HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler
+ * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscaler
  */
-export interface KubeHorizontalPodAutoscalerV2Beta1Props {
+export interface KubeHorizontalPodAutoscalerV2Props {
   /**
    * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler#metadata
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscaler#metadata
    */
   readonly metadata?: ObjectMeta;
 
   /**
    * spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler#spec
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscaler#spec
    */
-  readonly spec?: HorizontalPodAutoscalerSpecV2Beta1;
+  readonly spec?: HorizontalPodAutoscalerSpecV2;
 
 }
 
 /**
- * Converts an object of type 'KubeHorizontalPodAutoscalerV2Beta1Props' to JSON representation.
+ * Converts an object of type 'KubeHorizontalPodAutoscalerV2Props' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_KubeHorizontalPodAutoscalerV2Beta1Props(obj: KubeHorizontalPodAutoscalerV2Beta1Props | undefined): Record<string, any> | undefined {
+export function toJson_KubeHorizontalPodAutoscalerV2Props(obj: KubeHorizontalPodAutoscalerV2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'metadata': toJson_ObjectMeta(obj.metadata),
-    'spec': toJson_HorizontalPodAutoscalerSpecV2Beta1(obj.spec),
+    'spec': toJson_HorizontalPodAutoscalerSpecV2(obj.spec),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8580,36 +7499,36 @@ export function toJson_KubeHorizontalPodAutoscalerV2Beta1Props(obj: KubeHorizont
 /* eslint-enable max-len, quote-props */
 
 /**
- * HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.
+ * HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList
+ * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerList
  */
-export interface KubeHorizontalPodAutoscalerListV2Beta1Props {
-  /**
-   * items is the list of horizontal pod autoscaler objects.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#items
-   */
-  readonly items: KubeHorizontalPodAutoscalerV2Beta1Props[];
-
+export interface KubeHorizontalPodAutoscalerListV2Props {
   /**
    * metadata is the standard list metadata.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#metadata
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of horizontal pod autoscaler objects.
+   *
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerList#items
+   */
+  readonly items: KubeHorizontalPodAutoscalerV2Props[];
 
 }
 
 /**
- * Converts an object of type 'KubeHorizontalPodAutoscalerListV2Beta1Props' to JSON representation.
+ * Converts an object of type 'KubeHorizontalPodAutoscalerListV2Props' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_KubeHorizontalPodAutoscalerListV2Beta1Props(obj: KubeHorizontalPodAutoscalerListV2Beta1Props | undefined): Record<string, any> | undefined {
+export function toJson_KubeHorizontalPodAutoscalerListV2Props(obj: KubeHorizontalPodAutoscalerListV2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerV2Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerV2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8660,18 +7579,18 @@ export function toJson_KubeHorizontalPodAutoscalerV2Beta2Props(obj: KubeHorizont
  */
 export interface KubeHorizontalPodAutoscalerListV2Beta2Props {
   /**
-   * items is the list of horizontal pod autoscaler objects.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#items
-   */
-  readonly items: KubeHorizontalPodAutoscalerV2Beta2Props[];
-
-  /**
    * metadata is the standard list metadata.
    *
    * @schema io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of horizontal pod autoscaler objects.
+   *
+   * @schema io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#items
+   */
+  readonly items: KubeHorizontalPodAutoscalerV2Beta2Props[];
 
 }
 
@@ -8682,8 +7601,8 @@ export interface KubeHorizontalPodAutoscalerListV2Beta2Props {
 export function toJson_KubeHorizontalPodAutoscalerListV2Beta2Props(obj: KubeHorizontalPodAutoscalerListV2Beta2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerV2Beta2Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerV2Beta2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8734,18 +7653,18 @@ export function toJson_KubeCronJobProps(obj: KubeCronJobProps | undefined): Reco
  */
 export interface KubeCronJobListProps {
   /**
-   * items is the list of CronJobs.
-   *
-   * @schema io.k8s.api.batch.v1.CronJobList#items
-   */
-  readonly items: KubeCronJobProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.batch.v1.CronJobList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of CronJobs.
+   *
+   * @schema io.k8s.api.batch.v1.CronJobList#items
+   */
+  readonly items: KubeCronJobProps[];
 
 }
 
@@ -8756,8 +7675,8 @@ export interface KubeCronJobListProps {
 export function toJson_KubeCronJobListProps(obj: KubeCronJobListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCronJobProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCronJobProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8808,18 +7727,18 @@ export function toJson_KubeJobProps(obj: KubeJobProps | undefined): Record<strin
  */
 export interface KubeJobListProps {
   /**
-   * items is the list of Jobs.
-   *
-   * @schema io.k8s.api.batch.v1.JobList#items
-   */
-  readonly items: KubeJobProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.batch.v1.JobList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of Jobs.
+   *
+   * @schema io.k8s.api.batch.v1.JobList#items
+   */
+  readonly items: KubeJobProps[];
 
 }
 
@@ -8830,82 +7749,8 @@ export interface KubeJobListProps {
 export function toJson_KubeJobListProps(obj: KubeJobListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
     'items': obj.items?.map(y => toJson_KubeJobProps(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * CronJob represents the configuration of a single cron job.
- *
- * @schema io.k8s.api.batch.v1beta1.CronJob
- */
-export interface KubeCronJobV1Beta1Props {
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJob#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJob#spec
-   */
-  readonly spec?: CronJobSpecV1Beta1;
-
-}
-
-/**
- * Converts an object of type 'KubeCronJobV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeCronJobV1Beta1Props(obj: KubeCronJobV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'spec': toJson_CronJobSpecV1Beta1(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * CronJobList is a collection of cron jobs.
- *
- * @schema io.k8s.api.batch.v1beta1.CronJobList
- */
-export interface KubeCronJobListV1Beta1Props {
-  /**
-   * items is the list of CronJobs.
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJobList#items
-   */
-  readonly items: KubeCronJobV1Beta1Props[];
-
-  /**
-   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJobList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeCronJobListV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeCronJobListV1Beta1Props(obj: KubeCronJobListV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeCronJobV1Beta1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8960,16 +7805,16 @@ export function toJson_KubeCertificateSigningRequestProps(obj: KubeCertificateSi
  */
 export interface KubeCertificateSigningRequestListProps {
   /**
+   * @schema io.k8s.api.certificates.v1.CertificateSigningRequestList#metadata
+   */
+  readonly metadata?: ListMeta;
+
+  /**
    * items is a collection of CertificateSigningRequest objects
    *
    * @schema io.k8s.api.certificates.v1.CertificateSigningRequestList#items
    */
   readonly items: KubeCertificateSigningRequestProps[];
-
-  /**
-   * @schema io.k8s.api.certificates.v1.CertificateSigningRequestList#metadata
-   */
-  readonly metadata?: ListMeta;
 
 }
 
@@ -8980,8 +7825,8 @@ export interface KubeCertificateSigningRequestListProps {
 export function toJson_KubeCertificateSigningRequestListProps(obj: KubeCertificateSigningRequestListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCertificateSigningRequestProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCertificateSigningRequestProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9032,18 +7877,18 @@ export function toJson_KubeLeaseProps(obj: KubeLeaseProps | undefined): Record<s
  */
 export interface KubeLeaseListProps {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.coordination.v1.LeaseList#items
-   */
-  readonly items: KubeLeaseProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.coordination.v1.LeaseList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.coordination.v1.LeaseList#items
+   */
+  readonly items: KubeLeaseProps[];
 
 }
 
@@ -9054,8 +7899,8 @@ export interface KubeLeaseListProps {
 export function toJson_KubeLeaseListProps(obj: KubeLeaseListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeLeaseProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeLeaseProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9106,18 +7951,18 @@ export function toJson_KubeBindingProps(obj: KubeBindingProps | undefined): Reco
  */
 export interface KubeComponentStatusProps {
   /**
-   * List of component conditions observed
-   *
-   * @schema io.k8s.api.core.v1.ComponentStatus#conditions
-   */
-  readonly conditions?: ComponentCondition[];
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.core.v1.ComponentStatus#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * List of component conditions observed
+   *
+   * @schema io.k8s.api.core.v1.ComponentStatus#conditions
+   */
+  readonly conditions?: ComponentCondition[];
 
 }
 
@@ -9128,8 +7973,8 @@ export interface KubeComponentStatusProps {
 export function toJson_KubeComponentStatusProps(obj: KubeComponentStatusProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'conditions': obj.conditions?.map(y => toJson_ComponentCondition(y)),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'conditions': obj.conditions?.map(y => toJson_ComponentCondition(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9143,18 +7988,18 @@ export function toJson_KubeComponentStatusProps(obj: KubeComponentStatusProps | 
  */
 export interface KubeComponentStatusListProps {
   /**
-   * List of ComponentStatus objects.
-   *
-   * @schema io.k8s.api.core.v1.ComponentStatusList#items
-   */
-  readonly items: KubeComponentStatusProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ComponentStatusList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ComponentStatus objects.
+   *
+   * @schema io.k8s.api.core.v1.ComponentStatusList#items
+   */
+  readonly items: KubeComponentStatusProps[];
 
 }
 
@@ -9165,8 +8010,8 @@ export interface KubeComponentStatusListProps {
 export function toJson_KubeComponentStatusListProps(obj: KubeComponentStatusListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeComponentStatusProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeComponentStatusProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9179,6 +8024,13 @@ export function toJson_KubeComponentStatusListProps(obj: KubeComponentStatusList
  * @schema io.k8s.api.core.v1.ConfigMap
  */
 export interface KubeConfigMapProps {
+  /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.core.v1.ConfigMap#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
   /**
    * BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
    *
@@ -9200,13 +8052,6 @@ export interface KubeConfigMapProps {
    */
   readonly immutable?: boolean;
 
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.core.v1.ConfigMap#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
 }
 
 /**
@@ -9216,10 +8061,10 @@ export interface KubeConfigMapProps {
 export function toJson_KubeConfigMapProps(obj: KubeConfigMapProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'binaryData': ((obj.binaryData) === undefined) ? undefined : (Object.entries(obj.binaryData).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'data': ((obj.data) === undefined) ? undefined : (Object.entries(obj.data).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'immutable': obj.immutable,
-    'metadata': toJson_ObjectMeta(obj.metadata),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9233,18 +8078,18 @@ export function toJson_KubeConfigMapProps(obj: KubeConfigMapProps | undefined): 
  */
 export interface KubeConfigMapListProps {
   /**
-   * Items is the list of ConfigMaps.
-   *
-   * @schema io.k8s.api.core.v1.ConfigMapList#items
-   */
-  readonly items: KubeConfigMapProps[];
-
-  /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.core.v1.ConfigMapList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of ConfigMaps.
+   *
+   * @schema io.k8s.api.core.v1.ConfigMapList#items
+   */
+  readonly items: KubeConfigMapProps[];
 
 }
 
@@ -9255,8 +8100,8 @@ export interface KubeConfigMapListProps {
 export function toJson_KubeConfigMapListProps(obj: KubeConfigMapListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeConfigMapProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeConfigMapProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9265,6 +8110,7 @@ export function toJson_KubeConfigMapListProps(obj: KubeConfigMapListProps | unde
 
 /**
  * Endpoints is a collection of endpoints that implement the actual service. Example:
+ *
  * Name: "mysvc",
  * Subsets: [
  * {
@@ -9318,18 +8164,18 @@ export function toJson_KubeEndpointsProps(obj: KubeEndpointsProps | undefined): 
  */
 export interface KubeEndpointsListProps {
   /**
-   * List of endpoints.
-   *
-   * @schema io.k8s.api.core.v1.EndpointsList#items
-   */
-  readonly items: KubeEndpointsProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.EndpointsList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of endpoints.
+   *
+   * @schema io.k8s.api.core.v1.EndpointsList#items
+   */
+  readonly items: KubeEndpointsProps[];
 
 }
 
@@ -9340,8 +8186,8 @@ export interface KubeEndpointsListProps {
 export function toJson_KubeEndpointsListProps(obj: KubeEndpointsListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeEndpointsProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeEndpointsProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9354,6 +8200,13 @@ export function toJson_KubeEndpointsListProps(obj: KubeEndpointsListProps | unde
  * @schema io.k8s.api.events.v1.Event
  */
 export interface KubeEventProps {
+  /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.events.v1.Event#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
   /**
    * action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.
    *
@@ -9395,13 +8248,6 @@ export interface KubeEventProps {
    * @schema io.k8s.api.events.v1.Event#eventTime
    */
   readonly eventTime: Date;
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.events.v1.Event#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * note is a human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
@@ -9468,13 +8314,13 @@ export interface KubeEventProps {
 export function toJson_KubeEventProps(obj: KubeEventProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'action': obj.action,
     'deprecatedCount': obj.deprecatedCount,
     'deprecatedFirstTimestamp': obj.deprecatedFirstTimestamp?.toISOString(),
     'deprecatedLastTimestamp': obj.deprecatedLastTimestamp?.toISOString(),
     'deprecatedSource': toJson_EventSource(obj.deprecatedSource),
     'eventTime': obj.eventTime?.toISOString(),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'note': obj.note,
     'reason': obj.reason,
     'regarding': toJson_ObjectReference(obj.regarding),
@@ -9496,18 +8342,18 @@ export function toJson_KubeEventProps(obj: KubeEventProps | undefined): Record<s
  */
 export interface KubeEventListProps {
   /**
-   * items is a list of schema objects.
-   *
-   * @schema io.k8s.api.events.v1.EventList#items
-   */
-  readonly items: KubeEventProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.events.v1.EventList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is a list of schema objects.
+   *
+   * @schema io.k8s.api.events.v1.EventList#items
+   */
+  readonly items: KubeEventProps[];
 
 }
 
@@ -9518,8 +8364,8 @@ export interface KubeEventListProps {
 export function toJson_KubeEventListProps(obj: KubeEventListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeEventProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeEventProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9570,18 +8416,18 @@ export function toJson_KubeLimitRangeProps(obj: KubeLimitRangeProps | undefined)
  */
 export interface KubeLimitRangeListProps {
   /**
-   * Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-   *
-   * @schema io.k8s.api.core.v1.LimitRangeList#items
-   */
-  readonly items: KubeLimitRangeProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.LimitRangeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+   *
+   * @schema io.k8s.api.core.v1.LimitRangeList#items
+   */
+  readonly items: KubeLimitRangeProps[];
 
 }
 
@@ -9592,8 +8438,8 @@ export interface KubeLimitRangeListProps {
 export function toJson_KubeLimitRangeListProps(obj: KubeLimitRangeListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeLimitRangeProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeLimitRangeProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9644,18 +8490,18 @@ export function toJson_KubeNamespaceProps(obj: KubeNamespaceProps | undefined): 
  */
 export interface KubeNamespaceListProps {
   /**
-   * Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
-   *
-   * @schema io.k8s.api.core.v1.NamespaceList#items
-   */
-  readonly items: KubeNamespaceProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.NamespaceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+   *
+   * @schema io.k8s.api.core.v1.NamespaceList#items
+   */
+  readonly items: KubeNamespaceProps[];
 
 }
 
@@ -9666,8 +8512,8 @@ export interface KubeNamespaceListProps {
 export function toJson_KubeNamespaceListProps(obj: KubeNamespaceListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeNamespaceProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeNamespaceProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9718,18 +8564,18 @@ export function toJson_KubeNodeProps(obj: KubeNodeProps | undefined): Record<str
  */
 export interface KubeNodeListProps {
   /**
-   * List of nodes
-   *
-   * @schema io.k8s.api.core.v1.NodeList#items
-   */
-  readonly items: KubeNodeProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.NodeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of nodes
+   *
+   * @schema io.k8s.api.core.v1.NodeList#items
+   */
+  readonly items: KubeNodeProps[];
 
 }
 
@@ -9740,8 +8586,8 @@ export interface KubeNodeListProps {
 export function toJson_KubeNodeListProps(obj: KubeNodeListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeNodeProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeNodeProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9762,7 +8608,7 @@ export interface KubePersistentVolumeProps {
   readonly metadata?: ObjectMeta;
 
   /**
-   * Spec defines a specification of a persistent volume owned by the cluster. Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
+   * spec defines a specification of a persistent volume owned by the cluster. Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
    *
    * @schema io.k8s.api.core.v1.PersistentVolume#spec
    */
@@ -9799,7 +8645,7 @@ export interface KubePersistentVolumeClaimProps {
   readonly metadata?: ObjectMeta;
 
   /**
-   * Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+   * spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaim#spec
    */
@@ -9829,18 +8675,18 @@ export function toJson_KubePersistentVolumeClaimProps(obj: KubePersistentVolumeC
  */
 export interface KubePersistentVolumeClaimListProps {
   /**
-   * A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
-   *
-   * @schema io.k8s.api.core.v1.PersistentVolumeClaimList#items
-   */
-  readonly items: KubePersistentVolumeClaimProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is a list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+   *
+   * @schema io.k8s.api.core.v1.PersistentVolumeClaimList#items
+   */
+  readonly items: KubePersistentVolumeClaimProps[];
 
 }
 
@@ -9851,8 +8697,8 @@ export interface KubePersistentVolumeClaimListProps {
 export function toJson_KubePersistentVolumeClaimListProps(obj: KubePersistentVolumeClaimListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePersistentVolumeClaimProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePersistentVolumeClaimProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9866,18 +8712,18 @@ export function toJson_KubePersistentVolumeClaimListProps(obj: KubePersistentVol
  */
 export interface KubePersistentVolumeListProps {
   /**
-   * List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
-   *
-   * @schema io.k8s.api.core.v1.PersistentVolumeList#items
-   */
-  readonly items: KubePersistentVolumeProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is a list of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
+   *
+   * @schema io.k8s.api.core.v1.PersistentVolumeList#items
+   */
+  readonly items: KubePersistentVolumeProps[];
 
 }
 
@@ -9888,8 +8734,8 @@ export interface KubePersistentVolumeListProps {
 export function toJson_KubePersistentVolumeListProps(obj: KubePersistentVolumeListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePersistentVolumeProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePersistentVolumeProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9940,18 +8786,18 @@ export function toJson_KubePodProps(obj: KubePodProps | undefined): Record<strin
  */
 export interface KubePodListProps {
   /**
-   * List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
-   *
-   * @schema io.k8s.api.core.v1.PodList#items
-   */
-  readonly items: KubePodProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.PodList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
+   *
+   * @schema io.k8s.api.core.v1.PodList#items
+   */
+  readonly items: KubePodProps[];
 
 }
 
@@ -9962,8 +8808,8 @@ export interface KubePodListProps {
 export function toJson_KubePodListProps(obj: KubePodListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePodProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePodProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10014,18 +8860,18 @@ export function toJson_KubePodTemplateProps(obj: KubePodTemplateProps | undefine
  */
 export interface KubePodTemplateListProps {
   /**
-   * List of pod templates
-   *
-   * @schema io.k8s.api.core.v1.PodTemplateList#items
-   */
-  readonly items: KubePodTemplateProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.PodTemplateList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of pod templates
+   *
+   * @schema io.k8s.api.core.v1.PodTemplateList#items
+   */
+  readonly items: KubePodTemplateProps[];
 
 }
 
@@ -10036,8 +8882,8 @@ export interface KubePodTemplateListProps {
 export function toJson_KubePodTemplateListProps(obj: KubePodTemplateListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePodTemplateProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePodTemplateProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10088,18 +8934,18 @@ export function toJson_KubeReplicationControllerProps(obj: KubeReplicationContro
  */
 export interface KubeReplicationControllerListProps {
   /**
-   * List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-   *
-   * @schema io.k8s.api.core.v1.ReplicationControllerList#items
-   */
-  readonly items: KubeReplicationControllerProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ReplicationControllerList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+   *
+   * @schema io.k8s.api.core.v1.ReplicationControllerList#items
+   */
+  readonly items: KubeReplicationControllerProps[];
 
 }
 
@@ -10110,8 +8956,8 @@ export interface KubeReplicationControllerListProps {
 export function toJson_KubeReplicationControllerListProps(obj: KubeReplicationControllerListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeReplicationControllerProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeReplicationControllerProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10162,18 +9008,18 @@ export function toJson_KubeResourceQuotaProps(obj: KubeResourceQuotaProps | unde
  */
 export interface KubeResourceQuotaListProps {
   /**
-   * Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
-   *
-   * @schema io.k8s.api.core.v1.ResourceQuotaList#items
-   */
-  readonly items: KubeResourceQuotaProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ResourceQuotaList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
+   *
+   * @schema io.k8s.api.core.v1.ResourceQuotaList#items
+   */
+  readonly items: KubeResourceQuotaProps[];
 
 }
 
@@ -10184,8 +9030,8 @@ export interface KubeResourceQuotaListProps {
 export function toJson_KubeResourceQuotaListProps(obj: KubeResourceQuotaListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeResourceQuotaProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeResourceQuotaProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10198,6 +9044,13 @@ export function toJson_KubeResourceQuotaListProps(obj: KubeResourceQuotaListProp
  * @schema io.k8s.api.core.v1.Secret
  */
 export interface KubeSecretProps {
+  /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.core.v1.Secret#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
   /**
    * Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
    *
@@ -10213,13 +9066,6 @@ export interface KubeSecretProps {
   readonly immutable?: boolean;
 
   /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.core.v1.Secret#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
    * stringData allows specifying non-binary secret data in string form. It is provided as a write-only input field for convenience. All keys and values are merged into the data field on write, overwriting any existing values. The stringData field is never output when reading from the API.
    *
    * @schema io.k8s.api.core.v1.Secret#stringData
@@ -10227,7 +9073,7 @@ export interface KubeSecretProps {
   readonly stringData?: { [key: string]: string };
 
   /**
-   * Used to facilitate programmatic handling of secret data.
+   * Used to facilitate programmatic handling of secret data. More info: https://kubernetes.io/docs/concepts/configuration/secret/#secret-types
    *
    * @schema io.k8s.api.core.v1.Secret#type
    */
@@ -10242,9 +9088,9 @@ export interface KubeSecretProps {
 export function toJson_KubeSecretProps(obj: KubeSecretProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'data': ((obj.data) === undefined) ? undefined : (Object.entries(obj.data).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'immutable': obj.immutable,
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'stringData': ((obj.stringData) === undefined) ? undefined : (Object.entries(obj.stringData).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'type': obj.type,
   };
@@ -10260,18 +9106,18 @@ export function toJson_KubeSecretProps(obj: KubeSecretProps | undefined): Record
  */
 export interface KubeSecretListProps {
   /**
-   * Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
-   *
-   * @schema io.k8s.api.core.v1.SecretList#items
-   */
-  readonly items: KubeSecretProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.SecretList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
+   *
+   * @schema io.k8s.api.core.v1.SecretList#items
+   */
+  readonly items: KubeSecretProps[];
 
 }
 
@@ -10282,8 +9128,8 @@ export interface KubeSecretListProps {
 export function toJson_KubeSecretListProps(obj: KubeSecretListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeSecretProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeSecretProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10334,6 +9180,13 @@ export function toJson_KubeServiceProps(obj: KubeServiceProps | undefined): Reco
  */
 export interface KubeServiceAccountProps {
   /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.core.v1.ServiceAccount#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
    *
    * @schema io.k8s.api.core.v1.ServiceAccount#automountServiceAccountToken
@@ -10348,14 +9201,7 @@ export interface KubeServiceAccountProps {
   readonly imagePullSecrets?: LocalObjectReference[];
 
   /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.core.v1.ServiceAccount#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret
+   * Secrets is a list of the secrets in the same namespace that pods running using this ServiceAccount are allowed to use. Pods are only limited to this list if this service account has a "kubernetes.io/enforce-mountable-secrets" annotation set to "true". This field should not be used to find auto-generated service account token secrets for use outside of pods. Instead, tokens can be requested directly using the TokenRequest API, or service account token secrets can be manually created. More info: https://kubernetes.io/docs/concepts/configuration/secret
    *
    * @schema io.k8s.api.core.v1.ServiceAccount#secrets
    */
@@ -10370,9 +9216,9 @@ export interface KubeServiceAccountProps {
 export function toJson_KubeServiceAccountProps(obj: KubeServiceAccountProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'automountServiceAccountToken': obj.automountServiceAccountToken,
     'imagePullSecrets': obj.imagePullSecrets?.map(y => toJson_LocalObjectReference(y)),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'secrets': obj.secrets?.map(y => toJson_ObjectReference(y)),
   };
   // filter undefined values
@@ -10387,18 +9233,18 @@ export function toJson_KubeServiceAccountProps(obj: KubeServiceAccountProps | un
  */
 export interface KubeServiceAccountListProps {
   /**
-   * List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
-   *
-   * @schema io.k8s.api.core.v1.ServiceAccountList#items
-   */
-  readonly items: KubeServiceAccountProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ServiceAccountList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+   *
+   * @schema io.k8s.api.core.v1.ServiceAccountList#items
+   */
+  readonly items: KubeServiceAccountProps[];
 
 }
 
@@ -10409,8 +9255,8 @@ export interface KubeServiceAccountListProps {
 export function toJson_KubeServiceAccountListProps(obj: KubeServiceAccountListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeServiceAccountProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeServiceAccountProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10424,18 +9270,18 @@ export function toJson_KubeServiceAccountListProps(obj: KubeServiceAccountListPr
  */
 export interface KubeServiceListProps {
   /**
-   * List of services
-   *
-   * @schema io.k8s.api.core.v1.ServiceList#items
-   */
-  readonly items: KubeServiceProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ServiceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of services
+   *
+   * @schema io.k8s.api.core.v1.ServiceList#items
+   */
+  readonly items: KubeServiceProps[];
 
 }
 
@@ -10446,8 +9292,8 @@ export interface KubeServiceListProps {
 export function toJson_KubeServiceListProps(obj: KubeServiceListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeServiceProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeServiceProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10461,7 +9307,16 @@ export function toJson_KubeServiceListProps(obj: KubeServiceListProps | undefine
  */
 export interface KubeEndpointSliceProps {
   /**
+   * Standard object's metadata.
+   *
+   * @schema io.k8s.api.discovery.v1.EndpointSlice#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
+   *
+   *
    *
    * @schema io.k8s.api.discovery.v1.EndpointSlice#addressType
    */
@@ -10473,13 +9328,6 @@ export interface KubeEndpointSliceProps {
    * @schema io.k8s.api.discovery.v1.EndpointSlice#endpoints
    */
   readonly endpoints: Endpoint[];
-
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.discovery.v1.EndpointSlice#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
@@ -10497,9 +9345,9 @@ export interface KubeEndpointSliceProps {
 export function toJson_KubeEndpointSliceProps(obj: KubeEndpointSliceProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'addressType': obj.addressType,
     'endpoints': obj.endpoints?.map(y => toJson_Endpoint(y)),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'ports': obj.ports?.map(y => toJson_EndpointPort(y)),
   };
   // filter undefined values
@@ -10514,18 +9362,18 @@ export function toJson_KubeEndpointSliceProps(obj: KubeEndpointSliceProps | unde
  */
 export interface KubeEndpointSliceListProps {
   /**
-   * List of endpoint slices
-   *
-   * @schema io.k8s.api.discovery.v1.EndpointSliceList#items
-   */
-  readonly items: KubeEndpointSliceProps[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.discovery.v1.EndpointSliceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of endpoint slices
+   *
+   * @schema io.k8s.api.discovery.v1.EndpointSliceList#items
+   */
+  readonly items: KubeEndpointSliceProps[];
 
 }
 
@@ -10536,276 +9384,8 @@ export interface KubeEndpointSliceListProps {
 export function toJson_KubeEndpointSliceListProps(obj: KubeEndpointSliceListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
     'items': obj.items?.map(y => toJson_KubeEndpointSliceProps(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.
- *
- * @schema io.k8s.api.discovery.v1beta1.EndpointSlice
- */
-export interface KubeEndpointSliceV1Beta1Props {
-  /**
-   * addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointSlice#addressType
-   */
-  readonly addressType: string;
-
-  /**
-   * endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointSlice#endpoints
-   */
-  readonly endpoints: EndpointV1Beta1[];
-
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointSlice#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointSlice#ports
-   */
-  readonly ports?: EndpointPortV1Beta1[];
-
-}
-
-/**
- * Converts an object of type 'KubeEndpointSliceV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeEndpointSliceV1Beta1Props(obj: KubeEndpointSliceV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'addressType': obj.addressType,
-    'endpoints': obj.endpoints?.map(y => toJson_EndpointV1Beta1(y)),
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'ports': obj.ports?.map(y => toJson_EndpointPortV1Beta1(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * EndpointSliceList represents a list of endpoint slices
- *
- * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList
- */
-export interface KubeEndpointSliceListV1Beta1Props {
-  /**
-   * List of endpoint slices
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList#items
-   */
-  readonly items: KubeEndpointSliceV1Beta1Props[];
-
-  /**
-   * Standard list metadata.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeEndpointSliceListV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeEndpointSliceListV1Beta1Props(obj: KubeEndpointSliceListV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeEndpointSliceV1Beta1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.
- *
- * @schema io.k8s.api.events.v1beta1.Event
- */
-export interface KubeEventV1Beta1Props {
-  /**
-   * action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field can have at most 128 characters.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#action
-   */
-  readonly action?: string;
-
-  /**
-   * deprecatedCount is the deprecated field assuring backward compatibility with core.v1 Event type.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#deprecatedCount
-   */
-  readonly deprecatedCount?: number;
-
-  /**
-   * deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#deprecatedFirstTimestamp
-   */
-  readonly deprecatedFirstTimestamp?: Date;
-
-  /**
-   * deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#deprecatedLastTimestamp
-   */
-  readonly deprecatedLastTimestamp?: Date;
-
-  /**
-   * deprecatedSource is the deprecated field assuring backward compatibility with core.v1 Event type.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#deprecatedSource
-   */
-  readonly deprecatedSource?: EventSource;
-
-  /**
-   * eventTime is the time when this Event was first observed. It is required.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#eventTime
-   */
-  readonly eventTime: Date;
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * note is a human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#note
-   */
-  readonly note?: string;
-
-  /**
-   * reason is why the action was taken. It is human-readable. This field can have at most 128 characters.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#reason
-   */
-  readonly reason?: string;
-
-  /**
-   * regarding contains the object this Event is about. In most cases it's an Object reporting controller implements, e.g. ReplicaSetController implements ReplicaSets and this event is emitted because it acts on some changes in a ReplicaSet object.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#regarding
-   */
-  readonly regarding?: ObjectReference;
-
-  /**
-   * related is the optional secondary object for more complex actions. E.g. when regarding object triggers a creation or deletion of related object.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#related
-   */
-  readonly related?: ObjectReference;
-
-  /**
-   * reportingController is the name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`. This field cannot be empty for new Events.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#reportingController
-   */
-  readonly reportingController?: string;
-
-  /**
-   * reportingInstance is the ID of the controller instance, e.g. `kubelet-xyzf`. This field cannot be empty for new Events and it can have at most 128 characters.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#reportingInstance
-   */
-  readonly reportingInstance?: string;
-
-  /**
-   * series is data about the Event series this event represents or nil if it's a singleton Event.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#series
-   */
-  readonly series?: EventSeriesV1Beta1;
-
-  /**
-   * type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable.
-   *
-   * @schema io.k8s.api.events.v1beta1.Event#type
-   */
-  readonly type?: string;
-
-}
-
-/**
- * Converts an object of type 'KubeEventV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeEventV1Beta1Props(obj: KubeEventV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'action': obj.action,
-    'deprecatedCount': obj.deprecatedCount,
-    'deprecatedFirstTimestamp': obj.deprecatedFirstTimestamp?.toISOString(),
-    'deprecatedLastTimestamp': obj.deprecatedLastTimestamp?.toISOString(),
-    'deprecatedSource': toJson_EventSource(obj.deprecatedSource),
-    'eventTime': obj.eventTime?.toISOString(),
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'note': obj.note,
-    'reason': obj.reason,
-    'regarding': toJson_ObjectReference(obj.regarding),
-    'related': toJson_ObjectReference(obj.related),
-    'reportingController': obj.reportingController,
-    'reportingInstance': obj.reportingInstance,
-    'series': toJson_EventSeriesV1Beta1(obj.series),
-    'type': obj.type,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * EventList is a list of Event objects.
- *
- * @schema io.k8s.api.events.v1beta1.EventList
- */
-export interface KubeEventListV1Beta1Props {
-  /**
-   * items is a list of schema objects.
-   *
-   * @schema io.k8s.api.events.v1beta1.EventList#items
-   */
-  readonly items: KubeEventV1Beta1Props[];
-
-  /**
-   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.events.v1beta1.EventList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeEventListV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeEventListV1Beta1Props(obj: KubeEventListV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeEventV1Beta1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10856,18 +9436,18 @@ export function toJson_KubeFlowSchemaV1Beta1Props(obj: KubeFlowSchemaV1Beta1Prop
  */
 export interface KubeFlowSchemaListV1Beta1Props {
   /**
-   * `items` is a list of FlowSchemas.
-   *
-   * @schema io.k8s.api.flowcontrol.v1beta1.FlowSchemaList#items
-   */
-  readonly items: KubeFlowSchemaV1Beta1Props[];
-
-  /**
    * `metadata` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.flowcontrol.v1beta1.FlowSchemaList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * `items` is a list of FlowSchemas.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta1.FlowSchemaList#items
+   */
+  readonly items: KubeFlowSchemaV1Beta1Props[];
 
 }
 
@@ -10878,8 +9458,8 @@ export interface KubeFlowSchemaListV1Beta1Props {
 export function toJson_KubeFlowSchemaListV1Beta1Props(obj: KubeFlowSchemaListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeFlowSchemaV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeFlowSchemaV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10930,18 +9510,18 @@ export function toJson_KubePriorityLevelConfigurationV1Beta1Props(obj: KubePrior
  */
 export interface KubePriorityLevelConfigurationListV1Beta1Props {
   /**
-   * `items` is a list of request-priorities.
-   *
-   * @schema io.k8s.api.flowcontrol.v1beta1.PriorityLevelConfigurationList#items
-   */
-  readonly items: KubePriorityLevelConfigurationV1Beta1Props[];
-
-  /**
    * `metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.flowcontrol.v1beta1.PriorityLevelConfigurationList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * `items` is a list of request-priorities.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta1.PriorityLevelConfigurationList#items
+   */
+  readonly items: KubePriorityLevelConfigurationV1Beta1Props[];
 
 }
 
@@ -10952,8 +9532,156 @@ export interface KubePriorityLevelConfigurationListV1Beta1Props {
 export function toJson_KubePriorityLevelConfigurationListV1Beta1Props(obj: KubePriorityLevelConfigurationListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePriorityLevelConfigurationV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePriorityLevelConfigurationV1Beta1Props(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * FlowSchema defines the schema of a group of flows. Note that a flow is made up of a set of inbound API requests with similar attributes and is identified by a pair of strings: the name of the FlowSchema and a "flow distinguisher".
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchema
+ */
+export interface KubeFlowSchemaV1Beta2Props {
+  /**
+   * `metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchema#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
+   * `spec` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchema#spec
+   */
+  readonly spec?: FlowSchemaSpecV1Beta2;
+
+}
+
+/**
+ * Converts an object of type 'KubeFlowSchemaV1Beta2Props' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KubeFlowSchemaV1Beta2Props(obj: KubeFlowSchemaV1Beta2Props | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
+    'spec': toJson_FlowSchemaSpecV1Beta2(obj.spec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * FlowSchemaList is a list of FlowSchema objects.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaList
+ */
+export interface KubeFlowSchemaListV1Beta2Props {
+  /**
+   * `metadata` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaList#metadata
+   */
+  readonly metadata?: ListMeta;
+
+  /**
+   * `items` is a list of FlowSchemas.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaList#items
+   */
+  readonly items: KubeFlowSchemaV1Beta2Props[];
+
+}
+
+/**
+ * Converts an object of type 'KubeFlowSchemaListV1Beta2Props' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KubeFlowSchemaListV1Beta2Props(obj: KubeFlowSchemaListV1Beta2Props | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeFlowSchemaV1Beta2Props(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * PriorityLevelConfiguration represents the configuration of a priority level.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfiguration
+ */
+export interface KubePriorityLevelConfigurationV1Beta2Props {
+  /**
+   * `metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfiguration#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
+   * `spec` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfiguration#spec
+   */
+  readonly spec?: PriorityLevelConfigurationSpecV1Beta2;
+
+}
+
+/**
+ * Converts an object of type 'KubePriorityLevelConfigurationV1Beta2Props' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KubePriorityLevelConfigurationV1Beta2Props(obj: KubePriorityLevelConfigurationV1Beta2Props | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
+    'spec': toJson_PriorityLevelConfigurationSpecV1Beta2(obj.spec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationList
+ */
+export interface KubePriorityLevelConfigurationListV1Beta2Props {
+  /**
+   * `metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationList#metadata
+   */
+  readonly metadata?: ListMeta;
+
+  /**
+   * `items` is a list of request-priorities.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationList#items
+   */
+  readonly items: KubePriorityLevelConfigurationV1Beta2Props[];
+
+}
+
+/**
+ * Converts an object of type 'KubePriorityLevelConfigurationListV1Beta2Props' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KubePriorityLevelConfigurationListV1Beta2Props(obj: KubePriorityLevelConfigurationListV1Beta2Props | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePriorityLevelConfigurationV1Beta2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11041,18 +9769,18 @@ export function toJson_KubeIngressClassProps(obj: KubeIngressClassProps | undefi
  */
 export interface KubeIngressClassListProps {
   /**
-   * Items is the list of IngressClasses.
-   *
-   * @schema io.k8s.api.networking.v1.IngressClassList#items
-   */
-  readonly items: KubeIngressClassProps[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.networking.v1.IngressClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of IngressClasses.
+   *
+   * @schema io.k8s.api.networking.v1.IngressClassList#items
+   */
+  readonly items: KubeIngressClassProps[];
 
 }
 
@@ -11063,8 +9791,8 @@ export interface KubeIngressClassListProps {
 export function toJson_KubeIngressClassListProps(obj: KubeIngressClassListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeIngressClassProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeIngressClassProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11078,18 +9806,18 @@ export function toJson_KubeIngressClassListProps(obj: KubeIngressClassListProps 
  */
 export interface KubeIngressListProps {
   /**
-   * Items is the list of Ingress.
-   *
-   * @schema io.k8s.api.networking.v1.IngressList#items
-   */
-  readonly items: KubeIngressProps[];
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.networking.v1.IngressList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of Ingress.
+   *
+   * @schema io.k8s.api.networking.v1.IngressList#items
+   */
+  readonly items: KubeIngressProps[];
 
 }
 
@@ -11100,8 +9828,8 @@ export interface KubeIngressListProps {
 export function toJson_KubeIngressListProps(obj: KubeIngressListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeIngressProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeIngressProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11152,18 +9880,18 @@ export function toJson_KubeNetworkPolicyProps(obj: KubeNetworkPolicyProps | unde
  */
 export interface KubeNetworkPolicyListProps {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.networking.v1.NetworkPolicyList#items
-   */
-  readonly items: KubeNetworkPolicyProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.networking.v1.NetworkPolicyList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.networking.v1.NetworkPolicyList#items
+   */
+  readonly items: KubeNetworkPolicyProps[];
 
 }
 
@@ -11174,8 +9902,82 @@ export interface KubeNetworkPolicyListProps {
 export function toJson_KubeNetworkPolicyListProps(obj: KubeNetworkPolicyListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeNetworkPolicyProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeNetworkPolicyProps(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * ClusterCIDR represents a single configuration for per-Node Pod CIDR allocations when the MultiCIDRRangeAllocator is enabled (see the config for kube-controller-manager).  A cluster may have any number of ClusterCIDR resources, all of which will be considered when allocating a CIDR for a Node.  A ClusterCIDR is eligible to be used for a given Node when the node selector matches the node in question and has free CIDRs to allocate.  In case of multiple matching ClusterCIDR resources, the allocator will attempt to break ties using internal heuristics, but any ClusterCIDR whose node selector matches the Node may be used.
+ *
+ * @schema io.k8s.api.networking.v1alpha1.ClusterCIDR
+ */
+export interface KubeClusterCidrv1Alpha1Props {
+  /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.networking.v1alpha1.ClusterCIDR#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
+   * Spec is the desired state of the ClusterCIDR. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+   *
+   * @schema io.k8s.api.networking.v1alpha1.ClusterCIDR#spec
+   */
+  readonly spec?: ClusterCidrSpecV1Alpha1;
+
+}
+
+/**
+ * Converts an object of type 'KubeClusterCidrv1Alpha1Props' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KubeClusterCidrv1Alpha1Props(obj: KubeClusterCidrv1Alpha1Props | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
+    'spec': toJson_ClusterCidrSpecV1Alpha1(obj.spec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * ClusterCIDRList contains a list of ClusterCIDR.
+ *
+ * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRList
+ */
+export interface KubeClusterCidrListV1Alpha1Props {
+  /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRList#metadata
+   */
+  readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of ClusterCIDRs.
+   *
+   * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRList#items
+   */
+  readonly items: KubeClusterCidrv1Alpha1Props[];
+
+}
+
+/**
+ * Converts an object of type 'KubeClusterCidrListV1Alpha1Props' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KubeClusterCidrListV1Alpha1Props(obj: KubeClusterCidrListV1Alpha1Props | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterCidrv1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11189,13 +9991,6 @@ export function toJson_KubeNetworkPolicyListProps(obj: KubeNetworkPolicyListProp
  */
 export interface KubeRuntimeClassProps {
   /**
-   * Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must be lowercase, conform to the DNS Label (RFC 1123) requirements, and is immutable.
-   *
-   * @schema io.k8s.api.node.v1.RuntimeClass#handler
-   */
-  readonly handler: string;
-
-  /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.node.v1.RuntimeClass#metadata
@@ -11203,9 +9998,15 @@ export interface KubeRuntimeClassProps {
   readonly metadata?: ObjectMeta;
 
   /**
+   * Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must be lowercase, conform to the DNS Label (RFC 1123) requirements, and is immutable.
+   *
+   * @schema io.k8s.api.node.v1.RuntimeClass#handler
+   */
+  readonly handler: string;
+
+  /**
    * Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see
    * https://kubernetes.io/docs/concepts/scheduling-eviction/pod-overhead/
-   * This field is in beta starting v1.18 and is only honored by servers that enable the PodOverhead feature.
    *
    * @schema io.k8s.api.node.v1.RuntimeClass#overhead
    */
@@ -11227,8 +10028,8 @@ export interface KubeRuntimeClassProps {
 export function toJson_KubeRuntimeClassProps(obj: KubeRuntimeClassProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'handler': obj.handler,
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'handler': obj.handler,
     'overhead': toJson_Overhead(obj.overhead),
     'scheduling': toJson_Scheduling(obj.scheduling),
   };
@@ -11244,18 +10045,18 @@ export function toJson_KubeRuntimeClassProps(obj: KubeRuntimeClassProps | undefi
  */
 export interface KubeRuntimeClassListProps {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.node.v1.RuntimeClassList#items
-   */
-  readonly items: KubeRuntimeClassProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.node.v1.RuntimeClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.node.v1.RuntimeClassList#items
+   */
+  readonly items: KubeRuntimeClassProps[];
 
 }
 
@@ -11266,172 +10067,8 @@ export interface KubeRuntimeClassListProps {
 export function toJson_KubeRuntimeClassListProps(obj: KubeRuntimeClassListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
     'items': obj.items?.map(y => toJson_KubeRuntimeClassProps(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
- *
- * @schema io.k8s.api.node.v1alpha1.RuntimeClass
- */
-export interface KubeRuntimeClassV1Alpha1Props {
-  /**
-   * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.node.v1alpha1.RuntimeClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Specification of the RuntimeClass More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-   *
-   * @schema io.k8s.api.node.v1alpha1.RuntimeClass#spec
-   */
-  readonly spec: RuntimeClassSpecV1Alpha1;
-
-}
-
-/**
- * Converts an object of type 'KubeRuntimeClassV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeRuntimeClassV1Alpha1Props(obj: KubeRuntimeClassV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'spec': toJson_RuntimeClassSpecV1Alpha1(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RuntimeClassList is a list of RuntimeClass objects.
- *
- * @schema io.k8s.api.node.v1alpha1.RuntimeClassList
- */
-export interface KubeRuntimeClassListV1Alpha1Props {
-  /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.node.v1alpha1.RuntimeClassList#items
-   */
-  readonly items: KubeRuntimeClassV1Alpha1Props[];
-
-  /**
-   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.node.v1alpha1.RuntimeClassList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeRuntimeClassListV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeRuntimeClassListV1Alpha1Props(obj: KubeRuntimeClassListV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeRuntimeClassV1Alpha1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
- *
- * @schema io.k8s.api.node.v1beta1.RuntimeClass
- */
-export interface KubeRuntimeClassV1Beta1Props {
-  /**
-   * Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must be lowercase, conform to the DNS Label (RFC 1123) requirements, and is immutable.
-   *
-   * @schema io.k8s.api.node.v1beta1.RuntimeClass#handler
-   */
-  readonly handler: string;
-
-  /**
-   * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.node.v1beta1.RuntimeClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md This field is beta-level as of Kubernetes v1.18, and is only honored by servers that enable the PodOverhead feature.
-   *
-   * @schema io.k8s.api.node.v1beta1.RuntimeClass#overhead
-   */
-  readonly overhead?: OverheadV1Beta1;
-
-  /**
-   * Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
-   *
-   * @schema io.k8s.api.node.v1beta1.RuntimeClass#scheduling
-   */
-  readonly scheduling?: SchedulingV1Beta1;
-
-}
-
-/**
- * Converts an object of type 'KubeRuntimeClassV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeRuntimeClassV1Beta1Props(obj: KubeRuntimeClassV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'handler': obj.handler,
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'overhead': toJson_OverheadV1Beta1(obj.overhead),
-    'scheduling': toJson_SchedulingV1Beta1(obj.scheduling),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RuntimeClassList is a list of RuntimeClass objects.
- *
- * @schema io.k8s.api.node.v1beta1.RuntimeClassList
- */
-export interface KubeRuntimeClassListV1Beta1Props {
-  /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.node.v1beta1.RuntimeClassList#items
-   */
-  readonly items: KubeRuntimeClassV1Beta1Props[];
-
-  /**
-   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.node.v1beta1.RuntimeClassList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeRuntimeClassListV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeRuntimeClassListV1Beta1Props(obj: KubeRuntimeClassListV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeRuntimeClassV1Beta1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11445,18 +10082,18 @@ export function toJson_KubeRuntimeClassListV1Beta1Props(obj: KubeRuntimeClassLis
  */
 export interface KubeEvictionProps {
   /**
-   * DeleteOptions may be provided
-   *
-   * @schema io.k8s.api.policy.v1.Eviction#deleteOptions
-   */
-  readonly deleteOptions?: DeleteOptions;
-
-  /**
    * ObjectMeta describes the pod that is being evicted.
    *
    * @schema io.k8s.api.policy.v1.Eviction#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * DeleteOptions may be provided
+   *
+   * @schema io.k8s.api.policy.v1.Eviction#deleteOptions
+   */
+  readonly deleteOptions?: DeleteOptions;
 
 }
 
@@ -11467,8 +10104,8 @@ export interface KubeEvictionProps {
 export function toJson_KubeEvictionProps(obj: KubeEvictionProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'deleteOptions': toJson_DeleteOptions(obj.deleteOptions),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'deleteOptions': toJson_DeleteOptions(obj.deleteOptions),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11519,18 +10156,18 @@ export function toJson_KubePodDisruptionBudgetProps(obj: KubePodDisruptionBudget
  */
 export interface KubePodDisruptionBudgetListProps {
   /**
-   * Items is a list of PodDisruptionBudgets
-   *
-   * @schema io.k8s.api.policy.v1.PodDisruptionBudgetList#items
-   */
-  readonly items: KubePodDisruptionBudgetProps[];
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.policy.v1.PodDisruptionBudgetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of PodDisruptionBudgets
+   *
+   * @schema io.k8s.api.policy.v1.PodDisruptionBudgetList#items
+   */
+  readonly items: KubePodDisruptionBudgetProps[];
 
 }
 
@@ -11541,156 +10178,8 @@ export interface KubePodDisruptionBudgetListProps {
 export function toJson_KubePodDisruptionBudgetListProps(obj: KubePodDisruptionBudgetListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
     'items': obj.items?.map(y => toJson_KubePodDisruptionBudgetProps(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods
- *
- * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudget
- */
-export interface KubePodDisruptionBudgetV1Beta1Props {
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudget#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Specification of the desired behavior of the PodDisruptionBudget.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudget#spec
-   */
-  readonly spec?: PodDisruptionBudgetSpecV1Beta1;
-
-}
-
-/**
- * Converts an object of type 'KubePodDisruptionBudgetV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubePodDisruptionBudgetV1Beta1Props(obj: KubePodDisruptionBudgetV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'spec': toJson_PodDisruptionBudgetSpecV1Beta1(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
- *
- * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList
- */
-export interface KubePodDisruptionBudgetListV1Beta1Props {
-  /**
-   * items list individual PodDisruptionBudget objects
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#items
-   */
-  readonly items: KubePodDisruptionBudgetV1Beta1Props[];
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubePodDisruptionBudgetListV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubePodDisruptionBudgetListV1Beta1Props(obj: KubePodDisruptionBudgetListV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubePodDisruptionBudgetV1Beta1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container. Deprecated in 1.21.
- *
- * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicy
- */
-export interface KubePodSecurityPolicyV1Beta1Props {
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicy#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * spec defines the policy enforced.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicy#spec
-   */
-  readonly spec?: PodSecurityPolicySpecV1Beta1;
-
-}
-
-/**
- * Converts an object of type 'KubePodSecurityPolicyV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubePodSecurityPolicyV1Beta1Props(obj: KubePodSecurityPolicyV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'spec': toJson_PodSecurityPolicySpecV1Beta1(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * PodSecurityPolicyList is a list of PodSecurityPolicy objects.
- *
- * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList
- */
-export interface KubePodSecurityPolicyListV1Beta1Props {
-  /**
-   * items is a list of schema objects.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList#items
-   */
-  readonly items: KubePodSecurityPolicyV1Beta1Props[];
-
-  /**
-   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubePodSecurityPolicyListV1Beta1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubePodSecurityPolicyListV1Beta1Props(obj: KubePodSecurityPolicyListV1Beta1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubePodSecurityPolicyV1Beta1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11704,18 +10193,18 @@ export function toJson_KubePodSecurityPolicyListV1Beta1Props(obj: KubePodSecurit
  */
 export interface KubeClusterRoleProps {
   /**
-   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-   *
-   * @schema io.k8s.api.rbac.v1.ClusterRole#aggregationRule
-   */
-  readonly aggregationRule?: AggregationRule;
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.ClusterRole#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+   *
+   * @schema io.k8s.api.rbac.v1.ClusterRole#aggregationRule
+   */
+  readonly aggregationRule?: AggregationRule;
 
   /**
    * Rules holds all the PolicyRules for this ClusterRole
@@ -11733,8 +10222,8 @@ export interface KubeClusterRoleProps {
 export function toJson_KubeClusterRoleProps(obj: KubeClusterRoleProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'aggregationRule': toJson_AggregationRule(obj.aggregationRule),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'aggregationRule': toJson_AggregationRule(obj.aggregationRule),
     'rules': obj.rules?.map(y => toJson_PolicyRule(y)),
   };
   // filter undefined values
@@ -11794,18 +10283,18 @@ export function toJson_KubeClusterRoleBindingProps(obj: KubeClusterRoleBindingPr
  */
 export interface KubeClusterRoleBindingListProps {
   /**
-   * Items is a list of ClusterRoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1.ClusterRoleBindingList#items
-   */
-  readonly items: KubeClusterRoleBindingProps[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.ClusterRoleBindingList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ClusterRoleBindings
+   *
+   * @schema io.k8s.api.rbac.v1.ClusterRoleBindingList#items
+   */
+  readonly items: KubeClusterRoleBindingProps[];
 
 }
 
@@ -11816,8 +10305,8 @@ export interface KubeClusterRoleBindingListProps {
 export function toJson_KubeClusterRoleBindingListProps(obj: KubeClusterRoleBindingListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11831,18 +10320,18 @@ export function toJson_KubeClusterRoleBindingListProps(obj: KubeClusterRoleBindi
  */
 export interface KubeClusterRoleListProps {
   /**
-   * Items is a list of ClusterRoles
-   *
-   * @schema io.k8s.api.rbac.v1.ClusterRoleList#items
-   */
-  readonly items: KubeClusterRoleProps[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.ClusterRoleList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ClusterRoles
+   *
+   * @schema io.k8s.api.rbac.v1.ClusterRoleList#items
+   */
+  readonly items: KubeClusterRoleProps[];
 
 }
 
@@ -11853,8 +10342,8 @@ export interface KubeClusterRoleListProps {
 export function toJson_KubeClusterRoleListProps(obj: KubeClusterRoleListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterRoleProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11950,18 +10439,18 @@ export function toJson_KubeRoleBindingProps(obj: KubeRoleBindingProps | undefine
  */
 export interface KubeRoleBindingListProps {
   /**
-   * Items is a list of RoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1.RoleBindingList#items
-   */
-  readonly items: KubeRoleBindingProps[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.RoleBindingList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of RoleBindings
+   *
+   * @schema io.k8s.api.rbac.v1.RoleBindingList#items
+   */
+  readonly items: KubeRoleBindingProps[];
 
 }
 
@@ -11972,8 +10461,8 @@ export interface KubeRoleBindingListProps {
 export function toJson_KubeRoleBindingListProps(obj: KubeRoleBindingListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleBindingProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRoleBindingProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11987,18 +10476,18 @@ export function toJson_KubeRoleBindingListProps(obj: KubeRoleBindingListProps | 
  */
 export interface KubeRoleListProps {
   /**
-   * Items is a list of Roles
-   *
-   * @schema io.k8s.api.rbac.v1.RoleList#items
-   */
-  readonly items: KubeRoleProps[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.RoleList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of Roles
+   *
+   * @schema io.k8s.api.rbac.v1.RoleList#items
+   */
+  readonly items: KubeRoleProps[];
 
 }
 
@@ -12009,328 +10498,8 @@ export interface KubeRoleListProps {
 export function toJson_KubeRoleListProps(obj: KubeRoleListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
     'items': obj.items?.map(y => toJson_KubeRoleProps(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.ClusterRole
- */
-export interface KubeClusterRoleV1Alpha1Props {
-  /**
-   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRole#aggregationRule
-   */
-  readonly aggregationRule?: AggregationRuleV1Alpha1;
-
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRole#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Rules holds all the PolicyRules for this ClusterRole
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRole#rules
-   */
-  readonly rules?: PolicyRuleV1Alpha1[];
-
-}
-
-/**
- * Converts an object of type 'KubeClusterRoleV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeClusterRoleV1Alpha1Props(obj: KubeClusterRoleV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'aggregationRule': toJson_AggregationRuleV1Alpha1(obj.aggregationRule),
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'rules': obj.rules?.map(y => toJson_PolicyRuleV1Alpha1(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace, and adds who information via Subject. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBinding
- */
-export interface KubeClusterRoleBindingV1Alpha1Props {
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBinding#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * RoleRef can only reference a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBinding#roleRef
-   */
-  readonly roleRef: RoleRefV1Alpha1;
-
-  /**
-   * Subjects holds references to the objects the role applies to.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBinding#subjects
-   */
-  readonly subjects?: SubjectV1Alpha1[];
-
-}
-
-/**
- * Converts an object of type 'KubeClusterRoleBindingV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeClusterRoleBindingV1Alpha1Props(obj: KubeClusterRoleBindingV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'roleRef': toJson_RoleRefV1Alpha1(obj.roleRef),
-    'subjects': obj.subjects?.map(y => toJson_SubjectV1Alpha1(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * ClusterRoleBindingList is a collection of ClusterRoleBindings. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList
- */
-export interface KubeClusterRoleBindingListV1Alpha1Props {
-  /**
-   * Items is a list of ClusterRoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#items
-   */
-  readonly items: KubeClusterRoleBindingV1Alpha1Props[];
-
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeClusterRoleBindingListV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeClusterRoleBindingListV1Alpha1Props(obj: KubeClusterRoleBindingListV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingV1Alpha1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * ClusterRoleList is a collection of ClusterRoles. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleList
- */
-export interface KubeClusterRoleListV1Alpha1Props {
-  /**
-   * Items is a list of ClusterRoles
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleList#items
-   */
-  readonly items: KubeClusterRoleV1Alpha1Props[];
-
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeClusterRoleListV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeClusterRoleListV1Alpha1Props(obj: KubeClusterRoleListV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleV1Alpha1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.Role
- */
-export interface KubeRoleV1Alpha1Props {
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.Role#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Rules holds all the PolicyRules for this Role
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.Role#rules
-   */
-  readonly rules?: PolicyRuleV1Alpha1[];
-
-}
-
-/**
- * Converts an object of type 'KubeRoleV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeRoleV1Alpha1Props(obj: KubeRoleV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'rules': obj.rules?.map(y => toJson_PolicyRuleV1Alpha1(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.RoleBinding
- */
-export interface KubeRoleBindingV1Alpha1Props {
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleBinding#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace. If the RoleRef cannot be resolved, the Authorizer must return an error.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleBinding#roleRef
-   */
-  readonly roleRef: RoleRefV1Alpha1;
-
-  /**
-   * Subjects holds references to the objects the role applies to.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleBinding#subjects
-   */
-  readonly subjects?: SubjectV1Alpha1[];
-
-}
-
-/**
- * Converts an object of type 'KubeRoleBindingV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeRoleBindingV1Alpha1Props(obj: KubeRoleBindingV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'roleRef': toJson_RoleRefV1Alpha1(obj.roleRef),
-    'subjects': obj.subjects?.map(y => toJson_SubjectV1Alpha1(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.RoleBindingList
- */
-export interface KubeRoleBindingListV1Alpha1Props {
-  /**
-   * Items is a list of RoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleBindingList#items
-   */
-  readonly items: KubeRoleBindingV1Alpha1Props[];
-
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleBindingList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeRoleBindingListV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeRoleBindingListV1Alpha1Props(obj: KubeRoleBindingListV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleBindingV1Alpha1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RoleList is a collection of Roles. Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.22.
- *
- * @schema io.k8s.api.rbac.v1alpha1.RoleList
- */
-export interface KubeRoleListV1Alpha1Props {
-  /**
-   * Items is a list of Roles
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleList#items
-   */
-  readonly items: KubeRoleV1Alpha1Props[];
-
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeRoleListV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeRoleListV1Alpha1Props(obj: KubeRoleListV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleV1Alpha1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12343,6 +10512,13 @@ export function toJson_KubeRoleListV1Alpha1Props(obj: KubeRoleListV1Alpha1Props 
  * @schema io.k8s.api.scheduling.v1.PriorityClass
  */
 export interface KubePriorityClassProps {
+  /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.scheduling.v1.PriorityClass#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
   /**
    * description is an arbitrary string that usually provides guidelines on when this priority class should be used.
    *
@@ -12358,16 +10534,9 @@ export interface KubePriorityClassProps {
   readonly globalDefault?: boolean;
 
   /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
    *
-   * @schema io.k8s.api.scheduling.v1.PriorityClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
-   *
-   * @default PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+   * @default PreemptLowerPriority if unset.
    * @schema io.k8s.api.scheduling.v1.PriorityClass#preemptionPolicy
    */
   readonly preemptionPolicy?: string;
@@ -12388,9 +10557,9 @@ export interface KubePriorityClassProps {
 export function toJson_KubePriorityClassProps(obj: KubePriorityClassProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'description': obj.description,
     'globalDefault': obj.globalDefault,
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'preemptionPolicy': obj.preemptionPolicy,
     'value': obj.value,
   };
@@ -12406,18 +10575,18 @@ export function toJson_KubePriorityClassProps(obj: KubePriorityClassProps | unde
  */
 export interface KubePriorityClassListProps {
   /**
-   * items is the list of PriorityClasses
-   *
-   * @schema io.k8s.api.scheduling.v1.PriorityClassList#items
-   */
-  readonly items: KubePriorityClassProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.scheduling.v1.PriorityClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of PriorityClasses
+   *
+   * @schema io.k8s.api.scheduling.v1.PriorityClassList#items
+   */
+  readonly items: KubePriorityClassProps[];
 
 }
 
@@ -12428,107 +10597,8 @@ export interface KubePriorityClassListProps {
 export function toJson_KubePriorityClassListProps(obj: KubePriorityClassListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
     'items': obj.items?.map(y => toJson_KubePriorityClassProps(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
- *
- * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass
- */
-export interface KubePriorityClassV1Alpha1Props {
-  /**
-   * description is an arbitrary string that usually provides guidelines on when this priority class should be used.
-   *
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#description
-   */
-  readonly description?: string;
-
-  /**
-   * globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
-   *
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#globalDefault
-   */
-  readonly globalDefault?: boolean;
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
-   *
-   * @default PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#preemptionPolicy
-   */
-  readonly preemptionPolicy?: string;
-
-  /**
-   * The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
-   *
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#value
-   */
-  readonly value: number;
-
-}
-
-/**
- * Converts an object of type 'KubePriorityClassV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubePriorityClassV1Alpha1Props(obj: KubePriorityClassV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'description': obj.description,
-    'globalDefault': obj.globalDefault,
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'preemptionPolicy': obj.preemptionPolicy,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * PriorityClassList is a collection of priority classes.
- *
- * @schema io.k8s.api.scheduling.v1alpha1.PriorityClassList
- */
-export interface KubePriorityClassListV1Alpha1Props {
-  /**
-   * items is the list of PriorityClasses
-   *
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClassList#items
-   */
-  readonly items: KubePriorityClassV1Alpha1Props[];
-
-  /**
-   * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClassList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubePriorityClassListV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubePriorityClassListV1Alpha1Props(obj: KubePriorityClassListV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubePriorityClassV1Alpha1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12579,18 +10649,18 @@ export function toJson_KubeCsiDriverProps(obj: KubeCsiDriverProps | undefined): 
  */
 export interface KubeCsiDriverListProps {
   /**
-   * items is the list of CSIDriver
-   *
-   * @schema io.k8s.api.storage.v1.CSIDriverList#items
-   */
-  readonly items: KubeCsiDriverProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1.CSIDriverList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of CSIDriver
+   *
+   * @schema io.k8s.api.storage.v1.CSIDriverList#items
+   */
+  readonly items: KubeCsiDriverProps[];
 
 }
 
@@ -12601,8 +10671,8 @@ export interface KubeCsiDriverListProps {
 export function toJson_KubeCsiDriverListProps(obj: KubeCsiDriverListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCsiDriverProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCsiDriverProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12653,18 +10723,18 @@ export function toJson_KubeCsiNodeProps(obj: KubeCsiNodeProps | undefined): Reco
  */
 export interface KubeCsiNodeListProps {
   /**
-   * items is the list of CSINode
-   *
-   * @schema io.k8s.api.storage.v1.CSINodeList#items
-   */
-  readonly items: KubeCsiNodeProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1.CSINodeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of CSINode
+   *
+   * @schema io.k8s.api.storage.v1.CSINodeList#items
+   */
+  readonly items: KubeCsiNodeProps[];
 
 }
 
@@ -12675,8 +10745,122 @@ export interface KubeCsiNodeListProps {
 export function toJson_KubeCsiNodeListProps(obj: KubeCsiNodeListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCsiNodeProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCsiNodeProps(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * CSIStorageCapacity stores the result of one CSI GetCapacity call. For a given StorageClass, this describes the available capacity in a particular topology segment.  This can be used when considering where to instantiate new PersistentVolumes.
+ *
+ * For example this can express things like: - StorageClass "standard" has "1234 GiB" available in "topology.kubernetes.io/zone=us-east1" - StorageClass "localssd" has "10 GiB" available in "kubernetes.io/hostname=knode-abc123"
+ *
+ * The following three cases all imply that no capacity is available for a certain combination: - no object exists with suitable topology and storage class name - such an object exists, but the capacity is unset - such an object exists, but the capacity is zero
+ *
+ * The producer of these objects can decide which approach is more suitable.
+ *
+ * They are consumed by the kube-scheduler when a CSI driver opts into capacity-aware scheduling with CSIDriverSpec.StorageCapacity. The scheduler compares the MaximumVolumeSize against the requested size of pending volumes to filter out unsuitable nodes. If MaximumVolumeSize is unset, it falls back to a comparison against the less precise Capacity. If that is also unset, the scheduler assumes that capacity is insufficient and tries some other node.
+ *
+ * @schema io.k8s.api.storage.v1.CSIStorageCapacity
+ */
+export interface KubeCsiStorageCapacityProps {
+  /**
+   * Standard object's metadata. The name has no particular meaning. It must be be a DNS subdomain (dots allowed, 253 characters). To ensure that there are no conflicts with other CSI drivers on the cluster, the recommendation is to use csisc-<uuid>, a generated name, or a reverse-domain name which ends with the unique CSI driver name.
+   *
+   * Objects are namespaced.
+   *
+   * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.storage.v1.CSIStorageCapacity#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
+   * Capacity is the value reported by the CSI driver in its GetCapacityResponse for a GetCapacityRequest with topology and parameters that match the previous fields.
+   *
+   * The semantic is currently (CSI spec 1.2) defined as: The available capacity, in bytes, of the storage that can be used to provision volumes. If not set, that information is currently unavailable.
+   *
+   * @schema io.k8s.api.storage.v1.CSIStorageCapacity#capacity
+   */
+  readonly capacity?: Quantity;
+
+  /**
+   * MaximumVolumeSize is the value reported by the CSI driver in its GetCapacityResponse for a GetCapacityRequest with topology and parameters that match the previous fields.
+   *
+   * This is defined since CSI spec 1.4.0 as the largest size that may be used in a CreateVolumeRequest.capacity_range.required_bytes field to create a volume with the same parameters as those in GetCapacityRequest. The corresponding value in the Kubernetes API is ResourceRequirements.Requests in a volume claim.
+   *
+   * @schema io.k8s.api.storage.v1.CSIStorageCapacity#maximumVolumeSize
+   */
+  readonly maximumVolumeSize?: Quantity;
+
+  /**
+   * NodeTopology defines which nodes have access to the storage for which capacity was reported. If not set, the storage is not accessible from any node in the cluster. If empty, the storage is accessible from all nodes. This field is immutable.
+   *
+   * @schema io.k8s.api.storage.v1.CSIStorageCapacity#nodeTopology
+   */
+  readonly nodeTopology?: LabelSelector;
+
+  /**
+   * The name of the StorageClass that the reported capacity applies to. It must meet the same requirements as the name of a StorageClass object (non-empty, DNS subdomain). If that object no longer exists, the CSIStorageCapacity object is obsolete and should be removed by its creator. This field is immutable.
+   *
+   * @schema io.k8s.api.storage.v1.CSIStorageCapacity#storageClassName
+   */
+  readonly storageClassName: string;
+
+}
+
+/**
+ * Converts an object of type 'KubeCsiStorageCapacityProps' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KubeCsiStorageCapacityProps(obj: KubeCsiStorageCapacityProps | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
+    'capacity': obj.capacity?.value,
+    'maximumVolumeSize': obj.maximumVolumeSize?.value,
+    'nodeTopology': toJson_LabelSelector(obj.nodeTopology),
+    'storageClassName': obj.storageClassName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * CSIStorageCapacityList is a collection of CSIStorageCapacity objects.
+ *
+ * @schema io.k8s.api.storage.v1.CSIStorageCapacityList
+ */
+export interface KubeCsiStorageCapacityListProps {
+  /**
+   * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.storage.v1.CSIStorageCapacityList#metadata
+   */
+  readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of CSIStorageCapacity objects.
+   *
+   * @schema io.k8s.api.storage.v1.CSIStorageCapacityList#items
+   */
+  readonly items: KubeCsiStorageCapacityProps[];
+
+}
+
+/**
+ * Converts an object of type 'KubeCsiStorageCapacityListProps' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KubeCsiStorageCapacityListProps(obj: KubeCsiStorageCapacityListProps | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCsiStorageCapacityProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12692,6 +10876,13 @@ export function toJson_KubeCsiNodeListProps(obj: KubeCsiNodeListProps | undefine
  */
 export interface KubeStorageClassProps {
   /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.storage.v1.StorageClass#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * AllowVolumeExpansion shows whether the storage class allow volume expand
    *
    * @schema io.k8s.api.storage.v1.StorageClass#allowVolumeExpansion
@@ -12704,13 +10895,6 @@ export interface KubeStorageClassProps {
    * @schema io.k8s.api.storage.v1.StorageClass#allowedTopologies
    */
   readonly allowedTopologies?: TopologySelectorTerm[];
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.storage.v1.StorageClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
@@ -12757,9 +10941,9 @@ export interface KubeStorageClassProps {
 export function toJson_KubeStorageClassProps(obj: KubeStorageClassProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'allowVolumeExpansion': obj.allowVolumeExpansion,
     'allowedTopologies': obj.allowedTopologies?.map(y => toJson_TopologySelectorTerm(y)),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'mountOptions': obj.mountOptions?.map(y => y),
     'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'provisioner': obj.provisioner,
@@ -12778,18 +10962,18 @@ export function toJson_KubeStorageClassProps(obj: KubeStorageClassProps | undefi
  */
 export interface KubeStorageClassListProps {
   /**
-   * Items is the list of StorageClasses
-   *
-   * @schema io.k8s.api.storage.v1.StorageClassList#items
-   */
-  readonly items: KubeStorageClassProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1.StorageClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of StorageClasses
+   *
+   * @schema io.k8s.api.storage.v1.StorageClassList#items
+   */
+  readonly items: KubeStorageClassProps[];
 
 }
 
@@ -12800,8 +10984,8 @@ export interface KubeStorageClassListProps {
 export function toJson_KubeStorageClassListProps(obj: KubeStorageClassListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeStorageClassProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeStorageClassProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12854,18 +11038,18 @@ export function toJson_KubeVolumeAttachmentProps(obj: KubeVolumeAttachmentProps 
  */
 export interface KubeVolumeAttachmentListProps {
   /**
-   * Items is the list of VolumeAttachments
-   *
-   * @schema io.k8s.api.storage.v1.VolumeAttachmentList#items
-   */
-  readonly items: KubeVolumeAttachmentProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1.VolumeAttachmentList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of VolumeAttachments
+   *
+   * @schema io.k8s.api.storage.v1.VolumeAttachmentList#items
+   */
+  readonly items: KubeVolumeAttachmentProps[];
 
 }
 
@@ -12876,8 +11060,8 @@ export interface KubeVolumeAttachmentListProps {
 export function toJson_KubeVolumeAttachmentListProps(obj: KubeVolumeAttachmentListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12893,29 +11077,11 @@ export function toJson_KubeVolumeAttachmentListProps(obj: KubeVolumeAttachmentLi
  *
  * The producer of these objects can decide which approach is more suitable.
  *
- * They are consumed by the kube-scheduler if the CSIStorageCapacity beta feature gate is enabled there and a CSI driver opts into capacity-aware scheduling with CSIDriver.StorageCapacity.
+ * They are consumed by the kube-scheduler when a CSI driver opts into capacity-aware scheduling with CSIDriverSpec.StorageCapacity. The scheduler compares the MaximumVolumeSize against the requested size of pending volumes to filter out unsuitable nodes. If MaximumVolumeSize is unset, it falls back to a comparison against the less precise Capacity. If that is also unset, the scheduler assumes that capacity is insufficient and tries some other node.
  *
- * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacity
+ * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacity
  */
-export interface KubeCsiStorageCapacityV1Alpha1Props {
-  /**
-   * Capacity is the value reported by the CSI driver in its GetCapacityResponse for a GetCapacityRequest with topology and parameters that match the previous fields.
-   *
-   * The semantic is currently (CSI spec 1.2) defined as: The available capacity, in bytes, of the storage that can be used to provision volumes. If not set, that information is currently unavailable and treated like zero capacity.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacity#capacity
-   */
-  readonly capacity?: Quantity;
-
-  /**
-   * MaximumVolumeSize is the value reported by the CSI driver in its GetCapacityResponse for a GetCapacityRequest with topology and parameters that match the previous fields.
-   *
-   * This is defined since CSI spec 1.4.0 as the largest size that may be used in a CreateVolumeRequest.capacity_range.required_bytes field to create a volume with the same parameters as those in GetCapacityRequest. The corresponding value in the Kubernetes API is ResourceRequirements.Requests in a volume claim.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacity#maximumVolumeSize
-   */
-  readonly maximumVolumeSize?: Quantity;
-
+export interface KubeCsiStorageCapacityV1Beta1Props {
   /**
    * Standard object's metadata. The name has no particular meaning. It must be be a DNS subdomain (dots allowed, 253 characters). To ensure that there are no conflicts with other CSI drivers on the cluster, the recommendation is to use csisc-<uuid>, a generated name, or a reverse-domain name which ends with the unique CSI driver name.
    *
@@ -12923,175 +11089,14 @@ export interface KubeCsiStorageCapacityV1Alpha1Props {
    *
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
-   * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacity#metadata
+   * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacity#metadata
    */
   readonly metadata?: ObjectMeta;
 
-  /**
-   * NodeTopology defines which nodes have access to the storage for which capacity was reported. If not set, the storage is not accessible from any node in the cluster. If empty, the storage is accessible from all nodes. This field is immutable.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacity#nodeTopology
-   */
-  readonly nodeTopology?: LabelSelector;
-
-  /**
-   * The name of the StorageClass that the reported capacity applies to. It must meet the same requirements as the name of a StorageClass object (non-empty, DNS subdomain). If that object no longer exists, the CSIStorageCapacity object is obsolete and should be removed by its creator. This field is immutable.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacity#storageClassName
-   */
-  readonly storageClassName: string;
-
-}
-
-/**
- * Converts an object of type 'KubeCsiStorageCapacityV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeCsiStorageCapacityV1Alpha1Props(obj: KubeCsiStorageCapacityV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'capacity': obj.capacity?.value,
-    'maximumVolumeSize': obj.maximumVolumeSize?.value,
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'nodeTopology': toJson_LabelSelector(obj.nodeTopology),
-    'storageClassName': obj.storageClassName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * CSIStorageCapacityList is a collection of CSIStorageCapacity objects.
- *
- * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacityList
- */
-export interface KubeCsiStorageCapacityListV1Alpha1Props {
-  /**
-   * Items is the list of CSIStorageCapacity objects.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacityList#items
-   */
-  readonly items: KubeCsiStorageCapacityV1Alpha1Props[];
-
-  /**
-   * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.storage.v1alpha1.CSIStorageCapacityList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeCsiStorageCapacityListV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeCsiStorageCapacityListV1Alpha1Props(obj: KubeCsiStorageCapacityListV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeCsiStorageCapacityV1Alpha1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
- *
- * VolumeAttachment objects are non-namespaced.
- *
- * @schema io.k8s.api.storage.v1alpha1.VolumeAttachment
- */
-export interface KubeVolumeAttachmentV1Alpha1Props {
-  /**
-   * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachment#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Specification of the desired attach/detach volume behavior. Populated by the Kubernetes system.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachment#spec
-   */
-  readonly spec: VolumeAttachmentSpecV1Alpha1;
-
-}
-
-/**
- * Converts an object of type 'KubeVolumeAttachmentV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeVolumeAttachmentV1Alpha1Props(obj: KubeVolumeAttachmentV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'spec': toJson_VolumeAttachmentSpecV1Alpha1(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * VolumeAttachmentList is a collection of VolumeAttachment objects.
- *
- * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentList
- */
-export interface KubeVolumeAttachmentListV1Alpha1Props {
-  /**
-   * Items is the list of VolumeAttachments
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentList#items
-   */
-  readonly items: KubeVolumeAttachmentV1Alpha1Props[];
-
-  /**
-   * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentList#metadata
-   */
-  readonly metadata?: ListMeta;
-
-}
-
-/**
- * Converts an object of type 'KubeVolumeAttachmentListV1Alpha1Props' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_KubeVolumeAttachmentListV1Alpha1Props(obj: KubeVolumeAttachmentListV1Alpha1Props | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentV1Alpha1Props(y)),
-    'metadata': toJson_ListMeta(obj.metadata),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * CSIStorageCapacity stores the result of one CSI GetCapacity call. For a given StorageClass, this describes the available capacity in a particular topology segment.  This can be used when considering where to instantiate new PersistentVolumes.
- *
- * For example this can express things like: - StorageClass "standard" has "1234 GiB" available in "topology.kubernetes.io/zone=us-east1" - StorageClass "localssd" has "10 GiB" available in "kubernetes.io/hostname=knode-abc123"
- *
- * The following three cases all imply that no capacity is available for a certain combination: - no object exists with suitable topology and storage class name - such an object exists, but the capacity is unset - such an object exists, but the capacity is zero
- *
- * The producer of these objects can decide which approach is more suitable.
- *
- * They are consumed by the kube-scheduler if the CSIStorageCapacity beta feature gate is enabled there and a CSI driver opts into capacity-aware scheduling with CSIDriver.StorageCapacity.
- *
- * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacity
- */
-export interface KubeCsiStorageCapacityV1Beta1Props {
   /**
    * Capacity is the value reported by the CSI driver in its GetCapacityResponse for a GetCapacityRequest with topology and parameters that match the previous fields.
    *
-   * The semantic is currently (CSI spec 1.2) defined as: The available capacity, in bytes, of the storage that can be used to provision volumes. If not set, that information is currently unavailable and treated like zero capacity.
+   * The semantic is currently (CSI spec 1.2) defined as: The available capacity, in bytes, of the storage that can be used to provision volumes. If not set, that information is currently unavailable.
    *
    * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacity#capacity
    */
@@ -13105,17 +11110,6 @@ export interface KubeCsiStorageCapacityV1Beta1Props {
    * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacity#maximumVolumeSize
    */
   readonly maximumVolumeSize?: Quantity;
-
-  /**
-   * Standard object's metadata. The name has no particular meaning. It must be be a DNS subdomain (dots allowed, 253 characters). To ensure that there are no conflicts with other CSI drivers on the cluster, the recommendation is to use csisc-<uuid>, a generated name, or a reverse-domain name which ends with the unique CSI driver name.
-   *
-   * Objects are namespaced.
-   *
-   * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacity#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * NodeTopology defines which nodes have access to the storage for which capacity was reported. If not set, the storage is not accessible from any node in the cluster. If empty, the storage is accessible from all nodes. This field is immutable.
@@ -13140,9 +11134,9 @@ export interface KubeCsiStorageCapacityV1Beta1Props {
 export function toJson_KubeCsiStorageCapacityV1Beta1Props(obj: KubeCsiStorageCapacityV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'capacity': obj.capacity?.value,
     'maximumVolumeSize': obj.maximumVolumeSize?.value,
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'nodeTopology': toJson_LabelSelector(obj.nodeTopology),
     'storageClassName': obj.storageClassName,
   };
@@ -13158,18 +11152,18 @@ export function toJson_KubeCsiStorageCapacityV1Beta1Props(obj: KubeCsiStorageCap
  */
 export interface KubeCsiStorageCapacityListV1Beta1Props {
   /**
-   * Items is the list of CSIStorageCapacity objects.
-   *
-   * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacityList#items
-   */
-  readonly items: KubeCsiStorageCapacityV1Beta1Props[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacityList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of CSIStorageCapacity objects.
+   *
+   * @schema io.k8s.api.storage.v1beta1.CSIStorageCapacityList#items
+   */
+  readonly items: KubeCsiStorageCapacityV1Beta1Props[];
 
 }
 
@@ -13180,8 +11174,8 @@ export interface KubeCsiStorageCapacityListV1Beta1Props {
 export function toJson_KubeCsiStorageCapacityListV1Beta1Props(obj: KubeCsiStorageCapacityListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCsiStorageCapacityV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCsiStorageCapacityV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13232,18 +11226,18 @@ export function toJson_KubeCustomResourceDefinitionProps(obj: KubeCustomResource
  */
 export interface KubeCustomResourceDefinitionListProps {
   /**
-   * items list individual CustomResourceDefinition objects
-   *
-   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#items
-   */
-  readonly items: KubeCustomResourceDefinitionProps[];
-
-  /**
    * Standard object's metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items list individual CustomResourceDefinition objects
+   *
+   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#items
+   */
+  readonly items: KubeCustomResourceDefinitionProps[];
 
 }
 
@@ -13254,8 +11248,8 @@ export interface KubeCustomResourceDefinitionListProps {
 export function toJson_KubeCustomResourceDefinitionListProps(obj: KubeCustomResourceDefinitionListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCustomResourceDefinitionProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCustomResourceDefinitionProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13268,6 +11262,13 @@ export function toJson_KubeCustomResourceDefinitionListProps(obj: KubeCustomReso
  * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status
  */
 export interface KubeStatusProps {
+  /**
+   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+   *
+   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status#metadata
+   */
+  readonly metadata?: ListMeta;
+
   /**
    * Suggested HTTP return code for this status, 0 if not set.
    *
@@ -13290,13 +11291,6 @@ export interface KubeStatusProps {
   readonly message?: string;
 
   /**
-   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   *
-   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status#metadata
-   */
-  readonly metadata?: ListMeta;
-
-  /**
    * A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status#reason
@@ -13312,10 +11306,10 @@ export interface KubeStatusProps {
 export function toJson_KubeStatusProps(obj: KubeStatusProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
     'code': obj.code,
     'details': toJson_StatusDetails(obj.details),
     'message': obj.message,
-    'metadata': toJson_ListMeta(obj.metadata),
     'reason': obj.reason,
   };
   // filter undefined values
@@ -13367,18 +11361,18 @@ export function toJson_KubeApiServiceProps(obj: KubeApiServiceProps | undefined)
  */
 export interface KubeApiServiceListProps {
   /**
-   * Items is the list of APIService
-   *
-   * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
-   */
-  readonly items: KubeApiServiceProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of APIService
+   *
+   * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
+   */
+  readonly items: KubeApiServiceProps[];
 
 }
 
@@ -13389,8 +11383,8 @@ export interface KubeApiServiceListProps {
 export function toJson_KubeApiServiceListProps(obj: KubeApiServiceListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeApiServiceProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeApiServiceProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13409,13 +11403,6 @@ export interface ObjectMeta {
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#annotations
    */
   readonly annotations?: { [key: string]: string };
-
-  /**
-   * The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.
-   *
-   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#clusterName
-   */
-  readonly clusterName?: string;
 
   /**
    * CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC.
@@ -13452,7 +11439,7 @@ export interface ObjectMeta {
   /**
    * GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.
    *
-   * If this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).
+   * If this field is specified and the generated name exists, the server will return a 409.
    *
    * Applied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency
    *
@@ -13514,9 +11501,7 @@ export interface ObjectMeta {
   readonly resourceVersion?: string;
 
   /**
-   * SelfLink is a URL representing this object. Populated by the system. Read-only.
-   *
-   * DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.
+   * Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta#selfLink
    */
@@ -13541,7 +11526,6 @@ export function toJson_ObjectMeta(obj: ObjectMeta | undefined): Record<string, a
   if (obj === undefined) { return undefined; }
   const result = {
     'annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'clusterName': obj.clusterName,
     'creationTimestamp': obj.creationTimestamp?.toISOString(),
     'deletionGracePeriodSeconds': obj.deletionGracePeriodSeconds,
     'deletionTimestamp': obj.deletionTimestamp?.toISOString(),
@@ -13747,9 +11731,7 @@ export interface ListMeta {
   readonly resourceVersion?: string;
 
   /**
-   * selfLink is a URL representing this object. Populated by the system. Read-only.
-   *
-   * DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.
+   * Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta#selfLink
    */
@@ -14130,15 +12112,24 @@ export function toJson_ReplicaSetSpec(obj: ReplicaSetSpec | undefined): Record<s
  */
 export interface StatefulSetSpec {
   /**
-   * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+   * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
    *
-   * @default 0 (pod will be considered available as soon as it is ready) This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+   * @default 0 (pod will be considered available as soon as it is ready)
    * @schema io.k8s.api.apps.v1.StatefulSetSpec#minReadySeconds
    */
   readonly minReadySeconds?: number;
 
   /**
+   * persistentVolumeClaimRetentionPolicy describes the lifecycle of persistent volume claims created from volumeClaimTemplates. By default, all persistent volume claims are created as needed and retained until manually deleted. This policy allows the lifecycle to be altered, for example by deleting persistent volume claims when their stateful set is deleted, or when their pod is scaled down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is alpha.  +optional
+   *
+   * @schema io.k8s.api.apps.v1.StatefulSetSpec#persistentVolumeClaimRetentionPolicy
+   */
+  readonly persistentVolumeClaimRetentionPolicy?: StatefulSetPersistentVolumeClaimRetentionPolicy;
+
+  /**
    * podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is `OrderedReady`, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is `Parallel` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.
+   *
+   *
    *
    * @schema io.k8s.api.apps.v1.StatefulSetSpec#podManagementPolicy
    */
@@ -14203,6 +12194,7 @@ export function toJson_StatefulSetSpec(obj: StatefulSetSpec | undefined): Record
   if (obj === undefined) { return undefined; }
   const result = {
     'minReadySeconds': obj.minReadySeconds,
+    'persistentVolumeClaimRetentionPolicy': toJson_StatefulSetPersistentVolumeClaimRetentionPolicy(obj.persistentVolumeClaimRetentionPolicy),
     'podManagementPolicy': obj.podManagementPolicy,
     'replicas': obj.replicas,
     'revisionHistoryLimit': obj.revisionHistoryLimit,
@@ -14224,7 +12216,7 @@ export function toJson_StatefulSetSpec(obj: StatefulSetSpec | undefined): Record
  */
 export interface TokenRequestSpec {
   /**
-   * Audiences are the intendend audiences of the token. A recipient of a token must identitfy themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
+   * Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
    *
    * @schema io.k8s.api.authentication.v1.TokenRequestSpec#audiences
    */
@@ -14519,50 +12511,58 @@ export function toJson_ScaleSpec(obj: ScaleSpec | undefined): Record<string, any
 /**
  * HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerSpec
+ * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerSpec
  */
-export interface HorizontalPodAutoscalerSpecV2Beta1 {
+export interface HorizontalPodAutoscalerSpecV2 {
+  /**
+   * behavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively). If not set, the default HPAScalingRules for scale up and scale down are used.
+   *
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerSpec#behavior
+   */
+  readonly behavior?: HorizontalPodAutoscalerBehaviorV2;
+
   /**
    * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up. It cannot be less that minReplicas.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerSpec#maxReplicas
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerSpec#maxReplicas
    */
   readonly maxReplicas: number;
 
   /**
-   * metrics contains the specifications for which to use to calculate the desired replica count (the maximum replica count across all metrics will be used).  The desired replica count is calculated multiplying the ratio between the target value and the current value by the current number of pods.  Ergo, metrics used must decrease as the pod count is increased, and vice-versa.  See the individual metric source types for more information about how each type of metric must respond.
+   * metrics contains the specifications for which to use to calculate the desired replica count (the maximum replica count across all metrics will be used).  The desired replica count is calculated multiplying the ratio between the target value and the current value by the current number of pods.  Ergo, metrics used must decrease as the pod count is increased, and vice-versa.  See the individual metric source types for more information about how each type of metric must respond. If not set, the default metric will be set to 80% average CPU utilization.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerSpec#metrics
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerSpec#metrics
    */
-  readonly metrics?: MetricSpecV2Beta1[];
+  readonly metrics?: MetricSpecV2[];
 
   /**
    * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerSpec#minReplicas
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerSpec#minReplicas
    */
   readonly minReplicas?: number;
 
   /**
    * scaleTargetRef points to the target resource to scale, and is used to the pods for which metrics should be collected, as well as to actually change the replica count.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerSpec#scaleTargetRef
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerSpec#scaleTargetRef
    */
-  readonly scaleTargetRef: CrossVersionObjectReferenceV2Beta1;
+  readonly scaleTargetRef: CrossVersionObjectReferenceV2;
 
 }
 
 /**
- * Converts an object of type 'HorizontalPodAutoscalerSpecV2Beta1' to JSON representation.
+ * Converts an object of type 'HorizontalPodAutoscalerSpecV2' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_HorizontalPodAutoscalerSpecV2Beta1(obj: HorizontalPodAutoscalerSpecV2Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_HorizontalPodAutoscalerSpecV2(obj: HorizontalPodAutoscalerSpecV2 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'behavior': toJson_HorizontalPodAutoscalerBehaviorV2(obj.behavior),
     'maxReplicas': obj.maxReplicas,
-    'metrics': obj.metrics?.map(y => toJson_MetricSpecV2Beta1(y)),
+    'metrics': obj.metrics?.map(y => toJson_MetricSpecV2(y)),
     'minReplicas': obj.minReplicas,
-    'scaleTargetRef': toJson_CrossVersionObjectReferenceV2Beta1(obj.scaleTargetRef),
+    'scaleTargetRef': toJson_CrossVersionObjectReferenceV2(obj.scaleTargetRef),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14639,6 +12639,8 @@ export interface CronJobSpec {
   /**
    * Specifies how to treat concurrent executions of a Job. Valid values are: - "Allow" (default): allows CronJobs to run concurrently; - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - "Replace": cancels currently running job and replaces it with a new one
    *
+   *
+   *
    * @schema io.k8s.api.batch.v1.CronJobSpec#concurrencyPolicy
    */
   readonly concurrencyPolicy?: string;
@@ -14688,6 +12690,13 @@ export interface CronJobSpec {
    */
   readonly suspend?: boolean;
 
+  /**
+   * The time zone name for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will default to the time zone of the kube-controller-manager process. The set of valid time zone names and the time zone offset is loaded from the system-wide time zone database by the API server during CronJob validation and the controller manager during execution. If no system-wide time zone database can be found a bundled version of the database is used instead. If the time zone name becomes invalid during the lifetime of a CronJob or due to a change in host configuration, the controller will stop creating new new Jobs and will create a system event with the reason UnknownTimeZone. More information can be found in https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones This is beta field and must be enabled via the `CronJobTimeZone` feature gate.
+   *
+   * @schema io.k8s.api.batch.v1.CronJobSpec#timeZone
+   */
+  readonly timeZone?: string;
+
 }
 
 /**
@@ -14704,6 +12713,7 @@ export function toJson_CronJobSpec(obj: CronJobSpec | undefined): Record<string,
     'startingDeadlineSeconds': obj.startingDeadlineSeconds,
     'successfulJobsHistoryLimit': obj.successfulJobsHistoryLimit,
     'suspend': obj.suspend,
+    'timeZone': obj.timeZone,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14738,7 +12748,7 @@ export interface JobSpec {
    *
    * `Indexed` means that the Pods of a Job get an associated completion index from 0 to (.spec.completions - 1), available in the annotation batch.kubernetes.io/job-completion-index. The Job is considered complete when there is one successfully completed Pod for each index. When value is `Indexed`, .spec.completions must be specified and `.spec.parallelism` must be less than or equal to 10^5. In addition, The Pod name takes the form `$(job-name)-$(index)-$(random-string)`, the Pod hostname takes the form `$(job-name)-$(index)`.
    *
-   * This field is beta-level. More completion modes can be added in the future. If the Job controller observes a mode that it doesn't recognize, the controller skips updates for the Job.
+   * More completion modes can be added in the future. If the Job controller observes a mode that it doesn't recognize, which is possible during upgrades due to version skew, the controller skips updates for the Job.
    *
    * @schema io.k8s.api.batch.v1.JobSpec#completionMode
    */
@@ -14766,6 +12776,15 @@ export interface JobSpec {
   readonly parallelism?: number;
 
   /**
+   * Specifies the policy of handling failed pods. In particular, it allows to specify the set of actions and conditions which need to be satisfied to take the associated action. If empty, the default behaviour applies - the counter of failed pods, represented by the jobs's .status.failed field, is incremented and it is checked against the backoffLimit. This field cannot be used in combination with restartPolicy=OnFailure.
+   *
+   * This field is alpha-level. To use this field, you must enable the `JobPodFailurePolicy` feature gate (disabled by default).
+   *
+   * @schema io.k8s.api.batch.v1.JobSpec#podFailurePolicy
+   */
+  readonly podFailurePolicy?: PodFailurePolicy;
+
+  /**
    * A label query over pods that should match the pod count. Normally, the system sets this field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
    *
    * @schema io.k8s.api.batch.v1.JobSpec#selector
@@ -14774,8 +12793,6 @@ export interface JobSpec {
 
   /**
    * Suspend specifies whether the Job controller should create Pods or not. If a Job is created with suspend set to true, no Pods are created by the Job controller. If a Job is suspended after creation (i.e. the flag goes from false to true), the Job controller will delete all active Pods associated with this Job. Users must design their workload to gracefully handle this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the ActiveDeadlineSeconds timer too. Defaults to false.
-   *
-   * This field is beta-level, gated by SuspendJob feature flag (enabled by default).
    *
    * @default false.
    * @schema io.k8s.api.batch.v1.JobSpec#suspend
@@ -14790,7 +12807,7 @@ export interface JobSpec {
   readonly template: PodTemplateSpec;
 
   /**
-   * ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes. This field is alpha-level and is only honored by servers that enable the TTLAfterFinished feature.
+   * ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes.
    *
    * @schema io.k8s.api.batch.v1.JobSpec#ttlSecondsAfterFinished
    */
@@ -14811,90 +12828,11 @@ export function toJson_JobSpec(obj: JobSpec | undefined): Record<string, any> | 
     'completions': obj.completions,
     'manualSelector': obj.manualSelector,
     'parallelism': obj.parallelism,
+    'podFailurePolicy': toJson_PodFailurePolicy(obj.podFailurePolicy),
     'selector': toJson_LabelSelector(obj.selector),
     'suspend': obj.suspend,
     'template': toJson_PodTemplateSpec(obj.template),
     'ttlSecondsAfterFinished': obj.ttlSecondsAfterFinished,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * CronJobSpec describes how the job execution will look like and when it will actually run.
- *
- * @schema io.k8s.api.batch.v1beta1.CronJobSpec
- */
-export interface CronJobSpecV1Beta1 {
-  /**
-   * Specifies how to treat concurrent executions of a Job. Valid values are: - "Allow" (default): allows CronJobs to run concurrently; - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - "Replace": cancels currently running job and replaces it with a new one
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJobSpec#concurrencyPolicy
-   */
-  readonly concurrencyPolicy?: string;
-
-  /**
-   * The number of failed finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
-   *
-   * @default 1.
-   * @schema io.k8s.api.batch.v1beta1.CronJobSpec#failedJobsHistoryLimit
-   */
-  readonly failedJobsHistoryLimit?: number;
-
-  /**
-   * Specifies the job that will be created when executing a CronJob.
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJobSpec#jobTemplate
-   */
-  readonly jobTemplate: JobTemplateSpecV1Beta1;
-
-  /**
-   * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJobSpec#schedule
-   */
-  readonly schedule: string;
-
-  /**
-   * Optional deadline in seconds for starting the job if it misses scheduled time for any reason.  Missed jobs executions will be counted as failed ones.
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJobSpec#startingDeadlineSeconds
-   */
-  readonly startingDeadlineSeconds?: number;
-
-  /**
-   * The number of successful finished jobs to retain. This is a pointer to distinguish between explicit zero and not specified. Defaults to 3.
-   *
-   * @default 3.
-   * @schema io.k8s.api.batch.v1beta1.CronJobSpec#successfulJobsHistoryLimit
-   */
-  readonly successfulJobsHistoryLimit?: number;
-
-  /**
-   * This flag tells the controller to suspend subsequent executions, it does not apply to already started executions.  Defaults to false.
-   *
-   * @default false.
-   * @schema io.k8s.api.batch.v1beta1.CronJobSpec#suspend
-   */
-  readonly suspend?: boolean;
-
-}
-
-/**
- * Converts an object of type 'CronJobSpecV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_CronJobSpecV1Beta1(obj: CronJobSpecV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'concurrencyPolicy': obj.concurrencyPolicy,
-    'failedJobsHistoryLimit': obj.failedJobsHistoryLimit,
-    'jobTemplate': toJson_JobTemplateSpecV1Beta1(obj.jobTemplate),
-    'schedule': obj.schedule,
-    'startingDeadlineSeconds': obj.startingDeadlineSeconds,
-    'successfulJobsHistoryLimit': obj.successfulJobsHistoryLimit,
-    'suspend': obj.suspend,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14920,8 +12858,6 @@ export interface CertificateSigningRequestSpec {
    * 3. Signer whose configured minimum is longer than the requested duration
    *
    * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
-   *
-   * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
    *
    * @schema io.k8s.api.certificates.v1.CertificateSigningRequestSpec#expirationSeconds
    */
@@ -15225,11 +13161,14 @@ export function toJson_ComponentCondition(obj: ComponentCondition | undefined): 
 
 /**
  * EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:
+ *
  * {
  * Addresses: [{"ip": "10.10.1.1"}, {"ip": "10.10.2.2"}],
  * Ports:     [{"name": "a", "port": 8675}, {"name": "b", "port": 309}]
  * }
+ *
  * The resulting set of endpoints can be viewed as:
+ *
  * a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],
  * b: [ 10.10.1.1:309, 10.10.2.2:309 ]
  *
@@ -15414,7 +13353,7 @@ export function toJson_NamespaceSpec(obj: NamespaceSpec | undefined): Record<str
  */
 export interface NodeSpec {
   /**
-   * Deprecated. If specified, the source of the node's configuration. The DynamicKubeletConfig feature gate must be enabled for the Kubelet to use this field. This field is deprecated as of 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration
+   * Deprecated: Previously used to specify the source of the node's configuration for the DynamicKubeletConfig feature. This feature is removed from Kubelets as of 1.24 and will be fully removed in 1.26.
    *
    * @schema io.k8s.api.core.v1.NodeSpec#configSource
    */
@@ -15491,196 +13430,198 @@ export function toJson_NodeSpec(obj: NodeSpec | undefined): Record<string, any> 
  */
 export interface PersistentVolumeSpec {
   /**
-   * AccessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
+   * accessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#accessModes
    */
   readonly accessModes?: string[];
 
   /**
-   * AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+   * awsElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#awsElasticBlockStore
    */
   readonly awsElasticBlockStore?: AwsElasticBlockStoreVolumeSource;
 
   /**
-   * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
+   * azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#azureDisk
    */
   readonly azureDisk?: AzureDiskVolumeSource;
 
   /**
-   * AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
+   * azureFile represents an Azure File Service mount on the host and bind mount to the pod.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#azureFile
    */
   readonly azureFile?: AzureFilePersistentVolumeSource;
 
   /**
-   * A description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
+   * capacity is the description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#capacity
    */
   readonly capacity?: { [key: string]: Quantity };
 
   /**
-   * CephFS represents a Ceph FS mount on the host that shares a pod's lifetime
+   * cephFS represents a Ceph FS mount on the host that shares a pod's lifetime
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#cephfs
    */
   readonly cephfs?: CephFsPersistentVolumeSource;
 
   /**
-   * Cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#cinder
    */
   readonly cinder?: CinderPersistentVolumeSource;
 
   /**
-   * ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#binding
+   * claimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#binding
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#claimRef
    */
   readonly claimRef?: ObjectReference;
 
   /**
-   * CSI represents storage that is handled by an external CSI driver (Beta feature).
+   * csi represents storage that is handled by an external CSI driver (Beta feature).
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#csi
    */
   readonly csi?: CsiPersistentVolumeSource;
 
   /**
-   * FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
+   * fc represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#fc
    */
   readonly fc?: FcVolumeSource;
 
   /**
-   * FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
+   * flexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#flexVolume
    */
   readonly flexVolume?: FlexPersistentVolumeSource;
 
   /**
-   * Flocker represents a Flocker volume attached to a kubelet's host machine and exposed to the pod for its usage. This depends on the Flocker control service being running
+   * flocker represents a Flocker volume attached to a kubelet's host machine and exposed to the pod for its usage. This depends on the Flocker control service being running
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#flocker
    */
   readonly flocker?: FlockerVolumeSource;
 
   /**
-   * GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+   * gcePersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#gcePersistentDisk
    */
   readonly gcePersistentDisk?: GcePersistentDiskVolumeSource;
 
   /**
-   * Glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: https://examples.k8s.io/volumes/glusterfs/README.md
+   * glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: https://examples.k8s.io/volumes/glusterfs/README.md
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#glusterfs
    */
   readonly glusterfs?: GlusterfsPersistentVolumeSource;
 
   /**
-   * HostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+   * hostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#hostPath
    */
   readonly hostPath?: HostPathVolumeSource;
 
   /**
-   * ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin.
+   * iscsi represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#iscsi
    */
   readonly iscsi?: IscsiPersistentVolumeSource;
 
   /**
-   * Local represents directly-attached storage with node affinity
+   * local represents directly-attached storage with node affinity
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#local
    */
   readonly local?: LocalVolumeSource;
 
   /**
-   * A list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options
+   * mountOptions is the list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#mountOptions
    */
   readonly mountOptions?: string[];
 
   /**
-   * NFS represents an NFS mount on the host. Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+   * nfs represents an NFS mount on the host. Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#nfs
    */
   readonly nfs?: NfsVolumeSource;
 
   /**
-   * NodeAffinity defines constraints that limit what nodes this volume can be accessed from. This field influences the scheduling of pods that use this volume.
+   * nodeAffinity defines constraints that limit what nodes this volume can be accessed from. This field influences the scheduling of pods that use this volume.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#nodeAffinity
    */
   readonly nodeAffinity?: VolumeNodeAffinity;
 
   /**
-   * What happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming
+   * persistentVolumeReclaimPolicy defines what happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming
+   *
+   *
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#persistentVolumeReclaimPolicy
    */
   readonly persistentVolumeReclaimPolicy?: string;
 
   /**
-   * PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
+   * photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#photonPersistentDisk
    */
   readonly photonPersistentDisk?: PhotonPersistentDiskVolumeSource;
 
   /**
-   * PortworxVolume represents a portworx volume attached and mounted on kubelets host machine
+   * portworxVolume represents a portworx volume attached and mounted on kubelets host machine
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#portworxVolume
    */
   readonly portworxVolume?: PortworxVolumeSource;
 
   /**
-   * Quobyte represents a Quobyte mount on the host that shares a pod's lifetime
+   * quobyte represents a Quobyte mount on the host that shares a pod's lifetime
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#quobyte
    */
   readonly quobyte?: QuobyteVolumeSource;
 
   /**
-   * RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md
+   * rbd represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#rbd
    */
   readonly rbd?: RbdPersistentVolumeSource;
 
   /**
-   * ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
+   * scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#scaleIO
    */
   readonly scaleIo?: ScaleIoPersistentVolumeSource;
 
   /**
-   * Name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.
+   * storageClassName is the name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#storageClassName
    */
   readonly storageClassName?: string;
 
   /**
-   * StorageOS represents a StorageOS volume that is attached to the kubelet's host machine and mounted into the pod More info: https://examples.k8s.io/volumes/storageos/README.md
+   * storageOS represents a StorageOS volume that is attached to the kubelet's host machine and mounted into the pod More info: https://examples.k8s.io/volumes/storageos/README.md
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#storageos
    */
@@ -15694,7 +13635,7 @@ export interface PersistentVolumeSpec {
   readonly volumeMode?: string;
 
   /**
-   * VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+   * vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeSpec#vsphereVolume
    */
@@ -15752,47 +13693,47 @@ export function toJson_PersistentVolumeSpec(obj: PersistentVolumeSpec | undefine
  */
 export interface PersistentVolumeClaimSpec {
   /**
-   * AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+   * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimSpec#accessModes
    */
   readonly accessModes?: string[];
 
   /**
-   * This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+   * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimSpec#dataSource
    */
   readonly dataSource?: TypedLocalObjectReference;
 
   /**
-   * Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef
+   * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef
    * allows any non-core object, as well as PersistentVolumeClaim objects.
    * * While DataSource ignores disallowed values (dropping them), DataSourceRef
    * preserves all values, and generates an error if a disallowed value is
    * specified.
-   * (Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+   * (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimSpec#dataSourceRef
    */
   readonly dataSourceRef?: TypedLocalObjectReference;
 
   /**
-   * Resources represents the minimum resources the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+   * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimSpec#resources
    */
   readonly resources?: ResourceRequirements;
 
   /**
-   * A label query over volumes to consider for binding.
+   * selector is a label query over volumes to consider for binding.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimSpec#selector
    */
   readonly selector?: LabelSelector;
 
   /**
-   * Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+   * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimSpec#storageClassName
    */
@@ -15806,7 +13747,7 @@ export interface PersistentVolumeClaimSpec {
   readonly volumeMode?: string;
 
   /**
-   * VolumeName is the binding reference to the PersistentVolume backing this claim.
+   * volumeName is the binding reference to the PersistentVolume backing this claim.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimSpec#volumeName
    */
@@ -15879,6 +13820,8 @@ export interface PodSpec {
   /**
    * Set DNS policy for the pod. Defaults to "ClusterFirst". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
    *
+   *
+   *
    * @default ClusterFirst". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
    * @schema io.k8s.api.core.v1.PodSpec#dnsPolicy
    */
@@ -15893,7 +13836,7 @@ export interface PodSpec {
   readonly enableServiceLinks?: boolean;
 
   /**
-   * List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource. This field is alpha-level and is only honored by servers that enable the EphemeralContainers feature.
+   * List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource.
    *
    * @schema io.k8s.api.core.v1.PodSpec#ephemeralContainers
    */
@@ -15931,6 +13874,14 @@ export interface PodSpec {
   readonly hostPid?: boolean;
 
   /**
+   * Use the host's user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. This field is alpha-level and is only honored by servers that enable the UserNamespacesSupport feature.
+   *
+   * @default true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. This field is alpha-level and is only honored by servers that enable the UserNamespacesSupport feature.
+   * @schema io.k8s.api.core.v1.PodSpec#hostUsers
+   */
+  readonly hostUsers?: boolean;
+
+  /**
    * Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
    *
    * @schema io.k8s.api.core.v1.PodSpec#hostname
@@ -15938,7 +13889,7 @@ export interface PodSpec {
   readonly hostname?: string;
 
   /**
-   * ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
+   * ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
    *
    * @schema io.k8s.api.core.v1.PodSpec#imagePullSecrets
    */
@@ -15966,16 +13917,27 @@ export interface PodSpec {
   readonly nodeSelector?: { [key: string]: string };
 
   /**
-   * Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md This field is beta-level as of Kubernetes v1.18, and is only honored by servers that enable the PodOverhead feature.
+   * Specifies the OS of the containers in the pod. Some pod and container fields are restricted if this is set.
+   *
+   * If the OS field is set to linux, the following fields must be unset: -securityContext.windowsOptions
+   *
+   * If the OS field is set to windows, following fields must be unset: - spec.hostPID - spec.hostIPC - spec.hostUsers - spec.securityContext.seLinuxOptions - spec.securityContext.seccompProfile - spec.securityContext.fsGroup - spec.securityContext.fsGroupChangePolicy - spec.securityContext.sysctls - spec.shareProcessNamespace - spec.securityContext.runAsUser - spec.securityContext.runAsGroup - spec.securityContext.supplementalGroups - spec.containers[*].securityContext.seLinuxOptions - spec.containers[*].securityContext.seccompProfile - spec.containers[*].securityContext.capabilities - spec.containers[*].securityContext.readOnlyRootFilesystem - spec.containers[*].securityContext.privileged - spec.containers[*].securityContext.allowPrivilegeEscalation - spec.containers[*].securityContext.procMount - spec.containers[*].securityContext.runAsUser - spec.containers[*].securityContext.runAsGroup
+   *
+   * @schema io.k8s.api.core.v1.PodSpec#os
+   */
+  readonly os?: PodOs;
+
+  /**
+   * Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md
    *
    * @schema io.k8s.api.core.v1.PodSpec#overhead
    */
   readonly overhead?: { [key: string]: Quantity };
 
   /**
-   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
    *
-   * @default PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+   * @default PreemptLowerPriority if unset.
    * @schema io.k8s.api.core.v1.PodSpec#preemptionPolicy
    */
   readonly preemptionPolicy?: string;
@@ -16004,13 +13966,15 @@ export interface PodSpec {
   /**
    * Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
    *
+   *
+   *
    * @default Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
    * @schema io.k8s.api.core.v1.PodSpec#restartPolicy
    */
   readonly restartPolicy?: string;
 
   /**
-   * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the "legacy" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class This is a beta feature as of Kubernetes v1.14.
+   * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the "legacy" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
    *
    * @schema io.k8s.api.core.v1.PodSpec#runtimeClassName
    */
@@ -16118,11 +14082,13 @@ export function toJson_PodSpec(obj: PodSpec | undefined): Record<string, any> | 
     'hostIPC': obj.hostIpc,
     'hostNetwork': obj.hostNetwork,
     'hostPID': obj.hostPid,
+    'hostUsers': obj.hostUsers,
     'hostname': obj.hostname,
     'imagePullSecrets': obj.imagePullSecrets?.map(y => toJson_LocalObjectReference(y)),
     'initContainers': obj.initContainers?.map(y => toJson_Container(y)),
     'nodeName': obj.nodeName,
     'nodeSelector': ((obj.nodeSelector) === undefined) ? undefined : (Object.entries(obj.nodeSelector).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'os': toJson_PodOs(obj.os),
     'overhead': ((obj.overhead) === undefined) ? undefined : (Object.entries(obj.overhead).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.value }), {})),
     'preemptionPolicy': obj.preemptionPolicy,
     'priority': obj.priority,
@@ -16291,9 +14257,9 @@ export function toJson_ResourceQuotaSpec(obj: ResourceQuotaSpec | undefined): Re
  */
 export interface ServiceSpec {
   /**
-   * allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services with type LoadBalancer.  Default is "true". It may be set to "false" if the cluster load-balancer does not rely on NodePorts.  If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type. This field is beta-level and is only honored by servers that enable the ServiceLBNodePortControl feature.
+   * allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services with type LoadBalancer.  Default is "true". It may be set to "false" if the cluster load-balancer does not rely on NodePorts.  If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type.
    *
-   * @default true". It may be set to "false" if the cluster load-balancer does not rely on NodePorts.  If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type. This field is beta-level and is only honored by servers that enable the ServiceLBNodePortControl feature.
+   * @default true". It may be set to "false" if the cluster load-balancer does not rely on NodePorts.  If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type.
    * @schema io.k8s.api.core.v1.ServiceSpec#allocateLoadBalancerNodePorts
    */
   readonly allocateLoadBalancerNodePorts?: boolean;
@@ -16308,7 +14274,7 @@ export interface ServiceSpec {
   /**
    * ClusterIPs is a list of IP addresses assigned to this service, and are usually assigned randomly.  If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail. This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be empty) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).  Valid values are "None", empty string (""), or a valid IP address.  Setting this to "None" makes a "headless service" (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.  Only applies to types ClusterIP, NodePort, and LoadBalancer. If this field is specified when creating a Service of type ExternalName, creation will fail. This field will be wiped when updating a Service to type ExternalName.  If this field is not specified, it will be initialized from the clusterIP field.  If this field is specified, clients must ensure that clusterIPs[0] and clusterIP have the same value.
    *
-   * Unless the "IPv6DualStack" feature gate is enabled, this field is limited to one value, which must be the same as the clusterIP field.  If the feature gate is enabled, this field may hold a maximum of two entries (dual-stack IPs, in either order).  These IPs must correspond to the values of the ipFamilies field. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+   * This field may hold a maximum of two entries (dual-stack IPs, in either order). These IPs must correspond to the values of the ipFamilies field. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
    *
    * @schema io.k8s.api.core.v1.ServiceSpec#clusterIPs
    */
@@ -16329,28 +14295,30 @@ export interface ServiceSpec {
   readonly externalName?: string;
 
   /**
-   * externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints. "Local" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. "Cluster" obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading.
+   * externalTrafficPolicy describes how nodes distribute service traffic they receive on one of the Service's "externally-facing" addresses (NodePorts, ExternalIPs, and LoadBalancer IPs). If set to "Local", the proxy will configure the service in a way that assumes that external load balancers will take care of balancing the service traffic between nodes, and so each node will deliver traffic only to the node-local endpoints of the service, without masquerading the client source IP. (Traffic mistakenly sent to a node with no endpoints will be dropped.) The default value, "Cluster", uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features). Note that traffic sent to an External IP or LoadBalancer IP from within the cluster will always get "Cluster" semantics, but clients sending to a NodePort from within the cluster may need to take traffic policy into account when picking a node.
+   *
+   *
    *
    * @schema io.k8s.api.core.v1.ServiceSpec#externalTrafficPolicy
    */
   readonly externalTrafficPolicy?: string;
 
   /**
-   * healthCheckNodePort specifies the healthcheck nodePort for the service. This only applies when type is set to LoadBalancer and externalTrafficPolicy is set to Local. If a value is specified, is in-range, and is not in use, it will be used.  If not specified, a value will be automatically allocated.  External systems (e.g. load-balancers) can use this port to determine if a given node holds endpoints for this service or not.  If this field is specified when creating a Service which does not need it, creation will fail. This field will be wiped when updating a Service to no longer need it (e.g. changing type).
+   * healthCheckNodePort specifies the healthcheck nodePort for the service. This only applies when type is set to LoadBalancer and externalTrafficPolicy is set to Local. If a value is specified, is in-range, and is not in use, it will be used.  If not specified, a value will be automatically allocated.  External systems (e.g. load-balancers) can use this port to determine if a given node holds endpoints for this service or not.  If this field is specified when creating a Service which does not need it, creation will fail. This field will be wiped when updating a Service to no longer need it (e.g. changing type). This field cannot be updated once set.
    *
    * @schema io.k8s.api.core.v1.ServiceSpec#healthCheckNodePort
    */
   readonly healthCheckNodePort?: number;
 
   /**
-   * InternalTrafficPolicy specifies if the cluster internal traffic should be routed to all endpoints or node-local endpoints only. "Cluster" routes internal traffic to a Service to all endpoints. "Local" routes traffic to node-local endpoints only, traffic is dropped if no node-local endpoints are ready. The default value is "Cluster".
+   * InternalTrafficPolicy describes how nodes distribute service traffic they receive on the ClusterIP. If set to "Local", the proxy will assume that pods only want to talk to endpoints of the service on the same node as the pod, dropping the traffic if there are no local endpoints. The default value, "Cluster", uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features).
    *
    * @schema io.k8s.api.core.v1.ServiceSpec#internalTrafficPolicy
    */
   readonly internalTrafficPolicy?: string;
 
   /**
-   * IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service, and is gated by the "IPv6DualStack" feature gate.  This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail.  This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service.  Valid values are "IPv4" and "IPv6".  This field only applies to Services of types ClusterIP, NodePort, and LoadBalancer, and does apply to "headless" services.  This field will be wiped when updating a Service to type ExternalName.
+   * IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service. This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail. This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service. Valid values are "IPv4" and "IPv6".  This field only applies to Services of types ClusterIP, NodePort, and LoadBalancer, and does apply to "headless" services. This field will be wiped when updating a Service to type ExternalName.
    *
    * This field may hold a maximum of two entries (dual-stack families, in either order).  These families must correspond to the values of the clusterIPs field, if specified. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.
    *
@@ -16359,7 +14327,7 @@ export interface ServiceSpec {
   readonly ipFamilies?: string[];
 
   /**
-   * IPFamilyPolicy represents the dual-stack-ness requested or required by this Service, and is gated by the "IPv6DualStack" feature gate.  If there is no value provided, then this field will be set to SingleStack. Services can be "SingleStack" (a single IP family), "PreferDualStack" (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or "RequireDualStack" (two IP families on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend on the value of this field.  This field will be wiped when updating a service to type ExternalName.
+   * IPFamilyPolicy represents the dual-stack-ness requested or required by this Service. If there is no value provided, then this field will be set to SingleStack. Services can be "SingleStack" (a single IP family), "PreferDualStack" (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or "RequireDualStack" (two IP families on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend on the value of this field. This field will be wiped when updating a service to type ExternalName.
    *
    * @schema io.k8s.api.core.v1.ServiceSpec#ipFamilyPolicy
    */
@@ -16373,7 +14341,7 @@ export interface ServiceSpec {
   readonly loadBalancerClass?: string;
 
   /**
-   * Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
+   * Only applies to Service Type: LoadBalancer. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature. Deprecated: This field was under-specified and its meaning varies across implementations, and it cannot support dual-stack. As of Kubernetes v1.24, users are encouraged to use implementation-specific annotations when available. This field may be removed in a future API version.
    *
    * @schema io.k8s.api.core.v1.ServiceSpec#loadBalancerIP
    */
@@ -16410,6 +14378,8 @@ export interface ServiceSpec {
   /**
    * Supports "ClientIP" and "None". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
    *
+   *
+   *
    * @default None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
    * @schema io.k8s.api.core.v1.ServiceSpec#sessionAffinity
    */
@@ -16424,6 +14394,8 @@ export interface ServiceSpec {
 
   /**
    * type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object or EndpointSlice objects. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a virtual IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the same endpoints as the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the same endpoints as the clusterIP. "ExternalName" aliases this service to the specified externalName. Several other fields do not apply to ExternalName services. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+   *
+   *
    *
    * @default ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object or EndpointSlice objects. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a virtual IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the same endpoints as the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the same endpoints as the clusterIP. "ExternalName" aliases this service to the specified externalName. Several other fields do not apply to ExternalName services. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
    * @schema io.k8s.api.core.v1.ServiceSpec#type
@@ -16500,7 +14472,7 @@ export function toJson_LocalObjectReference(obj: LocalObjectReference | undefine
  */
 export interface Endpoint {
   /**
-   * addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100.
+   * addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100. These are all assumed to be fungible and clients may choose to only use the first element. Refer to: https://issue.k8s.io/106267
    *
    * @schema io.k8s.api.discovery.v1.Endpoint#addresses
    */
@@ -16535,7 +14507,7 @@ export interface Endpoint {
   readonly hostname?: string;
 
   /**
-   * nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node. This field can be enabled with the EndpointSliceNodeName feature gate.
+   * nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node.
    *
    * @schema io.k8s.api.discovery.v1.Endpoint#nodeName
    */
@@ -16585,7 +14557,7 @@ export function toJson_Endpoint(obj: Endpoint | undefined): Record<string, any> 
  */
 export interface EndpointPort {
   /**
-   * The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.
+   * The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.
    *
    * @schema io.k8s.api.core.v1.EndpointPort#appProtocol
    */
@@ -16608,6 +14580,8 @@ export interface EndpointPort {
   /**
    * The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.
    *
+   *
+   *
    * @default TCP.
    * @schema io.k8s.api.core.v1.EndpointPort#protocol
    */
@@ -16626,182 +14600,6 @@ export function toJson_EndpointPort(obj: EndpointPort | undefined): Record<strin
     'name': obj.name,
     'port': obj.port,
     'protocol': obj.protocol,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * Endpoint represents a single logical "backend" implementing a service.
- *
- * @schema io.k8s.api.discovery.v1beta1.Endpoint
- */
-export interface EndpointV1Beta1 {
-  /**
-   * addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.Endpoint#addresses
-   */
-  readonly addresses: string[];
-
-  /**
-   * conditions contains information about the current status of the endpoint.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.Endpoint#conditions
-   */
-  readonly conditions?: EndpointConditionsV1Beta1;
-
-  /**
-   * hints contains information associated with how an endpoint should be consumed.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.Endpoint#hints
-   */
-  readonly hints?: EndpointHintsV1Beta1;
-
-  /**
-   * hostname of this endpoint. This field may be used by consumers of endpoints to distinguish endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname should be considered fungible (e.g. multiple A values in DNS). Must be lowercase and pass DNS Label (RFC 1123) validation.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.Endpoint#hostname
-   */
-  readonly hostname?: string;
-
-  /**
-   * nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node. This field can be enabled with the EndpointSliceNodeName feature gate.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.Endpoint#nodeName
-   */
-  readonly nodeName?: string;
-
-  /**
-   * targetRef is a reference to a Kubernetes object that represents this endpoint.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.Endpoint#targetRef
-   */
-  readonly targetRef?: ObjectReference;
-
-  /**
-   * topology contains arbitrary topology information associated with the endpoint. These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node
-   * where the endpoint is located. This should match the corresponding
-   * node label.
-   * * topology.kubernetes.io/zone: the value indicates the zone where the
-   * endpoint is located. This should match the corresponding node label.
-   * * topology.kubernetes.io/region: the value indicates the region where the
-   * endpoint is located. This should match the corresponding node label.
-   * This field is deprecated and will be removed in future api versions.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.Endpoint#topology
-   */
-  readonly topology?: { [key: string]: string };
-
-}
-
-/**
- * Converts an object of type 'EndpointV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_EndpointV1Beta1(obj: EndpointV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'addresses': obj.addresses?.map(y => y),
-    'conditions': toJson_EndpointConditionsV1Beta1(obj.conditions),
-    'hints': toJson_EndpointHintsV1Beta1(obj.hints),
-    'hostname': obj.hostname,
-    'nodeName': obj.nodeName,
-    'targetRef': toJson_ObjectReference(obj.targetRef),
-    'topology': ((obj.topology) === undefined) ? undefined : (Object.entries(obj.topology).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * EndpointPort represents a Port used by an EndpointSlice
- *
- * @schema io.k8s.api.discovery.v1beta1.EndpointPort
- */
-export interface EndpointPortV1Beta1 {
-  /**
-   * The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointPort#appProtocol
-   */
-  readonly appProtocol?: string;
-
-  /**
-   * The name of this port. All ports in an EndpointSlice must have a unique name. If the EndpointSlice is dervied from a Kubernetes service, this corresponds to the Service.ports[].name. Name must either be an empty string or pass DNS_LABEL validation: * must be no more than 63 characters long. * must consist of lower case alphanumeric characters or '-'. * must start and end with an alphanumeric character. Default is empty string.
-   *
-   * @default empty string.
-   * @schema io.k8s.api.discovery.v1beta1.EndpointPort#name
-   */
-  readonly name?: string;
-
-  /**
-   * The port number of the endpoint. If this is not specified, ports are not restricted and must be interpreted in the context of the specific consumer.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointPort#port
-   */
-  readonly port?: number;
-
-  /**
-   * The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.
-   *
-   * @default TCP.
-   * @schema io.k8s.api.discovery.v1beta1.EndpointPort#protocol
-   */
-  readonly protocol?: string;
-
-}
-
-/**
- * Converts an object of type 'EndpointPortV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_EndpointPortV1Beta1(obj: EndpointPortV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'appProtocol': obj.appProtocol,
-    'name': obj.name,
-    'port': obj.port,
-    'protocol': obj.protocol,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
- *
- * @schema io.k8s.api.events.v1beta1.EventSeries
- */
-export interface EventSeriesV1Beta1 {
-  /**
-   * count is the number of occurrences in this series up to the last heartbeat time.
-   *
-   * @schema io.k8s.api.events.v1beta1.EventSeries#count
-   */
-  readonly count: number;
-
-  /**
-   * lastObservedTime is the time when last Event from the series was seen before last heartbeat.
-   *
-   * @schema io.k8s.api.events.v1beta1.EventSeries#lastObservedTime
-   */
-  readonly lastObservedTime: Date;
-
-}
-
-/**
- * Converts an object of type 'EventSeriesV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_EventSeriesV1Beta1(obj: EventSeriesV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'count': obj.count,
-    'lastObservedTime': obj.lastObservedTime?.toISOString(),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16899,6 +14697,96 @@ export function toJson_PriorityLevelConfigurationSpecV1Beta1(obj: PriorityLevelC
 /* eslint-enable max-len, quote-props */
 
 /**
+ * FlowSchemaSpec describes how the FlowSchema's specification looks like.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaSpec
+ */
+export interface FlowSchemaSpecV1Beta2 {
+  /**
+   * `distinguisherMethod` defines how to compute the flow distinguisher for requests that match this schema. `nil` specifies that the distinguisher is disabled and thus will always be the empty string.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaSpec#distinguisherMethod
+   */
+  readonly distinguisherMethod?: FlowDistinguisherMethodV1Beta2;
+
+  /**
+   * `matchingPrecedence` is used to choose among the FlowSchemas that match a given request. The chosen FlowSchema is among those with the numerically lowest (which we take to be logically highest) MatchingPrecedence.  Each MatchingPrecedence value must be ranged in [1,10000]. Note that if the precedence is not specified, it will be set to 1000 as default.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaSpec#matchingPrecedence
+   */
+  readonly matchingPrecedence?: number;
+
+  /**
+   * `priorityLevelConfiguration` should reference a PriorityLevelConfiguration in the cluster. If the reference cannot be resolved, the FlowSchema will be ignored and marked as invalid in its status. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaSpec#priorityLevelConfiguration
+   */
+  readonly priorityLevelConfiguration: PriorityLevelConfigurationReferenceV1Beta2;
+
+  /**
+   * `rules` describes which requests will match this flow schema. This FlowSchema matches a request if and only if at least one member of rules matches the request. if it is an empty slice, there will be no requests matching the FlowSchema.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowSchemaSpec#rules
+   */
+  readonly rules?: PolicyRulesWithSubjectsV1Beta2[];
+
+}
+
+/**
+ * Converts an object of type 'FlowSchemaSpecV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FlowSchemaSpecV1Beta2(obj: FlowSchemaSpecV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distinguisherMethod': toJson_FlowDistinguisherMethodV1Beta2(obj.distinguisherMethod),
+    'matchingPrecedence': obj.matchingPrecedence,
+    'priorityLevelConfiguration': toJson_PriorityLevelConfigurationReferenceV1Beta2(obj.priorityLevelConfiguration),
+    'rules': obj.rules?.map(y => toJson_PolicyRulesWithSubjectsV1Beta2(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * PriorityLevelConfigurationSpec specifies the configuration of a priority level.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationSpec
+ */
+export interface PriorityLevelConfigurationSpecV1Beta2 {
+  /**
+   * `limited` specifies how requests are handled for a Limited priority level. This field must be non-empty if and only if `type` is `"Limited"`.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationSpec#limited
+   */
+  readonly limited?: LimitedPriorityLevelConfigurationV1Beta2;
+
+  /**
+   * `type` indicates whether this priority level is subject to limitation on request execution.  A value of `"Exempt"` means that requests of this priority level are not subject to a limit (and thus are never queued) and do not detract from the capacity made available to other priority levels.  A value of `"Limited"` means that (a) requests of this priority level _are_ subject to limits and (b) some of the server's limited capacity is made available exclusively to this priority level. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationSpec#type
+   */
+  readonly type: string;
+
+}
+
+/**
+ * Converts an object of type 'PriorityLevelConfigurationSpecV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PriorityLevelConfigurationSpecV1Beta2(obj: PriorityLevelConfigurationSpecV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limited': toJson_LimitedPriorityLevelConfigurationV1Beta2(obj.limited),
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * IngressSpec describes the Ingress the user wishes to exist.
  *
  * @schema io.k8s.api.networking.v1.IngressSpec
@@ -16912,7 +14800,7 @@ export interface IngressSpec {
   readonly defaultBackend?: IngressBackend;
 
   /**
-   * IngressClassName is the name of the IngressClass cluster resource. The associated IngressClass defines which controller will implement the resource. This replaces the deprecated `kubernetes.io/ingress.class` annotation. For backwards compatibility, when that annotation is set, it must be given precedence over this field. The controller may emit a warning if the field and annotation have different values. Implementations of this API should ignore Ingresses without a class specified. An IngressClass resource may be marked as default, which can be used to set a default value for this field. For more information, refer to the IngressClass documentation.
+   * IngressClassName is the name of an IngressClass cluster resource. Ingress controller implementations use this field to know whether they should be serving this Ingress resource, by a transitive connection (controller -> IngressClass -> Ingress resource). Although the `kubernetes.io/ingress.class` annotation (simple constant name) was never formally defined, it was widely supported by Ingress controllers to create a direct binding between Ingress controller and Ingress resources. Newly created Ingress resources should prefer using the field. However, even though the annotation is officially deprecated, for backwards compatibility reasons, ingress controllers should still honor that annotation if present.
    *
    * @schema io.k8s.api.networking.v1.IngressSpec#ingressClassName
    */
@@ -17042,6 +14930,59 @@ export function toJson_NetworkPolicySpec(obj: NetworkPolicySpec | undefined): Re
 /* eslint-enable max-len, quote-props */
 
 /**
+ * ClusterCIDRSpec defines the desired state of ClusterCIDR.
+ *
+ * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRSpec
+ */
+export interface ClusterCidrSpecV1Alpha1 {
+  /**
+   * IPv4 defines an IPv4 IP block in CIDR notation(e.g. "10.0.0.0/8"). At least one of IPv4 and IPv6 must be specified. This field is immutable.
+   *
+   * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRSpec#ipv4
+   */
+  readonly ipv4?: string;
+
+  /**
+   * IPv6 defines an IPv6 IP block in CIDR notation(e.g. "fd12:3456:789a:1::/64"). At least one of IPv4 and IPv6 must be specified. This field is immutable.
+   *
+   * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRSpec#ipv6
+   */
+  readonly ipv6?: string;
+
+  /**
+   * NodeSelector defines which nodes the config is applicable to. An empty or nil NodeSelector selects all nodes. This field is immutable.
+   *
+   * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRSpec#nodeSelector
+   */
+  readonly nodeSelector?: NodeSelector;
+
+  /**
+   * PerNodeHostBits defines the number of host bits to be configured per node. A subnet mask determines how much of the address is used for network bits and host bits. For example an IPv4 address of 192.168.0.0/24, splits the address into 24 bits for the network portion and 8 bits for the host portion. To allocate 256 IPs, set this field to 8 (a /24 mask for IPv4 or a /120 for IPv6). Minimum value is 4 (16 IPs). This field is immutable.
+   *
+   * @schema io.k8s.api.networking.v1alpha1.ClusterCIDRSpec#perNodeHostBits
+   */
+  readonly perNodeHostBits: number;
+
+}
+
+/**
+ * Converts an object of type 'ClusterCidrSpecV1Alpha1' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ClusterCidrSpecV1Alpha1(obj: ClusterCidrSpecV1Alpha1 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ipv4': obj.ipv4,
+    'ipv6': obj.ipv6,
+    'nodeSelector': toJson_NodeSelector(obj.nodeSelector),
+    'perNodeHostBits': obj.perNodeHostBits,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * Overhead structure represents the resource overhead associated with running a pod.
  *
  * @schema io.k8s.api.node.v1.Overhead
@@ -17097,117 +15038,6 @@ export interface Scheduling {
  */
 /* eslint-disable max-len, quote-props */
 export function toJson_Scheduling(obj: Scheduling | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'nodeSelector': ((obj.nodeSelector) === undefined) ? undefined : (Object.entries(obj.nodeSelector).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'tolerations': obj.tolerations?.map(y => toJson_Toleration(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RuntimeClassSpec is a specification of a RuntimeClass. It contains parameters that are required to describe the RuntimeClass to the Container Runtime Interface (CRI) implementation, as well as any other components that need to understand how the pod will be run. The RuntimeClassSpec is immutable.
- *
- * @schema io.k8s.api.node.v1alpha1.RuntimeClassSpec
- */
-export interface RuntimeClassSpecV1Alpha1 {
-  /**
-   * Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md This field is beta-level as of Kubernetes v1.18, and is only honored by servers that enable the PodOverhead feature.
-   *
-   * @schema io.k8s.api.node.v1alpha1.RuntimeClassSpec#overhead
-   */
-  readonly overhead?: OverheadV1Alpha1;
-
-  /**
-   * RuntimeHandler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The RuntimeHandler must be lowercase, conform to the DNS Label (RFC 1123) requirements, and is immutable.
-   *
-   * @schema io.k8s.api.node.v1alpha1.RuntimeClassSpec#runtimeHandler
-   */
-  readonly runtimeHandler: string;
-
-  /**
-   * Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
-   *
-   * @schema io.k8s.api.node.v1alpha1.RuntimeClassSpec#scheduling
-   */
-  readonly scheduling?: SchedulingV1Alpha1;
-
-}
-
-/**
- * Converts an object of type 'RuntimeClassSpecV1Alpha1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_RuntimeClassSpecV1Alpha1(obj: RuntimeClassSpecV1Alpha1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'overhead': toJson_OverheadV1Alpha1(obj.overhead),
-    'runtimeHandler': obj.runtimeHandler,
-    'scheduling': toJson_SchedulingV1Alpha1(obj.scheduling),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * Overhead structure represents the resource overhead associated with running a pod.
- *
- * @schema io.k8s.api.node.v1beta1.Overhead
- */
-export interface OverheadV1Beta1 {
-  /**
-   * PodFixed represents the fixed resource overhead associated with running a pod.
-   *
-   * @schema io.k8s.api.node.v1beta1.Overhead#podFixed
-   */
-  readonly podFixed?: { [key: string]: Quantity };
-
-}
-
-/**
- * Converts an object of type 'OverheadV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_OverheadV1Beta1(obj: OverheadV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'podFixed': ((obj.podFixed) === undefined) ? undefined : (Object.entries(obj.podFixed).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.value }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.
- *
- * @schema io.k8s.api.node.v1beta1.Scheduling
- */
-export interface SchedulingV1Beta1 {
-  /**
-   * nodeSelector lists labels that must be present on nodes that support this RuntimeClass. Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
-   *
-   * @schema io.k8s.api.node.v1beta1.Scheduling#nodeSelector
-   */
-  readonly nodeSelector?: { [key: string]: string };
-
-  /**
-   * tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.
-   *
-   * @schema io.k8s.api.node.v1beta1.Scheduling#tolerations
-   */
-  readonly tolerations?: Toleration[];
-
-}
-
-/**
- * Converts an object of type 'SchedulingV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_SchedulingV1Beta1(obj: SchedulingV1Beta1 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'nodeSelector': ((obj.nodeSelector) === undefined) ? undefined : (Object.entries(obj.nodeSelector).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
@@ -17342,268 +15172,6 @@ export function toJson_PodDisruptionBudgetSpec(obj: PodDisruptionBudgetSpec | un
 /* eslint-enable max-len, quote-props */
 
 /**
- * PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
- *
- * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec
- */
-export interface PodDisruptionBudgetSpecV1Beta1 {
-  /**
-   * An eviction is allowed if at most "maxUnavailable" pods selected by "selector" are unavailable after the eviction, i.e. even in absence of the evicted pod. For example, one can prevent all voluntary evictions by specifying 0. This is a mutually exclusive setting with "minAvailable".
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec#maxUnavailable
-   */
-  readonly maxUnavailable?: IntOrString;
-
-  /**
-   * An eviction is allowed if at least "minAvailable" pods selected by "selector" will still be available after the eviction, i.e. even in the absence of the evicted pod.  So for example you can prevent all voluntary evictions by specifying "100%".
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec#minAvailable
-   */
-  readonly minAvailable?: IntOrString;
-
-  /**
-   * Label query over pods whose evictions are managed by the disruption budget. A null selector selects no pods. An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods. In policy/v1, an empty selector will select all pods in the namespace.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetSpec#selector
-   */
-  readonly selector?: LabelSelector;
-
-}
-
-/**
- * Converts an object of type 'PodDisruptionBudgetSpecV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_PodDisruptionBudgetSpecV1Beta1(obj: PodDisruptionBudgetSpecV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'maxUnavailable': obj.maxUnavailable?.value,
-    'minAvailable': obj.minAvailable?.value,
-    'selector': toJson_LabelSelector(obj.selector),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * PodSecurityPolicySpec defines the policy enforced.
- *
- * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec
- */
-export interface PodSecurityPolicySpecV1Beta1 {
-  /**
-   * allowPrivilegeEscalation determines if a pod can request to allow privilege escalation. If unspecified, defaults to true.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowPrivilegeEscalation
-   */
-  readonly allowPrivilegeEscalation?: boolean;
-
-  /**
-   * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec. An empty value indicates that any CSI driver can be used for inline ephemeral volumes. This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedCSIDrivers
-   */
-  readonly allowedCsiDrivers?: AllowedCsiDriverV1Beta1[];
-
-  /**
-   * allowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedCapabilities
-   */
-  readonly allowedCapabilities?: string[];
-
-  /**
-   * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the "volumes" field.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedFlexVolumes
-   */
-  readonly allowedFlexVolumes?: AllowedFlexVolumeV1Beta1[];
-
-  /**
-   * allowedHostPaths is an allowlist of host paths. Empty indicates that all host paths may be used.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedHostPaths
-   */
-  readonly allowedHostPaths?: AllowedHostPathV1Beta1[];
-
-  /**
-   * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes. Empty or nil indicates that only the DefaultProcMountType may be used. This requires the ProcMountType feature flag to be enabled.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedProcMountTypes
-   */
-  readonly allowedProcMountTypes?: string[];
-
-  /**
-   * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none. Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed. Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
-   *
-   * Examples: e.g. "foo/*" allows "foo/bar", "foo/baz", etc. e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#allowedUnsafeSysctls
-   */
-  readonly allowedUnsafeSysctls?: string[];
-
-  /**
-   * defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#defaultAddCapabilities
-   */
-  readonly defaultAddCapabilities?: string[];
-
-  /**
-   * defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#defaultAllowPrivilegeEscalation
-   */
-  readonly defaultAllowPrivilegeEscalation?: boolean;
-
-  /**
-   * forbiddenSysctls is a list of explicitly forbidden sysctls, defaults to none. Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of forbidden sysctls. Single * means all sysctls are forbidden.
-   *
-   * Examples: e.g. "foo/*" forbids "foo/bar", "foo/baz", etc. e.g. "foo.*" forbids "foo.bar", "foo.baz", etc.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#forbiddenSysctls
-   */
-  readonly forbiddenSysctls?: string[];
-
-  /**
-   * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#fsGroup
-   */
-  readonly fsGroup: FsGroupStrategyOptionsV1Beta1;
-
-  /**
-   * hostIPC determines if the policy allows the use of HostIPC in the pod spec.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#hostIPC
-   */
-  readonly hostIpc?: boolean;
-
-  /**
-   * hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#hostNetwork
-   */
-  readonly hostNetwork?: boolean;
-
-  /**
-   * hostPID determines if the policy allows the use of HostPID in the pod spec.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#hostPID
-   */
-  readonly hostPid?: boolean;
-
-  /**
-   * hostPorts determines which host port ranges are allowed to be exposed.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#hostPorts
-   */
-  readonly hostPorts?: HostPortRangeV1Beta1[];
-
-  /**
-   * privileged determines if a pod can request to be run as privileged.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#privileged
-   */
-  readonly privileged?: boolean;
-
-  /**
-   * readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#readOnlyRootFilesystem
-   */
-  readonly readOnlyRootFilesystem?: boolean;
-
-  /**
-   * requiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#requiredDropCapabilities
-   */
-  readonly requiredDropCapabilities?: string[];
-
-  /**
-   * RunAsGroup is the strategy that will dictate the allowable RunAsGroup values that may be set. If this field is omitted, the pod's RunAsGroup can take any value. This field requires the RunAsGroup feature gate to be enabled.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#runAsGroup
-   */
-  readonly runAsGroup?: RunAsGroupStrategyOptionsV1Beta1;
-
-  /**
-   * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#runAsUser
-   */
-  readonly runAsUser: RunAsUserStrategyOptionsV1Beta1;
-
-  /**
-   * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod. If this field is omitted, the pod's runtimeClassName field is unrestricted. Enforcement of this field depends on the RuntimeClass feature gate being enabled.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#runtimeClass
-   */
-  readonly runtimeClass?: RuntimeClassStrategyOptionsV1Beta1;
-
-  /**
-   * seLinux is the strategy that will dictate the allowable labels that may be set.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#seLinux
-   */
-  readonly seLinux: SeLinuxStrategyOptionsV1Beta1;
-
-  /**
-   * supplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#supplementalGroups
-   */
-  readonly supplementalGroups: SupplementalGroupsStrategyOptionsV1Beta1;
-
-  /**
-   * volumes is an allowlist of volume plugins. Empty indicates that no volumes may be used. To allow all volumes you may use '*'.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicySpec#volumes
-   */
-  readonly volumes?: string[];
-
-}
-
-/**
- * Converts an object of type 'PodSecurityPolicySpecV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_PodSecurityPolicySpecV1Beta1(obj: PodSecurityPolicySpecV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'allowPrivilegeEscalation': obj.allowPrivilegeEscalation,
-    'allowedCSIDrivers': obj.allowedCsiDrivers?.map(y => toJson_AllowedCsiDriverV1Beta1(y)),
-    'allowedCapabilities': obj.allowedCapabilities?.map(y => y),
-    'allowedFlexVolumes': obj.allowedFlexVolumes?.map(y => toJson_AllowedFlexVolumeV1Beta1(y)),
-    'allowedHostPaths': obj.allowedHostPaths?.map(y => toJson_AllowedHostPathV1Beta1(y)),
-    'allowedProcMountTypes': obj.allowedProcMountTypes?.map(y => y),
-    'allowedUnsafeSysctls': obj.allowedUnsafeSysctls?.map(y => y),
-    'defaultAddCapabilities': obj.defaultAddCapabilities?.map(y => y),
-    'defaultAllowPrivilegeEscalation': obj.defaultAllowPrivilegeEscalation,
-    'forbiddenSysctls': obj.forbiddenSysctls?.map(y => y),
-    'fsGroup': toJson_FsGroupStrategyOptionsV1Beta1(obj.fsGroup),
-    'hostIPC': obj.hostIpc,
-    'hostNetwork': obj.hostNetwork,
-    'hostPID': obj.hostPid,
-    'hostPorts': obj.hostPorts?.map(y => toJson_HostPortRangeV1Beta1(y)),
-    'privileged': obj.privileged,
-    'readOnlyRootFilesystem': obj.readOnlyRootFilesystem,
-    'requiredDropCapabilities': obj.requiredDropCapabilities?.map(y => y),
-    'runAsGroup': toJson_RunAsGroupStrategyOptionsV1Beta1(obj.runAsGroup),
-    'runAsUser': toJson_RunAsUserStrategyOptionsV1Beta1(obj.runAsUser),
-    'runtimeClass': toJson_RuntimeClassStrategyOptionsV1Beta1(obj.runtimeClass),
-    'seLinux': toJson_SeLinuxStrategyOptionsV1Beta1(obj.seLinux),
-    'supplementalGroups': toJson_SupplementalGroupsStrategyOptionsV1Beta1(obj.supplementalGroups),
-    'volumes': obj.volumes?.map(y => y),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
  *
  * @schema io.k8s.api.rbac.v1.AggregationRule
@@ -17639,7 +15207,7 @@ export function toJson_AggregationRule(obj: AggregationRule | undefined): Record
  */
 export interface PolicyRule {
   /**
-   * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
+   * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. "" represents the core API group and "*" represents all API groups.
    *
    * @schema io.k8s.api.rbac.v1.PolicyRule#apiGroups
    */
@@ -17667,7 +15235,7 @@ export interface PolicyRule {
   readonly resources?: string[];
 
   /**
-   * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. '*' represents all verbs.
+   * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
    *
    * @schema io.k8s.api.rbac.v1.PolicyRule#verbs
    */
@@ -17793,195 +15361,6 @@ export function toJson_Subject(obj: Subject | undefined): Record<string, any> | 
 /* eslint-enable max-len, quote-props */
 
 /**
- * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
- *
- * @schema io.k8s.api.rbac.v1alpha1.AggregationRule
- */
-export interface AggregationRuleV1Alpha1 {
-  /**
-   * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.AggregationRule#clusterRoleSelectors
-   */
-  readonly clusterRoleSelectors?: LabelSelector[];
-
-}
-
-/**
- * Converts an object of type 'AggregationRuleV1Alpha1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_AggregationRuleV1Alpha1(obj: AggregationRuleV1Alpha1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'clusterRoleSelectors': obj.clusterRoleSelectors?.map(y => toJson_LabelSelector(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
- *
- * @schema io.k8s.api.rbac.v1alpha1.PolicyRule
- */
-export interface PolicyRuleV1Alpha1 {
-  /**
-   * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.PolicyRule#apiGroups
-   */
-  readonly apiGroups?: string[];
-
-  /**
-   * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.PolicyRule#nonResourceURLs
-   */
-  readonly nonResourceUrLs?: string[];
-
-  /**
-   * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.PolicyRule#resourceNames
-   */
-  readonly resourceNames?: string[];
-
-  /**
-   * Resources is a list of resources this rule applies to. '*' represents all resources.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.PolicyRule#resources
-   */
-  readonly resources?: string[];
-
-  /**
-   * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. '*' represents all verbs.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.PolicyRule#verbs
-   */
-  readonly verbs: string[];
-
-}
-
-/**
- * Converts an object of type 'PolicyRuleV1Alpha1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_PolicyRuleV1Alpha1(obj: PolicyRuleV1Alpha1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'apiGroups': obj.apiGroups?.map(y => y),
-    'nonResourceURLs': obj.nonResourceUrLs?.map(y => y),
-    'resourceNames': obj.resourceNames?.map(y => y),
-    'resources': obj.resources?.map(y => y),
-    'verbs': obj.verbs?.map(y => y),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RoleRef contains information that points to the role being used
- *
- * @schema io.k8s.api.rbac.v1alpha1.RoleRef
- */
-export interface RoleRefV1Alpha1 {
-  /**
-   * APIGroup is the group for the resource being referenced
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleRef#apiGroup
-   */
-  readonly apiGroup: string;
-
-  /**
-   * Kind is the type of resource being referenced
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleRef#kind
-   */
-  readonly kind: string;
-
-  /**
-   * Name is the name of resource being referenced
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleRef#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'RoleRefV1Alpha1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_RoleRefV1Alpha1(obj: RoleRefV1Alpha1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'apiGroup': obj.apiGroup,
-    'kind': obj.kind,
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * Subject contains a reference to the object or user identities a role binding applies to.  This can either hold a direct API object reference, or a value for non-objects such as user and group names.
- *
- * @schema io.k8s.api.rbac.v1alpha1.Subject
- */
-export interface SubjectV1Alpha1 {
-  /**
-   * APIVersion holds the API group and version of the referenced subject. Defaults to "v1" for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io/v1alpha1" for User and Group subjects.
-   *
-   * @default v1" for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io/v1alpha1" for User and Group subjects.
-   * @schema io.k8s.api.rbac.v1alpha1.Subject#apiVersion
-   */
-  readonly apiVersion?: string;
-
-  /**
-   * Kind of object being referenced. Values defined by this API group are "User", "Group", and "ServiceAccount". If the Authorizer does not recognized the kind value, the Authorizer should report an error.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.Subject#kind
-   */
-  readonly kind: string;
-
-  /**
-   * Name of the object being referenced.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.Subject#name
-   */
-  readonly name: string;
-
-  /**
-   * Namespace of the referenced object.  If the object kind is non-namespace, such as "User" or "Group", and this value is not empty the Authorizer should report an error.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.Subject#namespace
-   */
-  readonly namespace?: string;
-
-}
-
-/**
- * Converts an object of type 'SubjectV1Alpha1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_SubjectV1Alpha1(obj: SubjectV1Alpha1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'apiVersion': obj.apiVersion,
-    'kind': obj.kind,
-    'name': obj.name,
-    'namespace': obj.namespace,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * CSIDriverSpec is the specification of a CSIDriver.
  *
  * @schema io.k8s.api.storage.v1.CSIDriverSpec
@@ -17997,7 +15376,7 @@ export interface CsiDriverSpec {
   readonly attachRequired?: boolean;
 
   /**
-   * Defines if the underlying volume supports changing ownership and permission of the volume before being mounted. Refer to the specific FSGroupPolicy values for additional details. This field is beta, and is only honored by servers that enable the CSIVolumeFSGroupPolicy feature gate.
+   * Defines if the underlying volume supports changing ownership and permission of the volume before being mounted. Refer to the specific FSGroupPolicy values for additional details.
    *
    * This field is immutable.
    *
@@ -18031,15 +15410,27 @@ export interface CsiDriverSpec {
   readonly requiresRepublish?: boolean;
 
   /**
+   * SELinuxMount specifies if the CSI driver supports "-o context" mount option.
+   *
+   * When "true", the CSI driver must ensure that all volumes provided by this CSI driver can be mounted separately with different `-o context` options. This is typical for storage backends that provide volumes as filesystems on block devices or as independent shared volumes. Kubernetes will call NodeStage / NodePublish with "-o context=xyz" mount option when mounting a ReadWriteOncePod volume used in Pod that has explicitly set SELinux context. In the future, it may be expanded to other volume AccessModes. In any case, Kubernetes will ensure that the volume is mounted only with a single SELinux context.
+   *
+   * When "false", Kubernetes won't pass any special SELinux mount options to the driver. This is typical for volumes that represent subdirectories of a bigger shared filesystem.
+   *
+   * Default is "false".
+   *
+   * @default false".
+   * @schema io.k8s.api.storage.v1.CSIDriverSpec#seLinuxMount
+   */
+  readonly seLinuxMount?: boolean;
+
+  /**
    * If set to true, storageCapacity indicates that the CSI volume driver wants pod scheduling to consider the storage capacity that the driver deployment will report by creating CSIStorageCapacity objects with capacity information.
    *
    * The check can be enabled immediately when deploying a driver. In that case, provisioning new volumes with late binding will pause until the driver deployment has published some suitable CSIStorageCapacity object.
    *
    * Alternatively, the driver can be deployed with the field unset or false and it can be flipped later when storage capacity information has been published.
    *
-   * This field is immutable.
-   *
-   * This is a beta field and only available when the CSIStorageCapacity feature is enabled. The default is false.
+   * This field was immutable in Kubernetes <= 1.22 and now is mutable.
    *
    * @schema io.k8s.api.storage.v1.CSIDriverSpec#storageCapacity
    */
@@ -18082,6 +15473,7 @@ export function toJson_CsiDriverSpec(obj: CsiDriverSpec | undefined): Record<str
     'fsGroupPolicy': obj.fsGroupPolicy,
     'podInfoOnMount': obj.podInfoOnMount,
     'requiresRepublish': obj.requiresRepublish,
+    'seLinuxMount': obj.seLinuxMount,
     'storageCapacity': obj.storageCapacity,
     'tokenRequests': obj.tokenRequests?.map(y => toJson_TokenRequest(y)),
     'volumeLifecycleModes': obj.volumeLifecycleModes?.map(y => y),
@@ -18114,6 +15506,57 @@ export function toJson_CsiNodeSpec(obj: CsiNodeSpec | undefined): Record<string,
   if (obj === undefined) { return undefined; }
   const result = {
     'drivers': obj.drivers?.map(y => toJson_CsiNodeDriver(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema io.k8s.apimachinery.pkg.api.resource.Quantity
+ */
+export class Quantity {
+  public static fromString(value: string): Quantity {
+    return new Quantity(value);
+  }
+  public static fromNumber(value: number): Quantity {
+    return new Quantity(value);
+  }
+  private constructor(public readonly value: string | number) {
+  }
+}
+
+/**
+ * A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+ *
+ * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector
+ */
+export interface LabelSelector {
+  /**
+   * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+   *
+   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector#matchExpressions
+   */
+  readonly matchExpressions?: LabelSelectorRequirement[];
+
+  /**
+   * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector#matchLabels
+   */
+  readonly matchLabels?: { [key: string]: string };
+
+}
+
+/**
+ * Converts an object of type 'LabelSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LabelSelector(obj: LabelSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'matchExpressions': obj.matchExpressions?.map(y => toJson_LabelSelectorRequirement(y)),
+    'matchLabels': ((obj.matchLabels) === undefined) ? undefined : (Object.entries(obj.matchLabels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -18188,102 +15631,6 @@ export function toJson_VolumeAttachmentSpec(obj: VolumeAttachmentSpec | undefine
     'attacher': obj.attacher,
     'nodeName': obj.nodeName,
     'source': toJson_VolumeAttachmentSource(obj.source),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema io.k8s.apimachinery.pkg.api.resource.Quantity
- */
-export class Quantity {
-  public static fromString(value: string): Quantity {
-    return new Quantity(value);
-  }
-  public static fromNumber(value: number): Quantity {
-    return new Quantity(value);
-  }
-  private constructor(public readonly value: any) {
-  }
-}
-
-/**
- * A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
- *
- * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector
- */
-export interface LabelSelector {
-  /**
-   * matchExpressions is a list of label selector requirements. The requirements are ANDed.
-   *
-   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector#matchExpressions
-   */
-  readonly matchExpressions?: LabelSelectorRequirement[];
-
-  /**
-   * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-   *
-   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector#matchLabels
-   */
-  readonly matchLabels?: { [key: string]: string };
-
-}
-
-/**
- * Converts an object of type 'LabelSelector' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_LabelSelector(obj: LabelSelector | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'matchExpressions': obj.matchExpressions?.map(y => toJson_LabelSelectorRequirement(y)),
-    'matchLabels': ((obj.matchLabels) === undefined) ? undefined : (Object.entries(obj.matchLabels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * VolumeAttachmentSpec is the specification of a VolumeAttachment request.
- *
- * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentSpec
- */
-export interface VolumeAttachmentSpecV1Alpha1 {
-  /**
-   * Attacher indicates the name of the volume driver that MUST handle this request. This is the name returned by GetPluginName().
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentSpec#attacher
-   */
-  readonly attacher: string;
-
-  /**
-   * The node that the volume should be attached to.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentSpec#nodeName
-   */
-  readonly nodeName: string;
-
-  /**
-   * Source represents the volume that should be attached.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentSpec#source
-   */
-  readonly source: VolumeAttachmentSourceV1Alpha1;
-
-}
-
-/**
- * Converts an object of type 'VolumeAttachmentSpecV1Alpha1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_VolumeAttachmentSpecV1Alpha1(obj: VolumeAttachmentSpecV1Alpha1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'attacher': obj.attacher,
-    'nodeName': obj.nodeName,
-    'source': toJson_VolumeAttachmentSourceV1Alpha1(obj.source),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -18554,7 +15901,7 @@ export interface ManagedFieldsEntry {
   readonly subresource?: string;
 
   /**
-   * Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'
+   * Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over.
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry#time
    */
@@ -18596,7 +15943,7 @@ export interface OwnerReference {
   readonly apiVersion: string;
 
   /**
-   * If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
+   * If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. See https://kubernetes.io/docs/concepts/architecture/garbage-collection/#foreground-deletion for how the garbage collector interacts with this field and enforces the foreground deletion. Defaults to false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
    *
    * @default false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference#blockOwnerDeletion
@@ -18793,6 +16140,8 @@ export interface DaemonSetUpdateStrategy {
   /**
    * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
    *
+   *
+   *
    * @default RollingUpdate.
    * @schema io.k8s.api.apps.v1.DaemonSetUpdateStrategy#type
    */
@@ -18831,6 +16180,8 @@ export interface DeploymentStrategy {
   /**
    * Type of deployment. Can be "Recreate" or "RollingUpdate". Default is RollingUpdate.
    *
+   *
+   *
    * @default RollingUpdate.
    * @schema io.k8s.api.apps.v1.DeploymentStrategy#type
    */
@@ -18854,6 +16205,43 @@ export function toJson_DeploymentStrategy(obj: DeploymentStrategy | undefined): 
 /* eslint-enable max-len, quote-props */
 
 /**
+ * StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.
+ *
+ * @schema io.k8s.api.apps.v1.StatefulSetPersistentVolumeClaimRetentionPolicy
+ */
+export interface StatefulSetPersistentVolumeClaimRetentionPolicy {
+  /**
+   * WhenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is deleted. The default policy of `Retain` causes PVCs to not be affected by StatefulSet deletion. The `Delete` policy causes those PVCs to be deleted.
+   *
+   * @schema io.k8s.api.apps.v1.StatefulSetPersistentVolumeClaimRetentionPolicy#whenDeleted
+   */
+  readonly whenDeleted?: string;
+
+  /**
+   * WhenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is scaled down. The default policy of `Retain` causes PVCs to not be affected by a scaledown. The `Delete` policy causes the associated PVCs for any excess pods above the replica count to be deleted.
+   *
+   * @schema io.k8s.api.apps.v1.StatefulSetPersistentVolumeClaimRetentionPolicy#whenScaled
+   */
+  readonly whenScaled?: string;
+
+}
+
+/**
+ * Converts an object of type 'StatefulSetPersistentVolumeClaimRetentionPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_StatefulSetPersistentVolumeClaimRetentionPolicy(obj: StatefulSetPersistentVolumeClaimRetentionPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'whenDeleted': obj.whenDeleted,
+    'whenScaled': obj.whenScaled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates. It includes any additional parameters necessary to perform the update for the indicated strategy.
  *
  * @schema io.k8s.api.apps.v1.StatefulSetUpdateStrategy
@@ -18868,6 +16256,8 @@ export interface StatefulSetUpdateStrategy {
 
   /**
    * Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.
+   *
+   *
    *
    * @default RollingUpdate.
    * @schema io.k8s.api.apps.v1.StatefulSetUpdateStrategy#type
@@ -19104,67 +16494,107 @@ export function toJson_CrossVersionObjectReference(obj: CrossVersionObjectRefere
 /* eslint-enable max-len, quote-props */
 
 /**
+ * HorizontalPodAutoscalerBehavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively).
+ *
+ * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerBehavior
+ */
+export interface HorizontalPodAutoscalerBehaviorV2 {
+  /**
+   * scaleDown is scaling policy for scaling Down. If not set, the default value is to allow to scale down to minReplicas pods, with a 300 second stabilization window (i.e., the highest recommendation for the last 300sec is used).
+   *
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerBehavior#scaleDown
+   */
+  readonly scaleDown?: HpaScalingRulesV2;
+
+  /**
+   * scaleUp is scaling policy for scaling Up. If not set, the default value is the higher of:
+   * * increase no more than 4 pods per 60 seconds
+   * * double the number of pods per 60 seconds
+   * No stabilization is used.
+   *
+   * @schema io.k8s.api.autoscaling.v2.HorizontalPodAutoscalerBehavior#scaleUp
+   */
+  readonly scaleUp?: HpaScalingRulesV2;
+
+}
+
+/**
+ * Converts an object of type 'HorizontalPodAutoscalerBehaviorV2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HorizontalPodAutoscalerBehaviorV2(obj: HorizontalPodAutoscalerBehaviorV2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'scaleDown': toJson_HpaScalingRulesV2(obj.scaleDown),
+    'scaleUp': toJson_HpaScalingRulesV2(obj.scaleUp),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).
  *
- * @schema io.k8s.api.autoscaling.v2beta1.MetricSpec
+ * @schema io.k8s.api.autoscaling.v2.MetricSpec
  */
-export interface MetricSpecV2Beta1 {
+export interface MetricSpecV2 {
   /**
-   * container resource refers to a resource metric (such as those specified in requests and limits) known to Kubernetes describing a single container in each pod of the current scale target (e.g. CPU or memory). Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source. This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+   * containerResource refers to a resource metric (such as those specified in requests and limits) known to Kubernetes describing a single container in each pod of the current scale target (e.g. CPU or memory). Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source. This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.MetricSpec#containerResource
+   * @schema io.k8s.api.autoscaling.v2.MetricSpec#containerResource
    */
-  readonly containerResource?: ContainerResourceMetricSourceV2Beta1;
+  readonly containerResource?: ContainerResourceMetricSourceV2;
 
   /**
    * external refers to a global metric that is not associated with any Kubernetes object. It allows autoscaling based on information coming from components running outside of cluster (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.MetricSpec#external
+   * @schema io.k8s.api.autoscaling.v2.MetricSpec#external
    */
-  readonly external?: ExternalMetricSourceV2Beta1;
+  readonly external?: ExternalMetricSourceV2;
 
   /**
    * object refers to a metric describing a single kubernetes object (for example, hits-per-second on an Ingress object).
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.MetricSpec#object
+   * @schema io.k8s.api.autoscaling.v2.MetricSpec#object
    */
-  readonly object?: ObjectMetricSourceV2Beta1;
+  readonly object?: ObjectMetricSourceV2;
 
   /**
    * pods refers to a metric describing each pod in the current scale target (for example, transactions-processed-per-second).  The values will be averaged together before being compared to the target value.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.MetricSpec#pods
+   * @schema io.k8s.api.autoscaling.v2.MetricSpec#pods
    */
-  readonly pods?: PodsMetricSourceV2Beta1;
+  readonly pods?: PodsMetricSourceV2;
 
   /**
    * resource refers to a resource metric (such as those specified in requests and limits) known to Kubernetes describing each pod in the current scale target (e.g. CPU or memory). Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.MetricSpec#resource
+   * @schema io.k8s.api.autoscaling.v2.MetricSpec#resource
    */
-  readonly resource?: ResourceMetricSourceV2Beta1;
+  readonly resource?: ResourceMetricSourceV2;
 
   /**
    * type is the type of metric source.  It should be one of "ContainerResource", "External", "Object", "Pods" or "Resource", each mapping to a matching field in the object. Note: "ContainerResource" type is available on when the feature-gate HPAContainerMetrics is enabled
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.MetricSpec#type
+   * @schema io.k8s.api.autoscaling.v2.MetricSpec#type
    */
   readonly type: string;
 
 }
 
 /**
- * Converts an object of type 'MetricSpecV2Beta1' to JSON representation.
+ * Converts an object of type 'MetricSpecV2' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_MetricSpecV2Beta1(obj: MetricSpecV2Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_MetricSpecV2(obj: MetricSpecV2 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'containerResource': toJson_ContainerResourceMetricSourceV2Beta1(obj.containerResource),
-    'external': toJson_ExternalMetricSourceV2Beta1(obj.external),
-    'object': toJson_ObjectMetricSourceV2Beta1(obj.object),
-    'pods': toJson_PodsMetricSourceV2Beta1(obj.pods),
-    'resource': toJson_ResourceMetricSourceV2Beta1(obj.resource),
+    'containerResource': toJson_ContainerResourceMetricSourceV2(obj.containerResource),
+    'external': toJson_ExternalMetricSourceV2(obj.external),
+    'object': toJson_ObjectMetricSourceV2(obj.object),
+    'pods': toJson_PodsMetricSourceV2(obj.pods),
+    'resource': toJson_ResourceMetricSourceV2(obj.resource),
     'type': obj.type,
   };
   // filter undefined values
@@ -19175,37 +16605,37 @@ export function toJson_MetricSpecV2Beta1(obj: MetricSpecV2Beta1 | undefined): Re
 /**
  * CrossVersionObjectReference contains enough information to let you identify the referred resource.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference
+ * @schema io.k8s.api.autoscaling.v2.CrossVersionObjectReference
  */
-export interface CrossVersionObjectReferenceV2Beta1 {
+export interface CrossVersionObjectReferenceV2 {
   /**
    * API version of the referent
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference#apiVersion
+   * @schema io.k8s.api.autoscaling.v2.CrossVersionObjectReference#apiVersion
    */
   readonly apiVersion?: string;
 
   /**
    * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference#kind
+   * @schema io.k8s.api.autoscaling.v2.CrossVersionObjectReference#kind
    */
   readonly kind: string;
 
   /**
    * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference#name
+   * @schema io.k8s.api.autoscaling.v2.CrossVersionObjectReference#name
    */
   readonly name: string;
 
 }
 
 /**
- * Converts an object of type 'CrossVersionObjectReferenceV2Beta1' to JSON representation.
+ * Converts an object of type 'CrossVersionObjectReferenceV2' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_CrossVersionObjectReferenceV2Beta1(obj: CrossVersionObjectReferenceV2Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_CrossVersionObjectReferenceV2(obj: CrossVersionObjectReferenceV2 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'apiVersion': obj.apiVersion,
@@ -19409,36 +16839,28 @@ export function toJson_JobTemplateSpec(obj: JobTemplateSpec | undefined): Record
 /* eslint-enable max-len, quote-props */
 
 /**
- * JobTemplateSpec describes the data a Job should have when created from a template
+ * PodFailurePolicy describes how failed pods influence the backoffLimit.
  *
- * @schema io.k8s.api.batch.v1beta1.JobTemplateSpec
+ * @schema io.k8s.api.batch.v1.PodFailurePolicy
  */
-export interface JobTemplateSpecV1Beta1 {
+export interface PodFailurePolicy {
   /**
-   * Standard object's metadata of the jobs created from this template. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   * A list of pod failure policy rules. The rules are evaluated in order. Once a rule matches a Pod failure, the remaining of the rules are ignored. When no rule matches the Pod failure, the default handling applies - the counter of pod failures is incremented and it is checked against the backoffLimit. At most 20 elements are allowed.
    *
-   * @schema io.k8s.api.batch.v1beta1.JobTemplateSpec#metadata
+   * @schema io.k8s.api.batch.v1.PodFailurePolicy#rules
    */
-  readonly metadata?: ObjectMeta;
-
-  /**
-   * Specification of the desired behavior of the job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-   *
-   * @schema io.k8s.api.batch.v1beta1.JobTemplateSpec#spec
-   */
-  readonly spec?: JobSpec;
+  readonly rules: PodFailurePolicyRule[];
 
 }
 
 /**
- * Converts an object of type 'JobTemplateSpecV1Beta1' to JSON representation.
+ * Converts an object of type 'PodFailurePolicy' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_JobTemplateSpecV1Beta1(obj: JobTemplateSpecV1Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_PodFailurePolicy(obj: PodFailurePolicy | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'metadata': toJson_ObjectMeta(obj.metadata),
-    'spec': toJson_JobSpec(obj.spec),
+    'rules': obj.rules?.map(y => toJson_PodFailurePolicyRule(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -19605,6 +17027,8 @@ export interface Taint {
   /**
    * Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.
    *
+   *
+   *
    * @schema io.k8s.api.core.v1.Taint#effect
    */
   readonly effect: string;
@@ -19658,28 +17082,28 @@ export function toJson_Taint(obj: Taint | undefined): Record<string, any> | unde
  */
 export interface AwsElasticBlockStoreVolumeSource {
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+   * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
    *
    * @schema io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+   * partition is the partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
    *
    * @schema io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#partition
    */
   readonly partition?: number;
 
   /**
-   * Specify "true" to force and set the ReadOnly property in VolumeMounts to "true". If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+   * readOnly value true will force the readOnly setting in VolumeMounts. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
    *
    * @schema io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+   * volumeID is unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
    *
    * @schema io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource#volumeID
    */
@@ -19711,42 +17135,42 @@ export function toJson_AwsElasticBlockStoreVolumeSource(obj: AwsElasticBlockStor
  */
 export interface AzureDiskVolumeSource {
   /**
-   * Host Caching mode: None, Read Only, Read Write.
+   * cachingMode is the Host Caching mode: None, Read Only, Read Write.
    *
    * @schema io.k8s.api.core.v1.AzureDiskVolumeSource#cachingMode
    */
   readonly cachingMode?: string;
 
   /**
-   * The Name of the data disk in the blob storage
+   * diskName is the Name of the data disk in the blob storage
    *
    * @schema io.k8s.api.core.v1.AzureDiskVolumeSource#diskName
    */
   readonly diskName: string;
 
   /**
-   * The URI the data disk in the blob storage
+   * diskURI is the URI of data disk in the blob storage
    *
    * @schema io.k8s.api.core.v1.AzureDiskVolumeSource#diskURI
    */
   readonly diskUri: string;
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
    * @schema io.k8s.api.core.v1.AzureDiskVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared
+   * kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared
    *
    * @schema io.k8s.api.core.v1.AzureDiskVolumeSource#kind
    */
   readonly kind?: string;
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
    * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.AzureDiskVolumeSource#readOnly
@@ -19781,29 +17205,28 @@ export function toJson_AzureDiskVolumeSource(obj: AzureDiskVolumeSource | undefi
  */
 export interface AzureFilePersistentVolumeSource {
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.AzureFilePersistentVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * the name of secret that contains Azure Storage Account Name and Key
+   * secretName is the name of secret that contains Azure Storage Account Name and Key
    *
    * @schema io.k8s.api.core.v1.AzureFilePersistentVolumeSource#secretName
    */
   readonly secretName: string;
 
   /**
-   * the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod
+   * secretNamespace is the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod
    *
    * @schema io.k8s.api.core.v1.AzureFilePersistentVolumeSource#secretNamespace
    */
   readonly secretNamespace?: string;
 
   /**
-   * Share Name
+   * shareName is the azure Share Name
    *
    * @schema io.k8s.api.core.v1.AzureFilePersistentVolumeSource#shareName
    */
@@ -19835,21 +17258,21 @@ export function toJson_AzureFilePersistentVolumeSource(obj: AzureFilePersistentV
  */
 export interface CephFsPersistentVolumeSource {
   /**
-   * Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.CephFSPersistentVolumeSource#monitors
    */
   readonly monitors: string[];
 
   /**
-   * Optional: Used as the mounted root, rather than the full Ceph tree, default is /
+   * path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /
    *
    * @schema io.k8s.api.core.v1.CephFSPersistentVolumeSource#path
    */
   readonly path?: string;
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.CephFSPersistentVolumeSource#readOnly
@@ -19857,21 +17280,21 @@ export interface CephFsPersistentVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.CephFSPersistentVolumeSource#secretFile
    */
   readonly secretFile?: string;
 
   /**
-   * Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * secretRef is Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.CephFSPersistentVolumeSource#secretRef
    */
   readonly secretRef?: SecretReference;
 
   /**
-   * Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * user is Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.CephFSPersistentVolumeSource#user
    */
@@ -19905,14 +17328,14 @@ export function toJson_CephFsPersistentVolumeSource(obj: CephFsPersistentVolumeS
  */
 export interface CinderPersistentVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * fsType Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @schema io.k8s.api.core.v1.CinderPersistentVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    * @schema io.k8s.api.core.v1.CinderPersistentVolumeSource#readOnly
@@ -19920,14 +17343,14 @@ export interface CinderPersistentVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * Optional: points to a secret object containing parameters used to connect to OpenStack.
+   * secretRef is Optional: points to a secret object containing parameters used to connect to OpenStack.
    *
    * @schema io.k8s.api.core.v1.CinderPersistentVolumeSource#secretRef
    */
   readonly secretRef?: SecretReference;
 
   /**
-   * volume id used to identify the volume in cinder. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * volumeID used to identify the volume in cinder. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @schema io.k8s.api.core.v1.CinderPersistentVolumeSource#volumeID
    */
@@ -19959,49 +17382,56 @@ export function toJson_CinderPersistentVolumeSource(obj: CinderPersistentVolumeS
  */
 export interface CsiPersistentVolumeSource {
   /**
-   * ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+   * controllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call. This is an beta field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
    *
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerExpandSecretRef
    */
   readonly controllerExpandSecretRef?: SecretReference;
 
   /**
-   * ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+   * controllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
    *
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#controllerPublishSecretRef
    */
   readonly controllerPublishSecretRef?: SecretReference;
 
   /**
-   * Driver is the name of the driver to use for this volume. Required.
+   * driver is the name of the driver to use for this volume. Required.
    *
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#driver
    */
   readonly driver: string;
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
+   * fsType to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
    *
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+   * nodeExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeExpandVolume call. This is an alpha field and requires enabling CSINodeExpandSecret feature gate. This field is optional, may be omitted if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+   *
+   * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#nodeExpandSecretRef
+   */
+  readonly nodeExpandSecretRef?: SecretReference;
+
+  /**
+   * nodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
    *
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#nodePublishSecretRef
    */
   readonly nodePublishSecretRef?: SecretReference;
 
   /**
-   * NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
+   * nodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
    *
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#nodeStageSecretRef
    */
   readonly nodeStageSecretRef?: SecretReference;
 
   /**
-   * Optional: The value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).
+   * readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).
    *
    * @default false (read/write).
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#readOnly
@@ -20009,14 +17439,14 @@ export interface CsiPersistentVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * Attributes of the volume to publish.
+   * volumeAttributes of the volume to publish.
    *
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeAttributes
    */
   readonly volumeAttributes?: { [key: string]: string };
 
   /**
-   * VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
+   * volumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
    *
    * @schema io.k8s.api.core.v1.CSIPersistentVolumeSource#volumeHandle
    */
@@ -20035,6 +17465,7 @@ export function toJson_CsiPersistentVolumeSource(obj: CsiPersistentVolumeSource 
     'controllerPublishSecretRef': toJson_SecretReference(obj.controllerPublishSecretRef),
     'driver': obj.driver,
     'fsType': obj.fsType,
+    'nodeExpandSecretRef': toJson_SecretReference(obj.nodeExpandSecretRef),
     'nodePublishSecretRef': toJson_SecretReference(obj.nodePublishSecretRef),
     'nodeStageSecretRef': toJson_SecretReference(obj.nodeStageSecretRef),
     'readOnly': obj.readOnly,
@@ -20053,21 +17484,21 @@ export function toJson_CsiPersistentVolumeSource(obj: CsiPersistentVolumeSource 
  */
 export interface FcVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
    * @schema io.k8s.api.core.v1.FCVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Optional: FC target lun number
+   * lun is Optional: FC target lun number
    *
    * @schema io.k8s.api.core.v1.FCVolumeSource#lun
    */
   readonly lun?: number;
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
    * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.FCVolumeSource#readOnly
@@ -20075,14 +17506,14 @@ export interface FcVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * Optional: FC target worldwide names (WWNs)
+   * targetWWNs is Optional: FC target worldwide names (WWNs)
    *
    * @schema io.k8s.api.core.v1.FCVolumeSource#targetWWNs
    */
   readonly targetWwNs?: string[];
 
   /**
-   * Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
+   * wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
    *
    * @schema io.k8s.api.core.v1.FCVolumeSource#wwids
    */
@@ -20115,36 +17546,35 @@ export function toJson_FcVolumeSource(obj: FcVolumeSource | undefined): Record<s
  */
 export interface FlexPersistentVolumeSource {
   /**
-   * Driver is the name of the driver to use for this volume.
+   * driver is the name of the driver to use for this volume.
    *
    * @schema io.k8s.api.core.v1.FlexPersistentVolumeSource#driver
    */
   readonly driver: string;
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+   * fsType is the Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
    *
    * @schema io.k8s.api.core.v1.FlexPersistentVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Optional: Extra command options if any.
+   * options is Optional: this field holds extra command options if any.
    *
    * @schema io.k8s.api.core.v1.FlexPersistentVolumeSource#options
    */
   readonly options?: { [key: string]: string };
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.FlexPersistentVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
+   * secretRef is Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
    *
    * @schema io.k8s.api.core.v1.FlexPersistentVolumeSource#secretRef
    */
@@ -20177,14 +17607,14 @@ export function toJson_FlexPersistentVolumeSource(obj: FlexPersistentVolumeSourc
  */
 export interface FlockerVolumeSource {
   /**
-   * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+   * datasetName is Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
    *
    * @schema io.k8s.api.core.v1.FlockerVolumeSource#datasetName
    */
   readonly datasetName?: string;
 
   /**
-   * UUID of the dataset. This is unique identifier of a Flocker dataset
+   * datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset
    *
    * @schema io.k8s.api.core.v1.FlockerVolumeSource#datasetUUID
    */
@@ -20216,28 +17646,28 @@ export function toJson_FlockerVolumeSource(obj: FlockerVolumeSource | undefined)
  */
 export interface GcePersistentDiskVolumeSource {
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+   * fsType is filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
    *
    * @schema io.k8s.api.core.v1.GCEPersistentDiskVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+   * partition is the partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
    *
    * @schema io.k8s.api.core.v1.GCEPersistentDiskVolumeSource#partition
    */
   readonly partition?: number;
 
   /**
-   * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+   * pdName is unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
    *
    * @schema io.k8s.api.core.v1.GCEPersistentDiskVolumeSource#pdName
    */
   readonly pdName: string;
 
   /**
-   * ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+   * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
    *
    * @default false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
    * @schema io.k8s.api.core.v1.GCEPersistentDiskVolumeSource#readOnly
@@ -20270,28 +17700,28 @@ export function toJson_GcePersistentDiskVolumeSource(obj: GcePersistentDiskVolum
  */
 export interface GlusterfsPersistentVolumeSource {
   /**
-   * EndpointsName is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @schema io.k8s.api.core.v1.GlusterfsPersistentVolumeSource#endpoints
    */
   readonly endpoints: string;
 
   /**
-   * EndpointsNamespace is the namespace that contains Glusterfs endpoint. If this field is empty, the EndpointNamespace defaults to the same namespace as the bound PVC. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * endpointsNamespace is the namespace that contains Glusterfs endpoint. If this field is empty, the EndpointNamespace defaults to the same namespace as the bound PVC. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @schema io.k8s.api.core.v1.GlusterfsPersistentVolumeSource#endpointsNamespace
    */
   readonly endpointsNamespace?: string;
 
   /**
-   * Path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @schema io.k8s.api.core.v1.GlusterfsPersistentVolumeSource#path
    */
   readonly path: string;
 
   /**
-   * ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @default false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    * @schema io.k8s.api.core.v1.GlusterfsPersistentVolumeSource#readOnly
@@ -20324,14 +17754,14 @@ export function toJson_GlusterfsPersistentVolumeSource(obj: GlusterfsPersistentV
  */
 export interface HostPathVolumeSource {
   /**
-   * Path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+   * path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    *
    * @schema io.k8s.api.core.v1.HostPathVolumeSource#path
    */
   readonly path: string;
 
   /**
-   * Type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+   * type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    *
    * @default More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    * @schema io.k8s.api.core.v1.HostPathVolumeSource#type
@@ -20362,42 +17792,42 @@ export function toJson_HostPathVolumeSource(obj: HostPathVolumeSource | undefine
  */
 export interface IscsiPersistentVolumeSource {
   /**
-   * whether support iSCSI Discovery CHAP authentication
+   * chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#chapAuthDiscovery
    */
   readonly chapAuthDiscovery?: boolean;
 
   /**
-   * whether support iSCSI Session CHAP authentication
+   * chapAuthSession defines whether support iSCSI Session CHAP authentication
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#chapAuthSession
    */
   readonly chapAuthSession?: boolean;
 
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
+   * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
+   * initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#initiatorName
    */
   readonly initiatorName?: string;
 
   /**
-   * Target iSCSI Qualified Name.
+   * iqn is Target iSCSI Qualified Name.
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#iqn
    */
   readonly iqn: string;
 
   /**
-   * iSCSI Interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).
+   * iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).
    *
    * @default default' (tcp).
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#iscsiInterface
@@ -20405,21 +17835,21 @@ export interface IscsiPersistentVolumeSource {
   readonly iscsiInterface?: string;
 
   /**
-   * iSCSI Target Lun number.
+   * lun is iSCSI Target Lun number.
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#lun
    */
   readonly lun: number;
 
   /**
-   * iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   * portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#portals
    */
   readonly portals?: string[];
 
   /**
-   * ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
+   * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
    *
    * @default false.
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#readOnly
@@ -20427,14 +17857,14 @@ export interface IscsiPersistentVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * CHAP Secret for iSCSI target and initiator authentication
+   * secretRef is the CHAP Secret for iSCSI target and initiator authentication
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#secretRef
    */
   readonly secretRef?: SecretReference;
 
   /**
-   * iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   * targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
    *
    * @schema io.k8s.api.core.v1.ISCSIPersistentVolumeSource#targetPortal
    */
@@ -20473,14 +17903,14 @@ export function toJson_IscsiPersistentVolumeSource(obj: IscsiPersistentVolumeSou
  */
 export interface LocalVolumeSource {
   /**
-   * Filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default value is to auto-select a fileystem if unspecified.
+   * fsType is the filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default value is to auto-select a filesystem if unspecified.
    *
    * @schema io.k8s.api.core.v1.LocalVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * The full path to the volume on the node. It can be either a directory or block device (disk, partition, ...).
+   * path of the full path to the volume on the node. It can be either a directory or block device (disk, partition, ...).
    *
    * @schema io.k8s.api.core.v1.LocalVolumeSource#path
    */
@@ -20510,14 +17940,14 @@ export function toJson_LocalVolumeSource(obj: LocalVolumeSource | undefined): Re
  */
 export interface NfsVolumeSource {
   /**
-   * Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+   * path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    *
    * @schema io.k8s.api.core.v1.NFSVolumeSource#path
    */
   readonly path: string;
 
   /**
-   * ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+   * readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    *
    * @default false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @schema io.k8s.api.core.v1.NFSVolumeSource#readOnly
@@ -20525,7 +17955,7 @@ export interface NfsVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+   * server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    *
    * @schema io.k8s.api.core.v1.NFSVolumeSource#server
    */
@@ -20556,7 +17986,7 @@ export function toJson_NfsVolumeSource(obj: NfsVolumeSource | undefined): Record
  */
 export interface VolumeNodeAffinity {
   /**
-   * Required specifies hard node constraints that must be met.
+   * required specifies hard node constraints that must be met.
    *
    * @schema io.k8s.api.core.v1.VolumeNodeAffinity#required
    */
@@ -20585,14 +18015,14 @@ export function toJson_VolumeNodeAffinity(obj: VolumeNodeAffinity | undefined): 
  */
 export interface PhotonPersistentDiskVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
    * @schema io.k8s.api.core.v1.PhotonPersistentDiskVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * ID that identifies Photon Controller persistent disk
+   * pdID is the ID that identifies Photon Controller persistent disk
    *
    * @schema io.k8s.api.core.v1.PhotonPersistentDiskVolumeSource#pdID
    */
@@ -20622,22 +18052,21 @@ export function toJson_PhotonPersistentDiskVolumeSource(obj: PhotonPersistentDis
  */
 export interface PortworxVolumeSource {
   /**
-   * FSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs". Implicitly inferred to be "ext4" if unspecified.
+   * fSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs". Implicitly inferred to be "ext4" if unspecified.
    *
    * @schema io.k8s.api.core.v1.PortworxVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.PortworxVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * VolumeID uniquely identifies a Portworx volume
+   * volumeID uniquely identifies a Portworx volume
    *
    * @schema io.k8s.api.core.v1.PortworxVolumeSource#volumeID
    */
@@ -20668,7 +18097,7 @@ export function toJson_PortworxVolumeSource(obj: PortworxVolumeSource | undefine
  */
 export interface QuobyteVolumeSource {
   /**
-   * Group to map volume access to Default is no group
+   * group to map volume access to Default is no group
    *
    * @default no group
    * @schema io.k8s.api.core.v1.QuobyteVolumeSource#group
@@ -20676,7 +18105,7 @@ export interface QuobyteVolumeSource {
   readonly group?: string;
 
   /**
-   * ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+   * readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
    *
    * @default false.
    * @schema io.k8s.api.core.v1.QuobyteVolumeSource#readOnly
@@ -20684,21 +18113,21 @@ export interface QuobyteVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
+   * registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
    *
    * @schema io.k8s.api.core.v1.QuobyteVolumeSource#registry
    */
   readonly registry: string;
 
   /**
-   * Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin
+   * tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin
    *
    * @schema io.k8s.api.core.v1.QuobyteVolumeSource#tenant
    */
   readonly tenant?: string;
 
   /**
-   * User to map volume access to Defaults to serivceaccount user
+   * user to map volume access to Defaults to serivceaccount user
    *
    * @default serivceaccount user
    * @schema io.k8s.api.core.v1.QuobyteVolumeSource#user
@@ -20706,7 +18135,7 @@ export interface QuobyteVolumeSource {
   readonly user?: string;
 
   /**
-   * Volume is a string that references an already created Quobyte volume by name.
+   * volume is a string that references an already created Quobyte volume by name.
    *
    * @schema io.k8s.api.core.v1.QuobyteVolumeSource#volume
    */
@@ -20740,21 +18169,21 @@ export function toJson_QuobyteVolumeSource(obj: QuobyteVolumeSource | undefined)
  */
 export interface RbdPersistentVolumeSource {
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
+   * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
    *
    * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * The rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource#image
    */
   readonly image: string;
 
   /**
-   * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource#keyring
@@ -20762,14 +18191,14 @@ export interface RbdPersistentVolumeSource {
   readonly keyring?: string;
 
   /**
-   * A collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource#monitors
    */
   readonly monitors: string[];
 
   /**
-   * The rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource#pool
@@ -20777,7 +18206,7 @@ export interface RbdPersistentVolumeSource {
   readonly pool?: string;
 
   /**
-   * ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource#readOnly
@@ -20785,7 +18214,7 @@ export interface RbdPersistentVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * secretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource#secretRef
@@ -20793,7 +18222,7 @@ export interface RbdPersistentVolumeSource {
   readonly secretRef?: SecretReference;
 
   /**
-   * The rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDPersistentVolumeSource#user
@@ -20830,7 +18259,7 @@ export function toJson_RbdPersistentVolumeSource(obj: RbdPersistentVolumeSource 
  */
 export interface ScaleIoPersistentVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs"
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs"
    *
    * @default xfs"
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#fsType
@@ -20838,43 +18267,42 @@ export interface ScaleIoPersistentVolumeSource {
   readonly fsType?: string;
 
   /**
-   * The host address of the ScaleIO API Gateway.
+   * gateway is the host address of the ScaleIO API Gateway.
    *
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#gateway
    */
   readonly gateway: string;
 
   /**
-   * The name of the ScaleIO Protection Domain for the configured storage.
+   * protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.
    *
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#protectionDomain
    */
   readonly protectionDomain?: string;
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * SecretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
+   * secretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
    *
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#secretRef
    */
   readonly secretRef: SecretReference;
 
   /**
-   * Flag to enable/disable SSL communication with Gateway, default false
+   * sslEnabled is the flag to enable/disable SSL communication with Gateway, default false
    *
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#sslEnabled
    */
   readonly sslEnabled?: boolean;
 
   /**
-   * Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.
+   * storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.
    *
    * @default ThinProvisioned.
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#storageMode
@@ -20882,21 +18310,21 @@ export interface ScaleIoPersistentVolumeSource {
   readonly storageMode?: string;
 
   /**
-   * The ScaleIO Storage Pool associated with the protection domain.
+   * storagePool is the ScaleIO Storage Pool associated with the protection domain.
    *
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#storagePool
    */
   readonly storagePool?: string;
 
   /**
-   * The name of the storage system as configured in ScaleIO.
+   * system is the name of the storage system as configured in ScaleIO.
    *
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#system
    */
   readonly system: string;
 
   /**
-   * The name of a volume already created in the ScaleIO system that is associated with this volume source.
+   * volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.
    *
    * @schema io.k8s.api.core.v1.ScaleIOPersistentVolumeSource#volumeName
    */
@@ -20934,36 +18362,35 @@ export function toJson_ScaleIoPersistentVolumeSource(obj: ScaleIoPersistentVolum
  */
 export interface StorageOsPersistentVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
    * @schema io.k8s.api.core.v1.StorageOSPersistentVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.StorageOSPersistentVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * SecretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted.
+   * secretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted.
    *
    * @schema io.k8s.api.core.v1.StorageOSPersistentVolumeSource#secretRef
    */
   readonly secretRef?: ObjectReference;
 
   /**
-   * VolumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
+   * volumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
    *
    * @schema io.k8s.api.core.v1.StorageOSPersistentVolumeSource#volumeName
    */
   readonly volumeName?: string;
 
   /**
-   * VolumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
+   * volumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
    *
    * @schema io.k8s.api.core.v1.StorageOSPersistentVolumeSource#volumeNamespace
    */
@@ -20996,28 +18423,28 @@ export function toJson_StorageOsPersistentVolumeSource(obj: StorageOsPersistentV
  */
 export interface VsphereVirtualDiskVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
    * @schema io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
+   * storagePolicyID is the storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
    *
    * @schema io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource#storagePolicyID
    */
   readonly storagePolicyId?: string;
 
   /**
-   * Storage Policy Based Management (SPBM) profile name.
+   * storagePolicyName is the storage Policy Based Management (SPBM) profile name.
    *
    * @schema io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource#storagePolicyName
    */
   readonly storagePolicyName?: string;
 
   /**
-   * Path that identifies vSphere volume vmdk
+   * volumePath is the path that identifies vSphere volume vmdk
    *
    * @schema io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource#volumePath
    */
@@ -21176,14 +18603,14 @@ export function toJson_Affinity(obj: Affinity | undefined): Record<string, any> 
  */
 export interface Container {
   /**
-   * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+   * Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    *
    * @schema io.k8s.api.core.v1.Container#args
    */
   readonly args?: string[];
 
   /**
-   * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+   * Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    *
    * @schema io.k8s.api.core.v1.Container#command
    */
@@ -21204,7 +18631,7 @@ export interface Container {
   readonly envFrom?: EnvFromSource[];
 
   /**
-   * Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
+   * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
    *
    * @schema io.k8s.api.core.v1.Container#image
    */
@@ -21212,6 +18639,8 @@ export interface Container {
 
   /**
    * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+   *
+   *
    *
    * @default Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
    * @schema io.k8s.api.core.v1.Container#imagePullPolicy
@@ -21240,7 +18669,7 @@ export interface Container {
   readonly name: string;
 
   /**
-   * List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Cannot be updated.
+   * List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
    *
    * @schema io.k8s.api.core.v1.Container#ports
    */
@@ -21300,6 +18729,8 @@ export interface Container {
 
   /**
    * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+   *
+   *
    *
    * @default File. Cannot be updated.
    * @schema io.k8s.api.core.v1.Container#terminationMessagePolicy
@@ -21418,20 +18849,22 @@ export function toJson_PodDnsConfig(obj: PodDnsConfig | undefined): Record<strin
 /* eslint-enable max-len, quote-props */
 
 /**
- * An EphemeralContainer is a container that may be added temporarily to an existing pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a pod is removed or restarted. If an ephemeral container causes a pod to exceed its resource allocation, the pod may be evicted. Ephemeral containers may not be added by directly updating the pod spec. They must be added via the pod's ephemeralcontainers subresource, and they will appear in the pod spec once added. This is an alpha feature enabled by the EphemeralContainers feature flag.
+ * An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.
+ *
+ * To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.
  *
  * @schema io.k8s.api.core.v1.EphemeralContainer
  */
 export interface EphemeralContainer {
   /**
-   * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+   * Arguments to the entrypoint. The image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    *
    * @schema io.k8s.api.core.v1.EphemeralContainer#args
    */
   readonly args?: string[];
 
   /**
-   * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+   * Entrypoint array. Not executed within a shell. The image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    *
    * @schema io.k8s.api.core.v1.EphemeralContainer#command
    */
@@ -21452,7 +18885,7 @@ export interface EphemeralContainer {
   readonly envFrom?: EnvFromSource[];
 
   /**
-   * Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images
+   * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images
    *
    * @schema io.k8s.api.core.v1.EphemeralContainer#image
    */
@@ -21460,6 +18893,8 @@ export interface EphemeralContainer {
 
   /**
    * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+   *
+   *
    *
    * @default Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
    * @schema io.k8s.api.core.v1.EphemeralContainer#imagePullPolicy
@@ -21539,7 +18974,9 @@ export interface EphemeralContainer {
   readonly stdinOnce?: boolean;
 
   /**
-   * If set, the name of the container from PodSpec that this ephemeral container targets. The ephemeral container will be run in the namespaces (IPC, PID, etc) of this container. If not set then the ephemeral container is run in whatever namespaces are shared for the pod. Note that the container runtime must support this feature.
+   * If set, the name of the container from PodSpec that this ephemeral container targets. The ephemeral container will be run in the namespaces (IPC, PID, etc) of this container. If not set then the ephemeral container uses the namespaces configured in the Pod spec.
+   *
+   * The container runtime must implement support for this feature. If the runtime does not support namespace targeting then the result of setting this field is undefined.
    *
    * @schema io.k8s.api.core.v1.EphemeralContainer#targetContainerName
    */
@@ -21555,6 +18992,8 @@ export interface EphemeralContainer {
 
   /**
    * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+   *
+   *
    *
    * @default File. Cannot be updated.
    * @schema io.k8s.api.core.v1.EphemeralContainer#terminationMessagePolicy
@@ -21577,7 +19016,7 @@ export interface EphemeralContainer {
   readonly volumeDevices?: VolumeDevice[];
 
   /**
-   * Pod volumes to mount into the container's filesystem. Cannot be updated.
+   * Pod volumes to mount into the container's filesystem. Subpath mounts are not allowed for ephemeral containers. Cannot be updated.
    *
    * @schema io.k8s.api.core.v1.EphemeralContainer#volumeMounts
    */
@@ -21666,6 +19105,35 @@ export function toJson_HostAlias(obj: HostAlias | undefined): Record<string, any
 /* eslint-enable max-len, quote-props */
 
 /**
+ * PodOS defines the OS parameters of a pod.
+ *
+ * @schema io.k8s.api.core.v1.PodOS
+ */
+export interface PodOs {
+  /**
+   * Name is the name of the operating system. The currently supported values are linux and windows. Additional value may be defined in future and can be one of: https://github.com/opencontainers/runtime-spec/blob/master/config.md#platform-specific-configuration Clients should expect to handle additional values and treat unrecognized values in this field as os: null
+   *
+   * @schema io.k8s.api.core.v1.PodOS#name
+   */
+  readonly name: string;
+
+}
+
+/**
+ * Converts an object of type 'PodOs' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PodOs(obj: PodOs | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * PodReadinessGate contains the reference to a pod condition
  *
  * @schema io.k8s.api.core.v1.PodReadinessGate
@@ -21705,21 +19173,21 @@ export interface PodSecurityContext {
    *
    * 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----
    *
-   * If unset, the Kubelet will not modify the ownership and permissions of any volume.
+   * If unset, the Kubelet will not modify the ownership and permissions of any volume. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#fsGroup
    */
   readonly fsGroup?: number;
 
   /**
-   * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are "OnRootMismatch" and "Always". If not specified, "Always" is used.
+   * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are "OnRootMismatch" and "Always". If not specified, "Always" is used. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#fsGroupChangePolicy
    */
   readonly fsGroupChangePolicy?: string;
 
   /**
-   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#runAsGroup
    */
@@ -21733,43 +19201,43 @@ export interface PodSecurityContext {
   readonly runAsNonRoot?: boolean;
 
   /**
-   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
    *
-   * @default user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   * @default user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
    * @schema io.k8s.api.core.v1.PodSecurityContext#runAsUser
    */
   readonly runAsUser?: number;
 
   /**
-   * The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   * The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#seLinuxOptions
    */
   readonly seLinuxOptions?: SeLinuxOptions;
 
   /**
-   * The seccomp options to use by the containers in this pod.
+   * The seccomp options to use by the containers in this pod. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#seccompProfile
    */
   readonly seccompProfile?: SeccompProfile;
 
   /**
-   * A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container.
+   * A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#supplementalGroups
    */
   readonly supplementalGroups?: number[];
 
   /**
-   * Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch.
+   * Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#sysctls
    */
   readonly sysctls?: Sysctl[];
 
   /**
-   * The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   * The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
    *
    * @schema io.k8s.api.core.v1.PodSecurityContext#windowsOptions
    */
@@ -21809,6 +19277,8 @@ export interface Toleration {
   /**
    * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
    *
+   *
+   *
    * @schema io.k8s.api.core.v1.Toleration#effect
    */
   readonly effect?: string;
@@ -21822,6 +19292,8 @@ export interface Toleration {
 
   /**
    * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+   *
+   *
    *
    * @default Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
    * @schema io.k8s.api.core.v1.Toleration#operator
@@ -21876,14 +19348,50 @@ export interface TopologySpreadConstraint {
   readonly labelSelector?: LabelSelector;
 
   /**
-   * MaxSkew describes the degree to which pods may be unevenly distributed. When `whenUnsatisfiable=DoNotSchedule`, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 1/1/0: | zone1 | zone2 | zone3 | |   P   |   P   |       | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 1/1/1; scheduling it onto zone1(zone2) would make the ActualSkew(2-0) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When `whenUnsatisfiable=ScheduleAnyway`, it is used to give higher precedence to topologies that satisfy it. It's a required field. Default value is 1 and 0 is not allowed.
+   * MatchLabelKeys is a set of pod label keys to select the pods over which spreading will be calculated. The keys are used to lookup values from the incoming pod labels, those key-value labels are ANDed with labelSelector to select the group of existing pods over which spreading will be calculated for the incoming pod. Keys that don't exist in the incoming pod labels will be ignored. A null or empty list means only match against labelSelector.
+   *
+   * @schema io.k8s.api.core.v1.TopologySpreadConstraint#matchLabelKeys
+   */
+  readonly matchLabelKeys?: string[];
+
+  /**
+   * MaxSkew describes the degree to which pods may be unevenly distributed. When `whenUnsatisfiable=DoNotSchedule`, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. The global minimum is the minimum number of matching pods in an eligible domain or zero if the number of eligible domains is less than MinDomains. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 2/2/1: In this case, the global minimum is 1. | zone1 | zone2 | zone3 | |  P P  |  P P  |   P   | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 2/2/2; scheduling it onto zone1(zone2) would make the ActualSkew(3-1) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When `whenUnsatisfiable=ScheduleAnyway`, it is used to give higher precedence to topologies that satisfy it. It's a required field. Default value is 1 and 0 is not allowed.
    *
    * @schema io.k8s.api.core.v1.TopologySpreadConstraint#maxSkew
    */
   readonly maxSkew: number;
 
   /**
-   * TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each <key, value> as a "bucket", and try to put balanced number of pods into each bucket. It's a required field.
+   * MinDomains indicates a minimum number of eligible domains. When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats "global minimum" as 0, and then the calculation of Skew is performed. And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling. As a result, when the number of eligible domains is less than minDomains, scheduler won't schedule more than maxSkew Pods to those domains. If value is nil, the constraint behaves as if MinDomains is equal to 1. Valid values are integers greater than 0. When value is not nil, WhenUnsatisfiable must be DoNotSchedule.
+   *
+   * For example, in a 3-zone cluster, MaxSkew is set to 2, MinDomains is set to 5 and pods with the same labelSelector spread as 2/2/2: | zone1 | zone2 | zone3 | |  P P  |  P P  |  P P  | The number of domains is less than 5(MinDomains), so "global minimum" is treated as 0. In this situation, new pod with the same labelSelector cannot be scheduled, because computed skew will be 3(3 - 0) if new Pod is scheduled to any of the three zones, it will violate MaxSkew.
+   *
+   * This is a beta field and requires the MinDomainsInPodTopologySpread feature gate to be enabled (enabled by default).
+   *
+   * @schema io.k8s.api.core.v1.TopologySpreadConstraint#minDomains
+   */
+  readonly minDomains?: number;
+
+  /**
+   * NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations.
+   *
+   * If this value is nil, the behavior is equivalent to the Honor policy. This is a alpha-level feature enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+   *
+   * @schema io.k8s.api.core.v1.TopologySpreadConstraint#nodeAffinityPolicy
+   */
+  readonly nodeAffinityPolicy?: string;
+
+  /**
+   * NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included.
+   *
+   * If this value is nil, the behavior is equivalent to the Ignore policy. This is a alpha-level feature enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+   *
+   * @schema io.k8s.api.core.v1.TopologySpreadConstraint#nodeTaintsPolicy
+   */
+  readonly nodeTaintsPolicy?: string;
+
+  /**
+   * TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each <key, value> as a "bucket", and try to put balanced number of pods into each bucket. We define a domain as a particular instance of a topology. Also, we define an eligible domain as a domain whose nodes meet the requirements of nodeAffinityPolicy and nodeTaintsPolicy. e.g. If TopologyKey is "kubernetes.io/hostname", each Node is a domain of that topology. And, if TopologyKey is "topology.kubernetes.io/zone", each zone is a domain of that topology. It's a required field.
    *
    * @schema io.k8s.api.core.v1.TopologySpreadConstraint#topologyKey
    */
@@ -21893,7 +19401,9 @@ export interface TopologySpreadConstraint {
    * WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location,
    * but giving higher precedence to topologies that would help reduce the
    * skew.
-   * A constraint is considered "Unsatisfiable" for an incoming pod if and only if every possible node assigment for that pod would violate "MaxSkew" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.
+   * A constraint is considered "Unsatisfiable" for an incoming pod if and only if every possible node assignment for that pod would violate "MaxSkew" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.
+   *
+   *
    *
    * @schema io.k8s.api.core.v1.TopologySpreadConstraint#whenUnsatisfiable
    */
@@ -21909,7 +19419,11 @@ export function toJson_TopologySpreadConstraint(obj: TopologySpreadConstraint | 
   if (obj === undefined) { return undefined; }
   const result = {
     'labelSelector': toJson_LabelSelector(obj.labelSelector),
+    'matchLabelKeys': obj.matchLabelKeys?.map(y => y),
     'maxSkew': obj.maxSkew,
+    'minDomains': obj.minDomains,
+    'nodeAffinityPolicy': obj.nodeAffinityPolicy,
+    'nodeTaintsPolicy': obj.nodeTaintsPolicy,
     'topologyKey': obj.topologyKey,
     'whenUnsatisfiable': obj.whenUnsatisfiable,
   };
@@ -21925,70 +19439,70 @@ export function toJson_TopologySpreadConstraint(obj: TopologySpreadConstraint | 
  */
 export interface Volume {
   /**
-   * AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+   * awsElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
    *
    * @schema io.k8s.api.core.v1.Volume#awsElasticBlockStore
    */
   readonly awsElasticBlockStore?: AwsElasticBlockStoreVolumeSource;
 
   /**
-   * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
+   * azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
    *
    * @schema io.k8s.api.core.v1.Volume#azureDisk
    */
   readonly azureDisk?: AzureDiskVolumeSource;
 
   /**
-   * AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
+   * azureFile represents an Azure File Service mount on the host and bind mount to the pod.
    *
    * @schema io.k8s.api.core.v1.Volume#azureFile
    */
   readonly azureFile?: AzureFileVolumeSource;
 
   /**
-   * CephFS represents a Ceph FS mount on the host that shares a pod's lifetime
+   * cephFS represents a Ceph FS mount on the host that shares a pod's lifetime
    *
    * @schema io.k8s.api.core.v1.Volume#cephfs
    */
   readonly cephfs?: CephFsVolumeSource;
 
   /**
-   * Cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @schema io.k8s.api.core.v1.Volume#cinder
    */
   readonly cinder?: CinderVolumeSource;
 
   /**
-   * ConfigMap represents a configMap that should populate this volume
+   * configMap represents a configMap that should populate this volume
    *
    * @schema io.k8s.api.core.v1.Volume#configMap
    */
   readonly configMap?: ConfigMapVolumeSource;
 
   /**
-   * CSI (Container Storage Interface) represents ephemeral storage that is handled by certain external CSI drivers (Beta feature).
+   * csi (Container Storage Interface) represents ephemeral storage that is handled by certain external CSI drivers (Beta feature).
    *
    * @schema io.k8s.api.core.v1.Volume#csi
    */
   readonly csi?: CsiVolumeSource;
 
   /**
-   * DownwardAPI represents downward API about the pod that should populate this volume
+   * downwardAPI represents downward API about the pod that should populate this volume
    *
    * @schema io.k8s.api.core.v1.Volume#downwardAPI
    */
   readonly downwardApi?: DownwardApiVolumeSource;
 
   /**
-   * EmptyDir represents a temporary directory that shares a pod's lifetime. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+   * emptyDir represents a temporary directory that shares a pod's lifetime. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
    *
    * @schema io.k8s.api.core.v1.Volume#emptyDir
    */
   readonly emptyDir?: EmptyDirVolumeSource;
 
   /**
-   * Ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed.
+   * ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed.
    *
    * Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity
    * tracking are needed,
@@ -22003,147 +19517,145 @@ export interface Volume {
    *
    * A pod can use both types of ephemeral volumes and persistent volumes at the same time.
    *
-   * This is a beta feature and only available when the GenericEphemeralVolume feature gate is enabled.
-   *
    * @schema io.k8s.api.core.v1.Volume#ephemeral
    */
   readonly ephemeral?: EphemeralVolumeSource;
 
   /**
-   * FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
+   * fc represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
    *
    * @schema io.k8s.api.core.v1.Volume#fc
    */
   readonly fc?: FcVolumeSource;
 
   /**
-   * FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
+   * flexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
    *
    * @schema io.k8s.api.core.v1.Volume#flexVolume
    */
   readonly flexVolume?: FlexVolumeSource;
 
   /**
-   * Flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running
+   * flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running
    *
    * @schema io.k8s.api.core.v1.Volume#flocker
    */
   readonly flocker?: FlockerVolumeSource;
 
   /**
-   * GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+   * gcePersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
    *
    * @schema io.k8s.api.core.v1.Volume#gcePersistentDisk
    */
   readonly gcePersistentDisk?: GcePersistentDiskVolumeSource;
 
   /**
-   * GitRepo represents a git repository at a particular revision. DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
+   * gitRepo represents a git repository at a particular revision. DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
    *
    * @schema io.k8s.api.core.v1.Volume#gitRepo
    */
   readonly gitRepo?: GitRepoVolumeSource;
 
   /**
-   * Glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/glusterfs/README.md
+   * glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/glusterfs/README.md
    *
    * @schema io.k8s.api.core.v1.Volume#glusterfs
    */
   readonly glusterfs?: GlusterfsVolumeSource;
 
   /**
-   * HostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+   * hostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    *
    * @schema io.k8s.api.core.v1.Volume#hostPath
    */
   readonly hostPath?: HostPathVolumeSource;
 
   /**
-   * ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://examples.k8s.io/volumes/iscsi/README.md
+   * iscsi represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://examples.k8s.io/volumes/iscsi/README.md
    *
    * @schema io.k8s.api.core.v1.Volume#iscsi
    */
   readonly iscsi?: IscsiVolumeSource;
 
   /**
-   * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * name of the volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    *
    * @schema io.k8s.api.core.v1.Volume#name
    */
   readonly name: string;
 
   /**
-   * NFS represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+   * nfs represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    *
    * @schema io.k8s.api.core.v1.Volume#nfs
    */
   readonly nfs?: NfsVolumeSource;
 
   /**
-   * PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+   * persistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
    *
    * @schema io.k8s.api.core.v1.Volume#persistentVolumeClaim
    */
   readonly persistentVolumeClaim?: PersistentVolumeClaimVolumeSource;
 
   /**
-   * PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
+   * photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
    *
    * @schema io.k8s.api.core.v1.Volume#photonPersistentDisk
    */
   readonly photonPersistentDisk?: PhotonPersistentDiskVolumeSource;
 
   /**
-   * PortworxVolume represents a portworx volume attached and mounted on kubelets host machine
+   * portworxVolume represents a portworx volume attached and mounted on kubelets host machine
    *
    * @schema io.k8s.api.core.v1.Volume#portworxVolume
    */
   readonly portworxVolume?: PortworxVolumeSource;
 
   /**
-   * Items for all in one resources secrets, configmaps, and downward API
+   * projected items for all in one resources secrets, configmaps, and downward API
    *
    * @schema io.k8s.api.core.v1.Volume#projected
    */
   readonly projected?: ProjectedVolumeSource;
 
   /**
-   * Quobyte represents a Quobyte mount on the host that shares a pod's lifetime
+   * quobyte represents a Quobyte mount on the host that shares a pod's lifetime
    *
    * @schema io.k8s.api.core.v1.Volume#quobyte
    */
   readonly quobyte?: QuobyteVolumeSource;
 
   /**
-   * RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md
+   * rbd represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md
    *
    * @schema io.k8s.api.core.v1.Volume#rbd
    */
   readonly rbd?: RbdVolumeSource;
 
   /**
-   * ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
+   * scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
    *
    * @schema io.k8s.api.core.v1.Volume#scaleIO
    */
   readonly scaleIo?: ScaleIoVolumeSource;
 
   /**
-   * Secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+   * secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
    *
    * @schema io.k8s.api.core.v1.Volume#secret
    */
   readonly secret?: SecretVolumeSource;
 
   /**
-   * StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
+   * storageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
    *
    * @schema io.k8s.api.core.v1.Volume#storageos
    */
   readonly storageos?: StorageOsVolumeSource;
 
   /**
-   * VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+   * vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
    *
    * @schema io.k8s.api.core.v1.Volume#vsphereVolume
    */
@@ -22230,7 +19742,7 @@ export function toJson_ScopeSelector(obj: ScopeSelector | undefined): Record<str
  */
 export interface ServicePort {
   /**
-   * The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.
+   * The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.
    *
    * @schema io.k8s.api.core.v1.ServicePort#appProtocol
    */
@@ -22259,6 +19771,8 @@ export interface ServicePort {
 
   /**
    * The IP protocol for this port. Supports "TCP", "UDP", and "SCTP". Default is TCP.
+   *
+   *
    *
    * @default TCP.
    * @schema io.k8s.api.core.v1.ServicePort#protocol
@@ -22397,80 +19911,6 @@ export function toJson_EndpointHints(obj: EndpointHints | undefined): Record<str
 /* eslint-enable max-len, quote-props */
 
 /**
- * EndpointConditions represents the current condition of an endpoint.
- *
- * @schema io.k8s.api.discovery.v1beta1.EndpointConditions
- */
-export interface EndpointConditionsV1Beta1 {
-  /**
-   * ready indicates that this endpoint is prepared to receive traffic, according to whatever system is managing the endpoint. A nil value indicates an unknown state. In most cases consumers should interpret this unknown state as ready. For compatibility reasons, ready should never be "true" for terminating endpoints.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointConditions#ready
-   */
-  readonly ready?: boolean;
-
-  /**
-   * serving is identical to ready except that it is set regardless of the terminating state of endpoints. This condition should be set to true for a ready endpoint that is terminating. If nil, consumers should defer to the ready condition. This field can be enabled with the EndpointSliceTerminatingCondition feature gate.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointConditions#serving
-   */
-  readonly serving?: boolean;
-
-  /**
-   * terminating indicates that this endpoint is terminating. A nil value indicates an unknown state. Consumers should interpret this unknown state to mean that the endpoint is not terminating. This field can be enabled with the EndpointSliceTerminatingCondition feature gate.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointConditions#terminating
-   */
-  readonly terminating?: boolean;
-
-}
-
-/**
- * Converts an object of type 'EndpointConditionsV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_EndpointConditionsV1Beta1(obj: EndpointConditionsV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'ready': obj.ready,
-    'serving': obj.serving,
-    'terminating': obj.terminating,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * EndpointHints provides hints describing how an endpoint should be consumed.
- *
- * @schema io.k8s.api.discovery.v1beta1.EndpointHints
- */
-export interface EndpointHintsV1Beta1 {
-  /**
-   * forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing. May contain a maximum of 8 entries.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointHints#forZones
-   */
-  readonly forZones?: ForZoneV1Beta1[];
-
-}
-
-/**
- * Converts an object of type 'EndpointHintsV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_EndpointHintsV1Beta1(obj: EndpointHintsV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'forZones': obj.forZones?.map(y => toJson_ForZoneV1Beta1(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * FlowDistinguisherMethod specifies the method of a flow distinguisher.
  *
  * @schema io.k8s.api.flowcontrol.v1beta1.FlowDistinguisherMethod
@@ -22575,8 +20015,8 @@ export function toJson_PolicyRulesWithSubjectsV1Beta1(obj: PolicyRulesWithSubjec
 
 /**
  * LimitedPriorityLevelConfiguration specifies how to handle requests that are subject to limits. It addresses two issues:
- * * How are requests for this priority level limited?
- * * What should be done with requests that exceed the limit?
+ * - How are requests for this priority level limited?
+ * - What should be done with requests that exceed the limit?
  *
  * @schema io.k8s.api.flowcontrol.v1beta1.LimitedPriorityLevelConfiguration
  */
@@ -22610,6 +20050,152 @@ export function toJson_LimitedPriorityLevelConfigurationV1Beta1(obj: LimitedPrio
   const result = {
     'assuredConcurrencyShares': obj.assuredConcurrencyShares,
     'limitResponse': toJson_LimitResponseV1Beta1(obj.limitResponse),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * FlowDistinguisherMethod specifies the method of a flow distinguisher.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.FlowDistinguisherMethod
+ */
+export interface FlowDistinguisherMethodV1Beta2 {
+  /**
+   * `type` is the type of flow distinguisher method The supported types are "ByUser" and "ByNamespace". Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.FlowDistinguisherMethod#type
+   */
+  readonly type: string;
+
+}
+
+/**
+ * Converts an object of type 'FlowDistinguisherMethodV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FlowDistinguisherMethodV1Beta2(obj: FlowDistinguisherMethodV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * PriorityLevelConfigurationReference contains information that points to the "request-priority" being used.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationReference
+ */
+export interface PriorityLevelConfigurationReferenceV1Beta2 {
+  /**
+   * `name` is the name of the priority level configuration being referenced Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationReference#name
+   */
+  readonly name: string;
+
+}
+
+/**
+ * Converts an object of type 'PriorityLevelConfigurationReferenceV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PriorityLevelConfigurationReferenceV1Beta2(obj: PriorityLevelConfigurationReferenceV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.PolicyRulesWithSubjects
+ */
+export interface PolicyRulesWithSubjectsV1Beta2 {
+  /**
+   * `nonResourceRules` is a list of NonResourcePolicyRules that identify matching requests according to their verb and the target non-resource URL.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PolicyRulesWithSubjects#nonResourceRules
+   */
+  readonly nonResourceRules?: NonResourcePolicyRuleV1Beta2[];
+
+  /**
+   * `resourceRules` is a slice of ResourcePolicyRules that identify matching requests according to their verb and the target resource. At least one of `resourceRules` and `nonResourceRules` has to be non-empty.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PolicyRulesWithSubjects#resourceRules
+   */
+  readonly resourceRules?: ResourcePolicyRuleV1Beta2[];
+
+  /**
+   * subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.PolicyRulesWithSubjects#subjects
+   */
+  readonly subjects: SubjectV1Beta2[];
+
+}
+
+/**
+ * Converts an object of type 'PolicyRulesWithSubjectsV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PolicyRulesWithSubjectsV1Beta2(obj: PolicyRulesWithSubjectsV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nonResourceRules': obj.nonResourceRules?.map(y => toJson_NonResourcePolicyRuleV1Beta2(y)),
+    'resourceRules': obj.resourceRules?.map(y => toJson_ResourcePolicyRuleV1Beta2(y)),
+    'subjects': obj.subjects?.map(y => toJson_SubjectV1Beta2(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * LimitedPriorityLevelConfiguration specifies how to handle requests that are subject to limits. It addresses two issues:
+ * - How are requests for this priority level limited?
+ * - What should be done with requests that exceed the limit?
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.LimitedPriorityLevelConfiguration
+ */
+export interface LimitedPriorityLevelConfigurationV1Beta2 {
+  /**
+   * `assuredConcurrencyShares` (ACS) configures the execution limit, which is a limit on the number of requests of this priority level that may be exeucting at a given time.  ACS must be a positive number. The server's concurrency limit (SCL) is divided among the concurrency-controlled priority levels in proportion to their assured concurrency shares. This produces the assured concurrency value (ACV) --- the number of requests that may be executing at a time --- for each such priority level:
+   *
+   * ACV(l) = ceil( SCL * ACS(l) / ( sum[priority levels k] ACS(k) ) )
+   *
+   * bigger numbers of ACS mean more reserved concurrent requests (at the expense of every other PL). This field has a default value of 30.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.LimitedPriorityLevelConfiguration#assuredConcurrencyShares
+   */
+  readonly assuredConcurrencyShares?: number;
+
+  /**
+   * `limitResponse` indicates what to do with requests that can not be executed right now
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.LimitedPriorityLevelConfiguration#limitResponse
+   */
+  readonly limitResponse?: LimitResponseV1Beta2;
+
+}
+
+/**
+ * Converts an object of type 'LimitedPriorityLevelConfigurationV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LimitedPriorityLevelConfigurationV1Beta2(obj: LimitedPriorityLevelConfigurationV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assuredConcurrencyShares': obj.assuredConcurrencyShares,
+    'limitResponse': toJson_LimitResponseV1Beta2(obj.limitResponse),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -22768,7 +20354,7 @@ export interface IngressClassParametersReference {
   readonly namespace?: string;
 
   /**
-   * Scope represents if this refers to a cluster or namespace scoped resource. This may be set to "Cluster" (default) or "Namespace". Field can be enabled with IngressClassNamespacedParams feature gate.
+   * Scope represents if this refers to a cluster or namespace scoped resource. This may be set to "Cluster" (default) or "Namespace".
    *
    * @schema io.k8s.api.networking.v1.IngressClassParametersReference#scope
    */
@@ -22869,65 +20455,28 @@ export function toJson_NetworkPolicyIngressRule(obj: NetworkPolicyIngressRule | 
 /* eslint-enable max-len, quote-props */
 
 /**
- * Overhead structure represents the resource overhead associated with running a pod.
+ * A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.
  *
- * @schema io.k8s.api.node.v1alpha1.Overhead
+ * @schema io.k8s.api.core.v1.NodeSelector
  */
-export interface OverheadV1Alpha1 {
+export interface NodeSelector {
   /**
-   * PodFixed represents the fixed resource overhead associated with running a pod.
+   * Required. A list of node selector terms. The terms are ORed.
    *
-   * @schema io.k8s.api.node.v1alpha1.Overhead#podFixed
+   * @schema io.k8s.api.core.v1.NodeSelector#nodeSelectorTerms
    */
-  readonly podFixed?: { [key: string]: Quantity };
+  readonly nodeSelectorTerms: NodeSelectorTerm[];
 
 }
 
 /**
- * Converts an object of type 'OverheadV1Alpha1' to JSON representation.
+ * Converts an object of type 'NodeSelector' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_OverheadV1Alpha1(obj: OverheadV1Alpha1 | undefined): Record<string, any> | undefined {
+export function toJson_NodeSelector(obj: NodeSelector | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'podFixed': ((obj.podFixed) === undefined) ? undefined : (Object.entries(obj.podFixed).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.value }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.
- *
- * @schema io.k8s.api.node.v1alpha1.Scheduling
- */
-export interface SchedulingV1Alpha1 {
-  /**
-   * nodeSelector lists labels that must be present on nodes that support this RuntimeClass. Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
-   *
-   * @schema io.k8s.api.node.v1alpha1.Scheduling#nodeSelector
-   */
-  readonly nodeSelector?: { [key: string]: string };
-
-  /**
-   * tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.
-   *
-   * @schema io.k8s.api.node.v1alpha1.Scheduling#tolerations
-   */
-  readonly tolerations?: Toleration[];
-
-}
-
-/**
- * Converts an object of type 'SchedulingV1Alpha1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_SchedulingV1Alpha1(obj: SchedulingV1Alpha1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'nodeSelector': ((obj.nodeSelector) === undefined) ? undefined : (Object.entries(obj.nodeSelector).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'tolerations': obj.tolerations?.map(y => toJson_Toleration(y)),
+    'nodeSelectorTerms': obj.nodeSelectorTerms?.map(y => toJson_NodeSelectorTerm(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -22941,7 +20490,7 @@ export function toJson_SchedulingV1Alpha1(obj: SchedulingV1Alpha1 | undefined): 
  */
 export enum IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind {
   /** DeleteOptions */
-  DELETE_OPTIONS = 'DeleteOptions',
+  DELETE_OPTIONS = "DeleteOptions",
 }
 
 /**
@@ -22991,365 +20540,9 @@ export class IntOrString {
   public static fromNumber(value: number): IntOrString {
     return new IntOrString(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: string | number) {
   }
 }
-
-/**
- * AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
- *
- * @schema io.k8s.api.policy.v1beta1.AllowedCSIDriver
- */
-export interface AllowedCsiDriverV1Beta1 {
-  /**
-   * Name is the registered name of the CSI driver
-   *
-   * @schema io.k8s.api.policy.v1beta1.AllowedCSIDriver#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'AllowedCsiDriverV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_AllowedCsiDriverV1Beta1(obj: AllowedCsiDriverV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
- *
- * @schema io.k8s.api.policy.v1beta1.AllowedFlexVolume
- */
-export interface AllowedFlexVolumeV1Beta1 {
-  /**
-   * driver is the name of the Flexvolume driver.
-   *
-   * @schema io.k8s.api.policy.v1beta1.AllowedFlexVolume#driver
-   */
-  readonly driver: string;
-
-}
-
-/**
- * Converts an object of type 'AllowedFlexVolumeV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_AllowedFlexVolumeV1Beta1(obj: AllowedFlexVolumeV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'driver': obj.driver,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use. It requires the path prefix to be defined.
- *
- * @schema io.k8s.api.policy.v1beta1.AllowedHostPath
- */
-export interface AllowedHostPathV1Beta1 {
-  /**
-   * pathPrefix is the path prefix that the host volume must match. It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
-   *
-   * Examples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`
-   *
-   * @schema io.k8s.api.policy.v1beta1.AllowedHostPath#pathPrefix
-   */
-  readonly pathPrefix?: string;
-
-  /**
-   * when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
-   *
-   * @schema io.k8s.api.policy.v1beta1.AllowedHostPath#readOnly
-   */
-  readonly readOnly?: boolean;
-
-}
-
-/**
- * Converts an object of type 'AllowedHostPathV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_AllowedHostPathV1Beta1(obj: AllowedHostPathV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'pathPrefix': obj.pathPrefix,
-    'readOnly': obj.readOnly,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
- *
- * @schema io.k8s.api.policy.v1beta1.FSGroupStrategyOptions
- */
-export interface FsGroupStrategyOptionsV1Beta1 {
-  /**
-   * ranges are the allowed ranges of fs groups.  If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
-   *
-   * @schema io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#ranges
-   */
-  readonly ranges?: IdRangeV1Beta1[];
-
-  /**
-   * rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
-   *
-   * @schema io.k8s.api.policy.v1beta1.FSGroupStrategyOptions#rule
-   */
-  readonly rule?: string;
-
-}
-
-/**
- * Converts an object of type 'FsGroupStrategyOptionsV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_FsGroupStrategyOptionsV1Beta1(obj: FsGroupStrategyOptionsV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'ranges': obj.ranges?.map(y => toJson_IdRangeV1Beta1(y)),
-    'rule': obj.rule,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * HostPortRange defines a range of host ports that will be enabled by a policy for pods to use.  It requires both the start and end to be defined.
- *
- * @schema io.k8s.api.policy.v1beta1.HostPortRange
- */
-export interface HostPortRangeV1Beta1 {
-  /**
-   * max is the end of the range, inclusive.
-   *
-   * @schema io.k8s.api.policy.v1beta1.HostPortRange#max
-   */
-  readonly max: number;
-
-  /**
-   * min is the start of the range, inclusive.
-   *
-   * @schema io.k8s.api.policy.v1beta1.HostPortRange#min
-   */
-  readonly min: number;
-
-}
-
-/**
- * Converts an object of type 'HostPortRangeV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_HostPortRangeV1Beta1(obj: HostPortRangeV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'max': obj.max,
-    'min': obj.min,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RunAsGroupStrategyOptions defines the strategy type and any options used to create the strategy.
- *
- * @schema io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions
- */
-export interface RunAsGroupStrategyOptionsV1Beta1 {
-  /**
-   * ranges are the allowed ranges of gids that may be used. If you would like to force a single gid then supply a single range with the same start and end. Required for MustRunAs.
-   *
-   * @schema io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions#ranges
-   */
-  readonly ranges?: IdRangeV1Beta1[];
-
-  /**
-   * rule is the strategy that will dictate the allowable RunAsGroup values that may be set.
-   *
-   * @schema io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions#rule
-   */
-  readonly rule: string;
-
-}
-
-/**
- * Converts an object of type 'RunAsGroupStrategyOptionsV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_RunAsGroupStrategyOptionsV1Beta1(obj: RunAsGroupStrategyOptionsV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'ranges': obj.ranges?.map(y => toJson_IdRangeV1Beta1(y)),
-    'rule': obj.rule,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.
- *
- * @schema io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions
- */
-export interface RunAsUserStrategyOptionsV1Beta1 {
-  /**
-   * ranges are the allowed ranges of uids that may be used. If you would like to force a single uid then supply a single range with the same start and end. Required for MustRunAs.
-   *
-   * @schema io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions#ranges
-   */
-  readonly ranges?: IdRangeV1Beta1[];
-
-  /**
-   * rule is the strategy that will dictate the allowable RunAsUser values that may be set.
-   *
-   * @schema io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions#rule
-   */
-  readonly rule: string;
-
-}
-
-/**
- * Converts an object of type 'RunAsUserStrategyOptionsV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_RunAsUserStrategyOptionsV1Beta1(obj: RunAsUserStrategyOptionsV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'ranges': obj.ranges?.map(y => toJson_IdRangeV1Beta1(y)),
-    'rule': obj.rule,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.
- *
- * @schema io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions
- */
-export interface RuntimeClassStrategyOptionsV1Beta1 {
-  /**
-   * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod. A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the list. An empty list requires the RuntimeClassName field to be unset.
-   *
-   * @schema io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions#allowedRuntimeClassNames
-   */
-  readonly allowedRuntimeClassNames: string[];
-
-  /**
-   * defaultRuntimeClassName is the default RuntimeClassName to set on the pod. The default MUST be allowed by the allowedRuntimeClassNames list. A value of nil does not mutate the Pod.
-   *
-   * @schema io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions#defaultRuntimeClassName
-   */
-  readonly defaultRuntimeClassName?: string;
-
-}
-
-/**
- * Converts an object of type 'RuntimeClassStrategyOptionsV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_RuntimeClassStrategyOptionsV1Beta1(obj: RuntimeClassStrategyOptionsV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'allowedRuntimeClassNames': obj.allowedRuntimeClassNames?.map(y => y),
-    'defaultRuntimeClassName': obj.defaultRuntimeClassName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.
- *
- * @schema io.k8s.api.policy.v1beta1.SELinuxStrategyOptions
- */
-export interface SeLinuxStrategyOptionsV1Beta1 {
-  /**
-   * rule is the strategy that will dictate the allowable labels that may be set.
-   *
-   * @schema io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#rule
-   */
-  readonly rule: string;
-
-  /**
-   * seLinuxOptions required to run as; required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-   *
-   * @schema io.k8s.api.policy.v1beta1.SELinuxStrategyOptions#seLinuxOptions
-   */
-  readonly seLinuxOptions?: SeLinuxOptions;
-
-}
-
-/**
- * Converts an object of type 'SeLinuxStrategyOptionsV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_SeLinuxStrategyOptionsV1Beta1(obj: SeLinuxStrategyOptionsV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'rule': obj.rule,
-    'seLinuxOptions': toJson_SeLinuxOptions(obj.seLinuxOptions),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.
- *
- * @schema io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions
- */
-export interface SupplementalGroupsStrategyOptionsV1Beta1 {
-  /**
-   * ranges are the allowed ranges of supplemental groups.  If you would like to force a single supplemental group then supply a single range with the same start and end. Required for MustRunAs.
-   *
-   * @schema io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions#ranges
-   */
-  readonly ranges?: IdRangeV1Beta1[];
-
-  /**
-   * rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
-   *
-   * @schema io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions#rule
-   */
-  readonly rule?: string;
-
-}
-
-/**
- * Converts an object of type 'SupplementalGroupsStrategyOptionsV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_SupplementalGroupsStrategyOptionsV1Beta1(obj: SupplementalGroupsStrategyOptionsV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'ranges': obj.ranges?.map(y => toJson_IdRangeV1Beta1(y)),
-    'rule': obj.rule,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
 
 /**
  * TokenRequest contains parameters of a service account token.
@@ -23442,6 +20635,51 @@ export function toJson_CsiNodeDriver(obj: CsiNodeDriver | undefined): Record<str
 /* eslint-enable max-len, quote-props */
 
 /**
+ * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+ *
+ * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement
+ */
+export interface LabelSelectorRequirement {
+  /**
+   * key is the label key that the selector applies to.
+   *
+   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement#key
+   */
+  readonly key: string;
+
+  /**
+   * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+   *
+   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement#operator
+   */
+  readonly operator: string;
+
+  /**
+   * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement#values
+   */
+  readonly values?: string[];
+
+}
+
+/**
+ * Converts an object of type 'LabelSelectorRequirement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LabelSelectorRequirement(obj: LabelSelectorRequirement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'operator': obj.operator,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.
  *
  * @schema io.k8s.api.core.v1.TopologySelectorLabelRequirement
@@ -23505,88 +20743,6 @@ export interface VolumeAttachmentSource {
  */
 /* eslint-disable max-len, quote-props */
 export function toJson_VolumeAttachmentSource(obj: VolumeAttachmentSource | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'inlineVolumeSpec': toJson_PersistentVolumeSpec(obj.inlineVolumeSpec),
-    'persistentVolumeName': obj.persistentVolumeName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
- *
- * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement
- */
-export interface LabelSelectorRequirement {
-  /**
-   * key is the label key that the selector applies to.
-   *
-   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement#key
-   */
-  readonly key: string;
-
-  /**
-   * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
-   *
-   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement#operator
-   */
-  readonly operator: string;
-
-  /**
-   * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-   *
-   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement#values
-   */
-  readonly values?: string[];
-
-}
-
-/**
- * Converts an object of type 'LabelSelectorRequirement' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_LabelSelectorRequirement(obj: LabelSelectorRequirement | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'operator': obj.operator,
-    'values': obj.values?.map(y => y),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * VolumeAttachmentSource represents a volume that should be attached. Right now only PersistenVolumes can be attached via external attacher, in future we may allow also inline volumes in pods. Exactly one member can be set.
- *
- * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentSource
- */
-export interface VolumeAttachmentSourceV1Alpha1 {
-  /**
-   * inlineVolumeSpec contains all the information necessary to attach a persistent volume defined by a pod's inline VolumeSource. This field is populated only for the CSIMigration feature. It contains translated fields from a pod's inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the CSIMigration feature.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentSource#inlineVolumeSpec
-   */
-  readonly inlineVolumeSpec?: PersistentVolumeSpec;
-
-  /**
-   * Name of the persistent volume to attach.
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentSource#persistentVolumeName
-   */
-  readonly persistentVolumeName?: string;
-
-}
-
-/**
- * Converts an object of type 'VolumeAttachmentSourceV1Alpha1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_VolumeAttachmentSourceV1Alpha1(obj: VolumeAttachmentSourceV1Alpha1 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'inlineVolumeSpec': toJson_PersistentVolumeSpec(obj.inlineVolumeSpec),
@@ -23902,7 +21058,7 @@ export function toJson_ServiceReference(obj: ServiceReference | undefined): Reco
  */
 export interface RollingUpdateDaemonSet {
   /**
-   * The maximum number of nodes with an existing available DaemonSet pod that can have an updated DaemonSet pod during during an update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up to a minimum of 1. Default value is 0. Example: when this is set to 30%, at most 30% of the total number of nodes that should be running the daemon pod (i.e. status.desiredNumberScheduled) can have their a new pod created before the old pod is marked as deleted. The update starts by launching new pods on 30% of nodes. Once an updated pod is available (Ready for at least minReadySeconds) the old DaemonSet pod on that node is marked deleted. If the old pod becomes unavailable for any reason (Ready transitions to false, is evicted, or is drained) an updated pod is immediatedly created on that node without considering surge limits. Allowing surge implies the possibility that the resources consumed by the daemonset on any given node can double if the readiness check fails, and so resource intensive daemonsets should take into account that they may cause evictions during disruption. This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+   * The maximum number of nodes with an existing available DaemonSet pod that can have an updated DaemonSet pod during during an update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up to a minimum of 1. Default value is 0. Example: when this is set to 30%, at most 30% of the total number of nodes that should be running the daemon pod (i.e. status.desiredNumberScheduled) can have their a new pod created before the old pod is marked as deleted. The update starts by launching new pods on 30% of nodes. Once an updated pod is available (Ready for at least minReadySeconds) the old DaemonSet pod on that node is marked deleted. If the old pod becomes unavailable for any reason (Ready transitions to false, is evicted, or is drained) an updated pod is immediatedly created on that node without considering surge limits. Allowing surge implies the possibility that the resources consumed by the daemonset on any given node can double if the readiness check fails, and so resource intensive daemonsets should take into account that they may cause evictions during disruption.
    *
    * @schema io.k8s.api.apps.v1.RollingUpdateDaemonSet#maxSurge
    */
@@ -23978,7 +21134,15 @@ export function toJson_RollingUpdateDeployment(obj: RollingUpdateDeployment | un
  */
 export interface RollingUpdateStatefulSetStrategy {
   /**
-   * Partition indicates the ordinal at which the StatefulSet should be partitioned. Default value is 0.
+   * The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding up. This can not be 0. Defaults to 1. This field is alpha-level and is only honored by servers that enable the MaxUnavailableStatefulSet feature. The field applies to all pods in the range 0 to Replicas-1. That means if there is any unavailable pod in the range 0 to Replicas-1, it will be counted towards MaxUnavailable.
+   *
+   * @default 1. This field is alpha-level and is only honored by servers that enable the MaxUnavailableStatefulSet feature. The field applies to all pods in the range 0 to Replicas-1. That means if there is any unavailable pod in the range 0 to Replicas-1, it will be counted towards MaxUnavailable.
+   * @schema io.k8s.api.apps.v1.RollingUpdateStatefulSetStrategy#maxUnavailable
+   */
+  readonly maxUnavailable?: IntOrString;
+
+  /**
+   * Partition indicates the ordinal at which the StatefulSet should be partitioned for updates. During a rolling update, all pods from ordinal Replicas-1 to Partition are updated. All pods from ordinal Partition-1 to 0 remain untouched. This is helpful in being able to do a canary based deployment. The default value is 0.
    *
    * @schema io.k8s.api.apps.v1.RollingUpdateStatefulSetStrategy#partition
    */
@@ -23993,7 +21157,53 @@ export interface RollingUpdateStatefulSetStrategy {
 export function toJson_RollingUpdateStatefulSetStrategy(obj: RollingUpdateStatefulSetStrategy | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'maxUnavailable': obj.maxUnavailable?.value,
     'partition': obj.partition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * HPAScalingRules configures the scaling behavior for one direction. These Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.
+ *
+ * @schema io.k8s.api.autoscaling.v2.HPAScalingRules
+ */
+export interface HpaScalingRulesV2 {
+  /**
+   * policies is a list of potential scaling polices which can be used during scaling. At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+   *
+   * @schema io.k8s.api.autoscaling.v2.HPAScalingRules#policies
+   */
+  readonly policies?: HpaScalingPolicyV2[];
+
+  /**
+   * selectPolicy is used to specify which policy should be used. If not set, the default value Max is used.
+   *
+   * @schema io.k8s.api.autoscaling.v2.HPAScalingRules#selectPolicy
+   */
+  readonly selectPolicy?: string;
+
+  /**
+   * StabilizationWindowSeconds is the number of seconds for which past recommendations should be considered while scaling up or scaling down. StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+   *
+   * @schema io.k8s.api.autoscaling.v2.HPAScalingRules#stabilizationWindowSeconds
+   */
+  readonly stabilizationWindowSeconds?: number;
+
+}
+
+/**
+ * Converts an object of type 'HpaScalingRulesV2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HpaScalingRulesV2(obj: HpaScalingRulesV2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policies': obj.policies?.map(y => toJson_HpaScalingPolicyV2(y)),
+    'selectPolicy': obj.selectPolicy,
+    'stabilizationWindowSeconds': obj.stabilizationWindowSeconds,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -24003,50 +21213,42 @@ export function toJson_RollingUpdateStatefulSetStrategy(obj: RollingUpdateStatef
 /**
  * ContainerResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  The values will be averaged together before being compared to the target.  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.  Only one "target" type should be set.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.ContainerResourceMetricSource
+ * @schema io.k8s.api.autoscaling.v2.ContainerResourceMetricSource
  */
-export interface ContainerResourceMetricSourceV2Beta1 {
+export interface ContainerResourceMetricSourceV2 {
   /**
    * container is the name of the container in the pods of the scaling target
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ContainerResourceMetricSource#container
+   * @schema io.k8s.api.autoscaling.v2.ContainerResourceMetricSource#container
    */
   readonly container: string;
 
   /**
    * name is the name of the resource in question.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ContainerResourceMetricSource#name
+   * @schema io.k8s.api.autoscaling.v2.ContainerResourceMetricSource#name
    */
   readonly name: string;
 
   /**
-   * targetAverageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
+   * target specifies the target value for the given metric
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ContainerResourceMetricSource#targetAverageUtilization
+   * @schema io.k8s.api.autoscaling.v2.ContainerResourceMetricSource#target
    */
-  readonly targetAverageUtilization?: number;
-
-  /**
-   * targetAverageValue is the target value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the "pods" metric source type.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.ContainerResourceMetricSource#targetAverageValue
-   */
-  readonly targetAverageValue?: Quantity;
+  readonly target: MetricTargetV2;
 
 }
 
 /**
- * Converts an object of type 'ContainerResourceMetricSourceV2Beta1' to JSON representation.
+ * Converts an object of type 'ContainerResourceMetricSourceV2' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_ContainerResourceMetricSourceV2Beta1(obj: ContainerResourceMetricSourceV2Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_ContainerResourceMetricSourceV2(obj: ContainerResourceMetricSourceV2 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'container': obj.container,
     'name': obj.name,
-    'targetAverageUtilization': obj.targetAverageUtilization,
-    'targetAverageValue': obj.targetAverageValue?.value,
+    'target': toJson_MetricTargetV2(obj.target),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -24054,52 +21256,36 @@ export function toJson_ContainerResourceMetricSourceV2Beta1(obj: ContainerResour
 /* eslint-enable max-len, quote-props */
 
 /**
- * ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster). Exactly one "target" type should be set.
+ * ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
  *
- * @schema io.k8s.api.autoscaling.v2beta1.ExternalMetricSource
+ * @schema io.k8s.api.autoscaling.v2.ExternalMetricSource
  */
-export interface ExternalMetricSourceV2Beta1 {
+export interface ExternalMetricSourceV2 {
   /**
-   * metricName is the name of the metric in question.
+   * metric identifies the target metric by name and selector
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ExternalMetricSource#metricName
+   * @schema io.k8s.api.autoscaling.v2.ExternalMetricSource#metric
    */
-  readonly metricName: string;
+  readonly metric: MetricIdentifierV2;
 
   /**
-   * metricSelector is used to identify a specific time series within a given metric.
+   * target specifies the target value for the given metric
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ExternalMetricSource#metricSelector
+   * @schema io.k8s.api.autoscaling.v2.ExternalMetricSource#target
    */
-  readonly metricSelector?: LabelSelector;
-
-  /**
-   * targetAverageValue is the target per-pod value of global metric (as a quantity). Mutually exclusive with TargetValue.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.ExternalMetricSource#targetAverageValue
-   */
-  readonly targetAverageValue?: Quantity;
-
-  /**
-   * targetValue is the target value of the metric (as a quantity). Mutually exclusive with TargetAverageValue.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.ExternalMetricSource#targetValue
-   */
-  readonly targetValue?: Quantity;
+  readonly target: MetricTargetV2;
 
 }
 
 /**
- * Converts an object of type 'ExternalMetricSourceV2Beta1' to JSON representation.
+ * Converts an object of type 'ExternalMetricSourceV2' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_ExternalMetricSourceV2Beta1(obj: ExternalMetricSourceV2Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_ExternalMetricSourceV2(obj: ExternalMetricSourceV2 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'metricName': obj.metricName,
-    'metricSelector': toJson_LabelSelector(obj.metricSelector),
-    'targetAverageValue': obj.targetAverageValue?.value,
-    'targetValue': obj.targetValue?.value,
+    'metric': toJson_MetricIdentifierV2(obj.metric),
+    'target': toJson_MetricTargetV2(obj.target),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -24109,58 +21295,42 @@ export function toJson_ExternalMetricSourceV2Beta1(obj: ExternalMetricSourceV2Be
 /**
  * ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
  *
- * @schema io.k8s.api.autoscaling.v2beta1.ObjectMetricSource
+ * @schema io.k8s.api.autoscaling.v2.ObjectMetricSource
  */
-export interface ObjectMetricSourceV2Beta1 {
+export interface ObjectMetricSourceV2 {
   /**
-   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
+   * describedObject specifies the descriptions of a object,such as kind,name apiVersion
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ObjectMetricSource#averageValue
+   * @schema io.k8s.api.autoscaling.v2.ObjectMetricSource#describedObject
    */
-  readonly averageValue?: Quantity;
+  readonly describedObject: CrossVersionObjectReferenceV2;
 
   /**
-   * metricName is the name of the metric in question.
+   * metric identifies the target metric by name and selector
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ObjectMetricSource#metricName
+   * @schema io.k8s.api.autoscaling.v2.ObjectMetricSource#metric
    */
-  readonly metricName: string;
+  readonly metric: MetricIdentifierV2;
 
   /**
-   * selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping When unset, just the metricName will be used to gather metrics.
+   * target specifies the target value for the given metric
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ObjectMetricSource#selector
+   * @schema io.k8s.api.autoscaling.v2.ObjectMetricSource#target
    */
-  readonly selector?: LabelSelector;
-
-  /**
-   * target is the described Kubernetes object.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.ObjectMetricSource#target
-   */
-  readonly target: CrossVersionObjectReferenceV2Beta1;
-
-  /**
-   * targetValue is the target value of the metric (as a quantity).
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.ObjectMetricSource#targetValue
-   */
-  readonly targetValue: Quantity;
+  readonly target: MetricTargetV2;
 
 }
 
 /**
- * Converts an object of type 'ObjectMetricSourceV2Beta1' to JSON representation.
+ * Converts an object of type 'ObjectMetricSourceV2' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_ObjectMetricSourceV2Beta1(obj: ObjectMetricSourceV2Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_ObjectMetricSourceV2(obj: ObjectMetricSourceV2 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'averageValue': obj.averageValue?.value,
-    'metricName': obj.metricName,
-    'selector': toJson_LabelSelector(obj.selector),
-    'target': toJson_CrossVersionObjectReferenceV2Beta1(obj.target),
-    'targetValue': obj.targetValue?.value,
+    'describedObject': toJson_CrossVersionObjectReferenceV2(obj.describedObject),
+    'metric': toJson_MetricIdentifierV2(obj.metric),
+    'target': toJson_MetricTargetV2(obj.target),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -24170,42 +21340,34 @@ export function toJson_ObjectMetricSourceV2Beta1(obj: ObjectMetricSourceV2Beta1 
 /**
  * PodsMetricSource indicates how to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second). The values will be averaged together before being compared to the target value.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.PodsMetricSource
+ * @schema io.k8s.api.autoscaling.v2.PodsMetricSource
  */
-export interface PodsMetricSourceV2Beta1 {
+export interface PodsMetricSourceV2 {
   /**
-   * metricName is the name of the metric in question
+   * metric identifies the target metric by name and selector
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.PodsMetricSource#metricName
+   * @schema io.k8s.api.autoscaling.v2.PodsMetricSource#metric
    */
-  readonly metricName: string;
+  readonly metric: MetricIdentifierV2;
 
   /**
-   * selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping When unset, just the metricName will be used to gather metrics.
+   * target specifies the target value for the given metric
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.PodsMetricSource#selector
+   * @schema io.k8s.api.autoscaling.v2.PodsMetricSource#target
    */
-  readonly selector?: LabelSelector;
-
-  /**
-   * targetAverageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.PodsMetricSource#targetAverageValue
-   */
-  readonly targetAverageValue: Quantity;
+  readonly target: MetricTargetV2;
 
 }
 
 /**
- * Converts an object of type 'PodsMetricSourceV2Beta1' to JSON representation.
+ * Converts an object of type 'PodsMetricSourceV2' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_PodsMetricSourceV2Beta1(obj: PodsMetricSourceV2Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_PodsMetricSourceV2(obj: PodsMetricSourceV2 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'metricName': obj.metricName,
-    'selector': toJson_LabelSelector(obj.selector),
-    'targetAverageValue': obj.targetAverageValue?.value,
+    'metric': toJson_MetricIdentifierV2(obj.metric),
+    'target': toJson_MetricTargetV2(obj.target),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -24215,42 +21377,34 @@ export function toJson_PodsMetricSourceV2Beta1(obj: PodsMetricSourceV2Beta1 | un
 /**
  * ResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  The values will be averaged together before being compared to the target.  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.  Only one "target" type should be set.
  *
- * @schema io.k8s.api.autoscaling.v2beta1.ResourceMetricSource
+ * @schema io.k8s.api.autoscaling.v2.ResourceMetricSource
  */
-export interface ResourceMetricSourceV2Beta1 {
+export interface ResourceMetricSourceV2 {
   /**
    * name is the name of the resource in question.
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ResourceMetricSource#name
+   * @schema io.k8s.api.autoscaling.v2.ResourceMetricSource#name
    */
   readonly name: string;
 
   /**
-   * targetAverageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
+   * target specifies the target value for the given metric
    *
-   * @schema io.k8s.api.autoscaling.v2beta1.ResourceMetricSource#targetAverageUtilization
+   * @schema io.k8s.api.autoscaling.v2.ResourceMetricSource#target
    */
-  readonly targetAverageUtilization?: number;
-
-  /**
-   * targetAverageValue is the target value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the "pods" metric source type.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.ResourceMetricSource#targetAverageValue
-   */
-  readonly targetAverageValue?: Quantity;
+  readonly target: MetricTargetV2;
 
 }
 
 /**
- * Converts an object of type 'ResourceMetricSourceV2Beta1' to JSON representation.
+ * Converts an object of type 'ResourceMetricSourceV2' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_ResourceMetricSourceV2Beta1(obj: ResourceMetricSourceV2Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_ResourceMetricSourceV2(obj: ResourceMetricSourceV2 | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'name': obj.name,
-    'targetAverageUtilization': obj.targetAverageUtilization,
-    'targetAverageValue': obj.targetAverageValue?.value,
+    'target': toJson_MetricTargetV2(obj.target),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -24502,6 +21656,59 @@ export function toJson_ResourceMetricSourceV2Beta2(obj: ResourceMetricSourceV2Be
 /* eslint-enable max-len, quote-props */
 
 /**
+ * PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of OnExitCodes and onPodConditions, but not both, can be used in each rule.
+ *
+ * @schema io.k8s.api.batch.v1.PodFailurePolicyRule
+ */
+export interface PodFailurePolicyRule {
+  /**
+   * Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are: - FailJob: indicates that the pod's job is marked as Failed and all
+   * running pods are terminated.
+   * - Ignore: indicates that the counter towards the .backoffLimit is not
+   * incremented and a replacement pod is created.
+   * - Count: indicates that the pod is handled in the default way - the
+   * counter towards the .backoffLimit is incremented.
+   * Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.
+   *
+   *
+   *
+   * @schema io.k8s.api.batch.v1.PodFailurePolicyRule#action
+   */
+  readonly action: string;
+
+  /**
+   * Represents the requirement on the container exit codes.
+   *
+   * @schema io.k8s.api.batch.v1.PodFailurePolicyRule#onExitCodes
+   */
+  readonly onExitCodes?: PodFailurePolicyOnExitCodesRequirement;
+
+  /**
+   * Represents the requirement on the pod conditions. The requirement is represented as a list of pod condition patterns. The requirement is satisfied if at least one pattern matches an actual pod condition. At most 20 elements are allowed.
+   *
+   * @schema io.k8s.api.batch.v1.PodFailurePolicyRule#onPodConditions
+   */
+  readonly onPodConditions: PodFailurePolicyOnPodConditionsPattern[];
+
+}
+
+/**
+ * Converts an object of type 'PodFailurePolicyRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PodFailurePolicyRule(obj: PodFailurePolicyRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': obj.action,
+    'onExitCodes': toJson_PodFailurePolicyOnExitCodesRequirement(obj.onExitCodes),
+    'onPodConditions': obj.onPodConditions?.map(y => toJson_PodFailurePolicyOnPodConditionsPattern(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration
  *
  * @schema io.k8s.api.core.v1.ConfigMapNodeConfigSource
@@ -24569,14 +21776,14 @@ export function toJson_ConfigMapNodeConfigSource(obj: ConfigMapNodeConfigSource 
  */
 export interface SecretReference {
   /**
-   * Name is unique within a namespace to reference a secret resource.
+   * name is unique within a namespace to reference a secret resource.
    *
    * @schema io.k8s.api.core.v1.SecretReference#name
    */
   readonly name?: string;
 
   /**
-   * Namespace defines the space within which the secret name must be unique.
+   * namespace defines the space within which the secret name must be unique.
    *
    * @schema io.k8s.api.core.v1.SecretReference#namespace
    */
@@ -24593,35 +21800,6 @@ export function toJson_SecretReference(obj: SecretReference | undefined): Record
   const result = {
     'name': obj.name,
     'namespace': obj.namespace,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.
- *
- * @schema io.k8s.api.core.v1.NodeSelector
- */
-export interface NodeSelector {
-  /**
-   * Required. A list of node selector terms. The terms are ORed.
-   *
-   * @schema io.k8s.api.core.v1.NodeSelector#nodeSelectorTerms
-   */
-  readonly nodeSelectorTerms: NodeSelectorTerm[];
-
-}
-
-/**
- * Converts an object of type 'NodeSelector' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_NodeSelector(obj: NodeSelector | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'nodeSelectorTerms': obj.nodeSelectorTerms?.map(y => toJson_NodeSelectorTerm(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -24841,14 +22019,14 @@ export interface Lifecycle {
    *
    * @schema io.k8s.api.core.v1.Lifecycle#postStart
    */
-  readonly postStart?: Handler;
+  readonly postStart?: LifecycleHandler;
 
   /**
-   * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The reason for termination is passed to the handler. The Pod's termination grace period countdown begins before the PreStop hooked is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period. Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+   * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
    *
    * @schema io.k8s.api.core.v1.Lifecycle#preStop
    */
-  readonly preStop?: Handler;
+  readonly preStop?: LifecycleHandler;
 
 }
 
@@ -24859,8 +22037,8 @@ export interface Lifecycle {
 export function toJson_Lifecycle(obj: Lifecycle | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'postStart': toJson_Handler(obj.postStart),
-    'preStop': toJson_Handler(obj.preStop),
+    'postStart': toJson_LifecycleHandler(obj.postStart),
+    'preStop': toJson_LifecycleHandler(obj.preStop),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -24874,7 +22052,7 @@ export function toJson_Lifecycle(obj: Lifecycle | undefined): Record<string, any
  */
 export interface Probe {
   /**
-   * One and only one of the following should be specified. Exec specifies the action to take.
+   * Exec specifies the action to take.
    *
    * @schema io.k8s.api.core.v1.Probe#exec
    */
@@ -24887,6 +22065,13 @@ export interface Probe {
    * @schema io.k8s.api.core.v1.Probe#failureThreshold
    */
   readonly failureThreshold?: number;
+
+  /**
+   * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+   *
+   * @schema io.k8s.api.core.v1.Probe#grpc
+   */
+  readonly grpc?: GrpcAction;
 
   /**
    * HTTPGet specifies the http request to perform.
@@ -24919,7 +22104,7 @@ export interface Probe {
   readonly successThreshold?: number;
 
   /**
-   * TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
+   * TCPSocket specifies an action involving a TCP port.
    *
    * @schema io.k8s.api.core.v1.Probe#tcpSocket
    */
@@ -24951,6 +22136,7 @@ export function toJson_Probe(obj: Probe | undefined): Record<string, any> | unde
   const result = {
     'exec': toJson_ExecAction(obj.exec),
     'failureThreshold': obj.failureThreshold,
+    'grpc': toJson_GrpcAction(obj.grpc),
     'httpGet': toJson_HttpGetAction(obj.httpGet),
     'initialDelaySeconds': obj.initialDelaySeconds,
     'periodSeconds': obj.periodSeconds,
@@ -25001,6 +22187,8 @@ export interface ContainerPort {
   /**
    * Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP".
    *
+   *
+   *
    * @default TCP".
    * @schema io.k8s.api.core.v1.ContainerPort#protocol
    */
@@ -25033,45 +22221,45 @@ export function toJson_ContainerPort(obj: ContainerPort | undefined): Record<str
  */
 export interface SecurityContext {
   /**
-   * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
+   * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.SecurityContext#allowPrivilegeEscalation
    */
   readonly allowPrivilegeEscalation?: boolean;
 
   /**
-   * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime.
+   * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
    *
-   * @default the default set of capabilities granted by the container runtime.
+   * @default the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
    * @schema io.k8s.api.core.v1.SecurityContext#capabilities
    */
   readonly capabilities?: Capabilities;
 
   /**
-   * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
+   * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.
    *
-   * @default false.
+   * @default false. Note that this field cannot be set when spec.os.name is windows.
    * @schema io.k8s.api.core.v1.SecurityContext#privileged
    */
   readonly privileged?: boolean;
 
   /**
-   * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled.
+   * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.SecurityContext#procMount
    */
   readonly procMount?: string;
 
   /**
-   * Whether this container has a read-only root filesystem. Default is false.
+   * Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.
    *
-   * @default false.
+   * @default false. Note that this field cannot be set when spec.os.name is windows.
    * @schema io.k8s.api.core.v1.SecurityContext#readOnlyRootFilesystem
    */
   readonly readOnlyRootFilesystem?: boolean;
 
   /**
-   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.SecurityContext#runAsGroup
    */
@@ -25085,29 +22273,29 @@ export interface SecurityContext {
   readonly runAsNonRoot?: boolean;
 
   /**
-   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
    *
-   * @default user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   * @default user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
    * @schema io.k8s.api.core.v1.SecurityContext#runAsUser
    */
   readonly runAsUser?: number;
 
   /**
-   * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.SecurityContext#seLinuxOptions
    */
   readonly seLinuxOptions?: SeLinuxOptions;
 
   /**
-   * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options.
+   * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
    *
    * @schema io.k8s.api.core.v1.SecurityContext#seccompProfile
    */
   readonly seccompProfile?: SeccompProfile;
 
   /**
-   * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
    *
    * @schema io.k8s.api.core.v1.SecurityContext#windowsOptions
    */
@@ -25354,6 +22542,8 @@ export interface SeccompProfile {
    *
    * Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
    *
+   *
+   *
    * @schema io.k8s.api.core.v1.SeccompProfile#type
    */
   readonly type: string;
@@ -25473,22 +22663,21 @@ export function toJson_WindowsSecurityContextOptions(obj: WindowsSecurityContext
  */
 export interface AzureFileVolumeSource {
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.AzureFileVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * the name of secret that contains Azure Storage Account Name and Key
+   * secretName is the  name of secret that contains Azure Storage Account Name and Key
    *
    * @schema io.k8s.api.core.v1.AzureFileVolumeSource#secretName
    */
   readonly secretName: string;
 
   /**
-   * Share Name
+   * shareName is the azure share Name
    *
    * @schema io.k8s.api.core.v1.AzureFileVolumeSource#shareName
    */
@@ -25519,21 +22708,21 @@ export function toJson_AzureFileVolumeSource(obj: AzureFileVolumeSource | undefi
  */
 export interface CephFsVolumeSource {
   /**
-   * Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.CephFSVolumeSource#monitors
    */
   readonly monitors: string[];
 
   /**
-   * Optional: Used as the mounted root, rather than the full Ceph tree, default is /
+   * path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /
    *
    * @schema io.k8s.api.core.v1.CephFSVolumeSource#path
    */
   readonly path?: string;
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.CephFSVolumeSource#readOnly
@@ -25541,21 +22730,21 @@ export interface CephFsVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.CephFSVolumeSource#secretFile
    */
   readonly secretFile?: string;
 
   /**
-   * Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * secretRef is Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.CephFSVolumeSource#secretRef
    */
   readonly secretRef?: LocalObjectReference;
 
   /**
-   * Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * user is optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.CephFSVolumeSource#user
    */
@@ -25589,29 +22778,28 @@ export function toJson_CephFsVolumeSource(obj: CephFsVolumeSource | undefined): 
  */
 export interface CinderVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @schema io.k8s.api.core.v1.CinderVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    * @schema io.k8s.api.core.v1.CinderVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * Optional: points to a secret object containing parameters used to connect to OpenStack.
+   * secretRef is optional: points to a secret object containing parameters used to connect to OpenStack.
    *
    * @schema io.k8s.api.core.v1.CinderVolumeSource#secretRef
    */
   readonly secretRef?: LocalObjectReference;
 
   /**
-   * volume id used to identify the volume in cinder. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * volumeID used to identify the volume in cinder. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @schema io.k8s.api.core.v1.CinderVolumeSource#volumeID
    */
@@ -25645,7 +22833,7 @@ export function toJson_CinderVolumeSource(obj: CinderVolumeSource | undefined): 
  */
 export interface ConfigMapVolumeSource {
   /**
-   * Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   * defaultMode is optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    *
    * @default 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    * @schema io.k8s.api.core.v1.ConfigMapVolumeSource#defaultMode
@@ -25653,7 +22841,7 @@ export interface ConfigMapVolumeSource {
   readonly defaultMode?: number;
 
   /**
-   * If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+   * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
    *
    * @schema io.k8s.api.core.v1.ConfigMapVolumeSource#items
    */
@@ -25667,7 +22855,7 @@ export interface ConfigMapVolumeSource {
   readonly name?: string;
 
   /**
-   * Specify whether the ConfigMap or its keys must be defined
+   * optional specify whether the ConfigMap or its keys must be defined
    *
    * @schema io.k8s.api.core.v1.ConfigMapVolumeSource#optional
    */
@@ -25699,28 +22887,28 @@ export function toJson_ConfigMapVolumeSource(obj: ConfigMapVolumeSource | undefi
  */
 export interface CsiVolumeSource {
   /**
-   * Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
+   * driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
    *
    * @schema io.k8s.api.core.v1.CSIVolumeSource#driver
    */
   readonly driver: string;
 
   /**
-   * Filesystem type to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
+   * fsType to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
    *
    * @schema io.k8s.api.core.v1.CSIVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+   * nodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
    *
    * @schema io.k8s.api.core.v1.CSIVolumeSource#nodePublishSecretRef
    */
   readonly nodePublishSecretRef?: LocalObjectReference;
 
   /**
-   * Specifies a read-only configuration for the volume. Defaults to false (read/write).
+   * readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).
    *
    * @default false (read/write).
    * @schema io.k8s.api.core.v1.CSIVolumeSource#readOnly
@@ -25728,7 +22916,7 @@ export interface CsiVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
+   * volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
    *
    * @schema io.k8s.api.core.v1.CSIVolumeSource#volumeAttributes
    */
@@ -25799,14 +22987,14 @@ export function toJson_DownwardApiVolumeSource(obj: DownwardApiVolumeSource | un
  */
 export interface EmptyDirVolumeSource {
   /**
-   * What type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+   * medium represents what type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
    *
    * @schema io.k8s.api.core.v1.EmptyDirVolumeSource#medium
    */
   readonly medium?: string;
 
   /**
-   * Total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
+   * sizeLimit is the total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
    *
    * @schema io.k8s.api.core.v1.EmptyDirVolumeSource#sizeLimit
    */
@@ -25871,36 +23059,35 @@ export function toJson_EphemeralVolumeSource(obj: EphemeralVolumeSource | undefi
  */
 export interface FlexVolumeSource {
   /**
-   * Driver is the name of the driver to use for this volume.
+   * driver is the name of the driver to use for this volume.
    *
    * @schema io.k8s.api.core.v1.FlexVolumeSource#driver
    */
   readonly driver: string;
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
    *
    * @schema io.k8s.api.core.v1.FlexVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Optional: Extra command options if any.
+   * options is Optional: this field holds extra command options if any.
    *
    * @schema io.k8s.api.core.v1.FlexVolumeSource#options
    */
   readonly options?: { [key: string]: string };
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.FlexVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
+   * secretRef is Optional: secretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
    *
    * @schema io.k8s.api.core.v1.FlexVolumeSource#secretRef
    */
@@ -25935,21 +23122,21 @@ export function toJson_FlexVolumeSource(obj: FlexVolumeSource | undefined): Reco
  */
 export interface GitRepoVolumeSource {
   /**
-   * Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+   * directory is the target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
    *
    * @schema io.k8s.api.core.v1.GitRepoVolumeSource#directory
    */
   readonly directory?: string;
 
   /**
-   * Repository URL
+   * repository is the URL
    *
    * @schema io.k8s.api.core.v1.GitRepoVolumeSource#repository
    */
   readonly repository: string;
 
   /**
-   * Commit hash for the specified revision.
+   * revision is the commit hash for the specified revision.
    *
    * @schema io.k8s.api.core.v1.GitRepoVolumeSource#revision
    */
@@ -25980,21 +23167,21 @@ export function toJson_GitRepoVolumeSource(obj: GitRepoVolumeSource | undefined)
  */
 export interface GlusterfsVolumeSource {
   /**
-   * EndpointsName is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @schema io.k8s.api.core.v1.GlusterfsVolumeSource#endpoints
    */
   readonly endpoints: string;
 
   /**
-   * Path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @schema io.k8s.api.core.v1.GlusterfsVolumeSource#path
    */
   readonly path: string;
 
   /**
-   * ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @default false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    * @schema io.k8s.api.core.v1.GlusterfsVolumeSource#readOnly
@@ -26026,42 +23213,42 @@ export function toJson_GlusterfsVolumeSource(obj: GlusterfsVolumeSource | undefi
  */
 export interface IscsiVolumeSource {
   /**
-   * whether support iSCSI Discovery CHAP authentication
+   * chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#chapAuthDiscovery
    */
   readonly chapAuthDiscovery?: boolean;
 
   /**
-   * whether support iSCSI Session CHAP authentication
+   * chapAuthSession defines whether support iSCSI Session CHAP authentication
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#chapAuthSession
    */
   readonly chapAuthSession?: boolean;
 
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
+   * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
+   * initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#initiatorName
    */
   readonly initiatorName?: string;
 
   /**
-   * Target iSCSI Qualified Name.
+   * iqn is the target iSCSI Qualified Name.
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#iqn
    */
   readonly iqn: string;
 
   /**
-   * iSCSI Interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).
+   * iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).
    *
    * @default default' (tcp).
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#iscsiInterface
@@ -26069,21 +23256,21 @@ export interface IscsiVolumeSource {
   readonly iscsiInterface?: string;
 
   /**
-   * iSCSI Target Lun number.
+   * lun represents iSCSI Target Lun number.
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#lun
    */
   readonly lun: number;
 
   /**
-   * iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   * portals is the iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#portals
    */
   readonly portals?: string[];
 
   /**
-   * ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
+   * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
    *
    * @default false.
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#readOnly
@@ -26091,14 +23278,14 @@ export interface IscsiVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * CHAP Secret for iSCSI target and initiator authentication
+   * secretRef is the CHAP Secret for iSCSI target and initiator authentication
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#secretRef
    */
   readonly secretRef?: LocalObjectReference;
 
   /**
-   * iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   * targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
    *
    * @schema io.k8s.api.core.v1.ISCSIVolumeSource#targetPortal
    */
@@ -26137,14 +23324,14 @@ export function toJson_IscsiVolumeSource(obj: IscsiVolumeSource | undefined): Re
  */
 export interface PersistentVolumeClaimVolumeSource {
   /**
-   * ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+   * claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimVolumeSource#claimName
    */
   readonly claimName: string;
 
   /**
-   * Will force the ReadOnly setting in VolumeMounts. Default false.
+   * readOnly Will force the ReadOnly setting in VolumeMounts. Default false.
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimVolumeSource#readOnly
    */
@@ -26174,14 +23361,14 @@ export function toJson_PersistentVolumeClaimVolumeSource(obj: PersistentVolumeCl
  */
 export interface ProjectedVolumeSource {
   /**
-   * Mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   * defaultMode are the mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    *
    * @schema io.k8s.api.core.v1.ProjectedVolumeSource#defaultMode
    */
   readonly defaultMode?: number;
 
   /**
-   * list of volume projections
+   * sources is the list of volume projections
    *
    * @schema io.k8s.api.core.v1.ProjectedVolumeSource#sources
    */
@@ -26211,21 +23398,21 @@ export function toJson_ProjectedVolumeSource(obj: ProjectedVolumeSource | undefi
  */
 export interface RbdVolumeSource {
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
+   * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
    *
    * @schema io.k8s.api.core.v1.RBDVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * The rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.RBDVolumeSource#image
    */
   readonly image: string;
 
   /**
-   * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDVolumeSource#keyring
@@ -26233,14 +23420,14 @@ export interface RbdVolumeSource {
   readonly keyring?: string;
 
   /**
-   * A collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @schema io.k8s.api.core.v1.RBDVolumeSource#monitors
    */
   readonly monitors: string[];
 
   /**
-   * The rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDVolumeSource#pool
@@ -26248,7 +23435,7 @@ export interface RbdVolumeSource {
   readonly pool?: string;
 
   /**
-   * ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDVolumeSource#readOnly
@@ -26256,7 +23443,7 @@ export interface RbdVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * SecretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * secretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDVolumeSource#secretRef
@@ -26264,7 +23451,7 @@ export interface RbdVolumeSource {
   readonly secretRef?: LocalObjectReference;
 
   /**
-   * The rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    *
    * @default admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @schema io.k8s.api.core.v1.RBDVolumeSource#user
@@ -26301,7 +23488,7 @@ export function toJson_RbdVolumeSource(obj: RbdVolumeSource | undefined): Record
  */
 export interface ScaleIoVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs".
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs".
    *
    * @default xfs".
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#fsType
@@ -26309,21 +23496,21 @@ export interface ScaleIoVolumeSource {
   readonly fsType?: string;
 
   /**
-   * The host address of the ScaleIO API Gateway.
+   * gateway is the host address of the ScaleIO API Gateway.
    *
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#gateway
    */
   readonly gateway: string;
 
   /**
-   * The name of the ScaleIO Protection Domain for the configured storage.
+   * protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.
    *
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#protectionDomain
    */
   readonly protectionDomain?: string;
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
    * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#readOnly
@@ -26331,21 +23518,21 @@ export interface ScaleIoVolumeSource {
   readonly readOnly?: boolean;
 
   /**
-   * SecretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
+   * secretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
    *
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#secretRef
    */
   readonly secretRef: LocalObjectReference;
 
   /**
-   * Flag to enable/disable SSL communication with Gateway, default false
+   * sslEnabled Flag enable/disable SSL communication with Gateway, default false
    *
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#sslEnabled
    */
   readonly sslEnabled?: boolean;
 
   /**
-   * Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.
+   * storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.
    *
    * @default ThinProvisioned.
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#storageMode
@@ -26353,21 +23540,21 @@ export interface ScaleIoVolumeSource {
   readonly storageMode?: string;
 
   /**
-   * The ScaleIO Storage Pool associated with the protection domain.
+   * storagePool is the ScaleIO Storage Pool associated with the protection domain.
    *
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#storagePool
    */
   readonly storagePool?: string;
 
   /**
-   * The name of the storage system as configured in ScaleIO.
+   * system is the name of the storage system as configured in ScaleIO.
    *
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#system
    */
   readonly system: string;
 
   /**
-   * The name of a volume already created in the ScaleIO system that is associated with this volume source.
+   * volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.
    *
    * @schema io.k8s.api.core.v1.ScaleIOVolumeSource#volumeName
    */
@@ -26407,7 +23594,7 @@ export function toJson_ScaleIoVolumeSource(obj: ScaleIoVolumeSource | undefined)
  */
 export interface SecretVolumeSource {
   /**
-   * Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   * defaultMode is Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    *
    * @default 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    * @schema io.k8s.api.core.v1.SecretVolumeSource#defaultMode
@@ -26415,21 +23602,21 @@ export interface SecretVolumeSource {
   readonly defaultMode?: number;
 
   /**
-   * If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+   * items If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
    *
    * @schema io.k8s.api.core.v1.SecretVolumeSource#items
    */
   readonly items?: KeyToPath[];
 
   /**
-   * Specify whether the Secret or its keys must be defined
+   * optional field specify whether the Secret or its keys must be defined
    *
    * @schema io.k8s.api.core.v1.SecretVolumeSource#optional
    */
   readonly optional?: boolean;
 
   /**
-   * Name of the secret in the pod's namespace to use. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+   * secretName is the name of the secret in the pod's namespace to use. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
    *
    * @schema io.k8s.api.core.v1.SecretVolumeSource#secretName
    */
@@ -26461,36 +23648,35 @@ export function toJson_SecretVolumeSource(obj: SecretVolumeSource | undefined): 
  */
 export interface StorageOsVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    *
    * @schema io.k8s.api.core.v1.StorageOSVolumeSource#fsType
    */
   readonly fsType?: string;
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    *
-   * @default false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @schema io.k8s.api.core.v1.StorageOSVolumeSource#readOnly
    */
   readonly readOnly?: boolean;
 
   /**
-   * SecretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted.
+   * secretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted.
    *
    * @schema io.k8s.api.core.v1.StorageOSVolumeSource#secretRef
    */
   readonly secretRef?: LocalObjectReference;
 
   /**
-   * VolumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
+   * volumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
    *
    * @schema io.k8s.api.core.v1.StorageOSVolumeSource#volumeName
    */
   readonly volumeName?: string;
 
   /**
-   * VolumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
+   * volumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
    *
    * @schema io.k8s.api.core.v1.StorageOSVolumeSource#volumeNamespace
    */
@@ -26525,12 +23711,16 @@ export interface ScopedResourceSelectorRequirement {
   /**
    * Represents a scope's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist.
    *
+   *
+   *
    * @schema io.k8s.api.core.v1.ScopedResourceSelectorRequirement#operator
    */
   readonly operator: string;
 
   /**
    * The name of the scope that the selector applies to.
+   *
+   *
    *
    * @schema io.k8s.api.core.v1.ScopedResourceSelectorRequirement#scopeName
    */
@@ -26620,35 +23810,6 @@ export function toJson_ForZone(obj: ForZone | undefined): Record<string, any> | 
 /* eslint-enable max-len, quote-props */
 
 /**
- * ForZone provides information about which zones should consume this endpoint.
- *
- * @schema io.k8s.api.discovery.v1beta1.ForZone
- */
-export interface ForZoneV1Beta1 {
-  /**
-   * name represents the name of the zone.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.ForZone#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ForZoneV1Beta1' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ForZoneV1Beta1(obj: ForZoneV1Beta1 | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * NonResourcePolicyRule is a predicate that matches non-resource requests according to their verb and the target non-resource URL. A NonResourcePolicyRule matches a request if and only if both (a) at least one member of verbs matches the request and (b) at least one member of nonResourceURLs matches the request.
  *
  * @schema io.k8s.api.flowcontrol.v1beta1.NonResourcePolicyRule
@@ -26692,7 +23853,7 @@ export function toJson_NonResourcePolicyRuleV1Beta1(obj: NonResourcePolicyRuleV1
 /* eslint-enable max-len, quote-props */
 
 /**
- * ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource. A ResourcePolicyRule matches a resource request if and only if: (a) at least one member of verbs matches the request, (b) at least one member of apiGroups matches the request, (c) at least one member of resources matches the request, and (d) least one member of namespaces matches the request.
+ * ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource. A ResourcePolicyRule matches a resource request if and only if: (a) at least one member of verbs matches the request, (b) at least one member of apiGroups matches the request, (c) at least one member of resources matches the request, and (d) either (d1) the request does not specify a namespace (i.e., `Namespace==""`) and clusterScope is true or (d2) the request specifies a namespace and least one member of namespaces matches the request's namespace.
  *
  * @schema io.k8s.api.flowcontrol.v1beta1.ResourcePolicyRule
  */
@@ -26843,6 +24004,200 @@ export function toJson_LimitResponseV1Beta1(obj: LimitResponseV1Beta1 | undefine
 /* eslint-enable max-len, quote-props */
 
 /**
+ * NonResourcePolicyRule is a predicate that matches non-resource requests according to their verb and the target non-resource URL. A NonResourcePolicyRule matches a request if and only if both (a) at least one member of verbs matches the request and (b) at least one member of nonResourceURLs matches the request.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.NonResourcePolicyRule
+ */
+export interface NonResourcePolicyRuleV1Beta2 {
+  /**
+   * `nonResourceURLs` is a set of url prefixes that a user should have access to and may not be empty. For example:
+   * - "/healthz" is legal
+   * - "/hea*" is illegal
+   * - "/hea" is legal but matches nothing
+   * - "/hea/*" also matches nothing
+   * - "/healthz/*" matches all per-component health checks.
+   * "*" matches all non-resource urls. if it is present, it must be the only entry. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.NonResourcePolicyRule#nonResourceURLs
+   */
+  readonly nonResourceUrLs: string[];
+
+  /**
+   * `verbs` is a list of matching verbs and may not be empty. "*" matches all verbs. If it is present, it must be the only entry. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.NonResourcePolicyRule#verbs
+   */
+  readonly verbs: string[];
+
+}
+
+/**
+ * Converts an object of type 'NonResourcePolicyRuleV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NonResourcePolicyRuleV1Beta2(obj: NonResourcePolicyRuleV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nonResourceURLs': obj.nonResourceUrLs?.map(y => y),
+    'verbs': obj.verbs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource. A ResourcePolicyRule matches a resource request if and only if: (a) at least one member of verbs matches the request, (b) at least one member of apiGroups matches the request, (c) at least one member of resources matches the request, and (d) either (d1) the request does not specify a namespace (i.e., `Namespace==""`) and clusterScope is true or (d2) the request specifies a namespace and least one member of namespaces matches the request's namespace.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.ResourcePolicyRule
+ */
+export interface ResourcePolicyRuleV1Beta2 {
+  /**
+   * `apiGroups` is a list of matching API groups and may not be empty. "*" matches all API groups and, if present, must be the only entry. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.ResourcePolicyRule#apiGroups
+   */
+  readonly apiGroups: string[];
+
+  /**
+   * `clusterScope` indicates whether to match requests that do not specify a namespace (which happens either because the resource is not namespaced or the request targets all namespaces). If this field is omitted or false then the `namespaces` field must contain a non-empty list.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.ResourcePolicyRule#clusterScope
+   */
+  readonly clusterScope?: boolean;
+
+  /**
+   * `namespaces` is a list of target namespaces that restricts matches.  A request that specifies a target namespace matches only if either (a) this list contains that target namespace or (b) this list contains "*".  Note that "*" matches any specified namespace but does not match a request that _does not specify_ a namespace (see the `clusterScope` field for that). This list may be empty, but only if `clusterScope` is true.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.ResourcePolicyRule#namespaces
+   */
+  readonly namespaces?: string[];
+
+  /**
+   * `resources` is a list of matching resources (i.e., lowercase and plural) with, if desired, subresource.  For example, [ "services", "nodes/status" ].  This list may not be empty. "*" matches all resources and, if present, must be the only entry. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.ResourcePolicyRule#resources
+   */
+  readonly resources: string[];
+
+  /**
+   * `verbs` is a list of matching verbs and may not be empty. "*" matches all verbs and, if present, must be the only entry. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.ResourcePolicyRule#verbs
+   */
+  readonly verbs: string[];
+
+}
+
+/**
+ * Converts an object of type 'ResourcePolicyRuleV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ResourcePolicyRuleV1Beta2(obj: ResourcePolicyRuleV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiGroups': obj.apiGroups?.map(y => y),
+    'clusterScope': obj.clusterScope,
+    'namespaces': obj.namespaces?.map(y => y),
+    'resources': obj.resources?.map(y => y),
+    'verbs': obj.verbs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.Subject
+ */
+export interface SubjectV1Beta2 {
+  /**
+   * `group` matches based on user group name.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.Subject#group
+   */
+  readonly group?: GroupSubjectV1Beta2;
+
+  /**
+   * `kind` indicates which one of the other fields is non-empty. Required
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.Subject#kind
+   */
+  readonly kind: string;
+
+  /**
+   * `serviceAccount` matches ServiceAccounts.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.Subject#serviceAccount
+   */
+  readonly serviceAccount?: ServiceAccountSubjectV1Beta2;
+
+  /**
+   * `user` matches based on username.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.Subject#user
+   */
+  readonly user?: UserSubjectV1Beta2;
+
+}
+
+/**
+ * Converts an object of type 'SubjectV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SubjectV1Beta2(obj: SubjectV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'group': toJson_GroupSubjectV1Beta2(obj.group),
+    'kind': obj.kind,
+    'serviceAccount': toJson_ServiceAccountSubjectV1Beta2(obj.serviceAccount),
+    'user': toJson_UserSubjectV1Beta2(obj.user),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * LimitResponse defines how to handle requests that can not be executed right now.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.LimitResponse
+ */
+export interface LimitResponseV1Beta2 {
+  /**
+   * `queuing` holds the configuration parameters for queuing. This field may be non-empty only if `type` is `"Queue"`.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.LimitResponse#queuing
+   */
+  readonly queuing?: QueuingConfigurationV1Beta2;
+
+  /**
+   * `type` is "Queue" or "Reject". "Queue" means that requests that can not be executed upon arrival are held in a queue until they can be executed or a queuing limit is reached. "Reject" means that requests that can not be executed upon arrival are rejected. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.LimitResponse#type
+   */
+  readonly type: string;
+
+}
+
+/**
+ * Converts an object of type 'LimitResponseV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LimitResponseV1Beta2(obj: LimitResponseV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'queuing': toJson_QueuingConfigurationV1Beta2(obj.queuing),
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * IngressServiceBackend references a Kubernetes Service as a Backend.
  *
  * @schema io.k8s.api.networking.v1.IngressServiceBackend
@@ -26915,7 +24270,7 @@ export function toJson_HttpIngressRuleValue(obj: HttpIngressRuleValue | undefine
  */
 export interface NetworkPolicyPort {
   /**
-   * If set, indicates that the range of ports from port to endPort, inclusive, should be allowed by the policy. This field cannot be defined if the port field is not defined or if the port field is defined as a named (string) port. The endPort must be equal or greater than port. This feature is in Beta state and is enabled by default. It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+   * If set, indicates that the range of ports from port to endPort, inclusive, should be allowed by the policy. This field cannot be defined if the port field is not defined or if the port field is defined as a named (string) port. The endPort must be equal or greater than port.
    *
    * @schema io.k8s.api.networking.v1.NetworkPolicyPort#endPort
    */
@@ -27003,36 +24358,36 @@ export function toJson_NetworkPolicyPeer(obj: NetworkPolicyPeer | undefined): Re
 /* eslint-enable max-len, quote-props */
 
 /**
- * IDRange provides a min/max of an allowed range of IDs.
+ * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
  *
- * @schema io.k8s.api.policy.v1beta1.IDRange
+ * @schema io.k8s.api.core.v1.NodeSelectorTerm
  */
-export interface IdRangeV1Beta1 {
+export interface NodeSelectorTerm {
   /**
-   * max is the end of the range, inclusive.
+   * A list of node selector requirements by node's labels.
    *
-   * @schema io.k8s.api.policy.v1beta1.IDRange#max
+   * @schema io.k8s.api.core.v1.NodeSelectorTerm#matchExpressions
    */
-  readonly max: number;
+  readonly matchExpressions?: NodeSelectorRequirement[];
 
   /**
-   * min is the start of the range, inclusive.
+   * A list of node selector requirements by node's fields.
    *
-   * @schema io.k8s.api.policy.v1beta1.IDRange#min
+   * @schema io.k8s.api.core.v1.NodeSelectorTerm#matchFields
    */
-  readonly min: number;
+  readonly matchFields?: NodeSelectorRequirement[];
 
 }
 
 /**
- * Converts an object of type 'IdRangeV1Beta1' to JSON representation.
+ * Converts an object of type 'NodeSelectorTerm' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_IdRangeV1Beta1(obj: IdRangeV1Beta1 | undefined): Record<string, any> | undefined {
+export function toJson_NodeSelectorTerm(obj: NodeSelectorTerm | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'max': obj.max,
-    'min': obj.min,
+    'matchExpressions': obj.matchExpressions?.map(y => toJson_NodeSelectorRequirement(y)),
+    'matchFields': obj.matchFields?.map(y => toJson_NodeSelectorRequirement(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -27243,6 +24598,141 @@ export function toJson_CustomResourceSubresources(obj: CustomResourceSubresource
 /**
  * HPAScalingPolicy is a single policy which must hold true for a specified past interval.
  *
+ * @schema io.k8s.api.autoscaling.v2.HPAScalingPolicy
+ */
+export interface HpaScalingPolicyV2 {
+  /**
+   * PeriodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+   *
+   * @schema io.k8s.api.autoscaling.v2.HPAScalingPolicy#periodSeconds
+   */
+  readonly periodSeconds: number;
+
+  /**
+   * Type is used to specify the scaling policy.
+   *
+   * @schema io.k8s.api.autoscaling.v2.HPAScalingPolicy#type
+   */
+  readonly type: string;
+
+  /**
+   * Value contains the amount of change which is permitted by the policy. It must be greater than zero
+   *
+   * @schema io.k8s.api.autoscaling.v2.HPAScalingPolicy#value
+   */
+  readonly value: number;
+
+}
+
+/**
+ * Converts an object of type 'HpaScalingPolicyV2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HpaScalingPolicyV2(obj: HpaScalingPolicyV2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'periodSeconds': obj.periodSeconds,
+    'type': obj.type,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * MetricTarget defines the target value, average value, or average utilization of a specific metric
+ *
+ * @schema io.k8s.api.autoscaling.v2.MetricTarget
+ */
+export interface MetricTargetV2 {
+  /**
+   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
+   *
+   * @schema io.k8s.api.autoscaling.v2.MetricTarget#averageUtilization
+   */
+  readonly averageUtilization?: number;
+
+  /**
+   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
+   *
+   * @schema io.k8s.api.autoscaling.v2.MetricTarget#averageValue
+   */
+  readonly averageValue?: Quantity;
+
+  /**
+   * type represents whether the metric type is Utilization, Value, or AverageValue
+   *
+   * @schema io.k8s.api.autoscaling.v2.MetricTarget#type
+   */
+  readonly type: string;
+
+  /**
+   * value is the target value of the metric (as a quantity).
+   *
+   * @schema io.k8s.api.autoscaling.v2.MetricTarget#value
+   */
+  readonly value?: Quantity;
+
+}
+
+/**
+ * Converts an object of type 'MetricTargetV2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MetricTargetV2(obj: MetricTargetV2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'averageUtilization': obj.averageUtilization,
+    'averageValue': obj.averageValue?.value,
+    'type': obj.type,
+    'value': obj.value?.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * MetricIdentifier defines the name and optionally selector for a metric
+ *
+ * @schema io.k8s.api.autoscaling.v2.MetricIdentifier
+ */
+export interface MetricIdentifierV2 {
+  /**
+   * name is the name of the given metric
+   *
+   * @schema io.k8s.api.autoscaling.v2.MetricIdentifier#name
+   */
+  readonly name: string;
+
+  /**
+   * selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping. When unset, just the metricName will be used to gather metrics.
+   *
+   * @schema io.k8s.api.autoscaling.v2.MetricIdentifier#selector
+   */
+  readonly selector?: LabelSelector;
+
+}
+
+/**
+ * Converts an object of type 'MetricIdentifierV2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MetricIdentifierV2(obj: MetricIdentifierV2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'selector': toJson_LabelSelector(obj.selector),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * HPAScalingPolicy is a single policy which must hold true for a specified past interval.
+ *
  * @schema io.k8s.api.autoscaling.v2beta2.HPAScalingPolicy
  */
 export interface HpaScalingPolicyV2Beta2 {
@@ -27376,36 +24866,90 @@ export function toJson_MetricIdentifierV2Beta2(obj: MetricIdentifierV2Beta2 | un
 /* eslint-enable max-len, quote-props */
 
 /**
- * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
+ * PodFailurePolicyOnExitCodesRequirement describes the requirement for handling a failed pod based on its container exit codes. In particular, it lookups the .state.terminated.exitCode for each app container and init container status, represented by the .status.containerStatuses and .status.initContainerStatuses fields in the Pod status, respectively. Containers completed with success (exit code 0) are excluded from the requirement check.
  *
- * @schema io.k8s.api.core.v1.NodeSelectorTerm
+ * @schema io.k8s.api.batch.v1.PodFailurePolicyOnExitCodesRequirement
  */
-export interface NodeSelectorTerm {
+export interface PodFailurePolicyOnExitCodesRequirement {
   /**
-   * A list of node selector requirements by node's labels.
+   * Restricts the check for exit codes to the container with the specified name. When null, the rule applies to all containers. When specified, it should match one the container or initContainer names in the pod template.
    *
-   * @schema io.k8s.api.core.v1.NodeSelectorTerm#matchExpressions
+   * @schema io.k8s.api.batch.v1.PodFailurePolicyOnExitCodesRequirement#containerName
    */
-  readonly matchExpressions?: NodeSelectorRequirement[];
+  readonly containerName?: string;
 
   /**
-   * A list of node selector requirements by node's fields.
+   * Represents the relationship between the container exit code(s) and the specified values. Containers completed with success (exit code 0) are excluded from the requirement check. Possible values are: - In: the requirement is satisfied if at least one container exit code
+   * (might be multiple if there are multiple containers not restricted
+   * by the 'containerName' field) is in the set of specified values.
+   * - NotIn: the requirement is satisfied if at least one container exit code
+   * (might be multiple if there are multiple containers not restricted
+   * by the 'containerName' field) is not in the set of specified values.
+   * Additional values are considered to be added in the future. Clients should react to an unknown operator by assuming the requirement is not satisfied.
    *
-   * @schema io.k8s.api.core.v1.NodeSelectorTerm#matchFields
+   *
+   *
+   * @schema io.k8s.api.batch.v1.PodFailurePolicyOnExitCodesRequirement#operator
    */
-  readonly matchFields?: NodeSelectorRequirement[];
+  readonly operator: string;
+
+  /**
+   * Specifies the set of values. Each returned container exit code (might be multiple in case of multiple containers) is checked against this set of values with respect to the operator. The list of values must be ordered and must not contain duplicates. Value '0' cannot be used for the In operator. At least one element is required. At most 255 elements are allowed.
+   *
+   * @schema io.k8s.api.batch.v1.PodFailurePolicyOnExitCodesRequirement#values
+   */
+  readonly values: number[];
 
 }
 
 /**
- * Converts an object of type 'NodeSelectorTerm' to JSON representation.
+ * Converts an object of type 'PodFailurePolicyOnExitCodesRequirement' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_NodeSelectorTerm(obj: NodeSelectorTerm | undefined): Record<string, any> | undefined {
+export function toJson_PodFailurePolicyOnExitCodesRequirement(obj: PodFailurePolicyOnExitCodesRequirement | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'matchExpressions': obj.matchExpressions?.map(y => toJson_NodeSelectorRequirement(y)),
-    'matchFields': obj.matchFields?.map(y => toJson_NodeSelectorRequirement(y)),
+    'containerName': obj.containerName,
+    'operator': obj.operator,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * PodFailurePolicyOnPodConditionsPattern describes a pattern for matching an actual pod condition type.
+ *
+ * @schema io.k8s.api.batch.v1.PodFailurePolicyOnPodConditionsPattern
+ */
+export interface PodFailurePolicyOnPodConditionsPattern {
+  /**
+   * Specifies the required Pod condition status. To match a pod condition it is required that the specified status equals the pod condition status. Defaults to True.
+   *
+   * @default True.
+   * @schema io.k8s.api.batch.v1.PodFailurePolicyOnPodConditionsPattern#status
+   */
+  readonly status: string;
+
+  /**
+   * Specifies the required Pod condition type. To match a pod condition it is required that specified type equals the pod condition type.
+   *
+   * @schema io.k8s.api.batch.v1.PodFailurePolicyOnPodConditionsPattern#type
+   */
+  readonly type: string;
+
+}
+
+/**
+ * Converts an object of type 'PodFailurePolicyOnPodConditionsPattern' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PodFailurePolicyOnPodConditionsPattern(obj: PodFailurePolicyOnPodConditionsPattern | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'type': obj.type,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -27500,14 +25044,14 @@ export interface PodAffinityTerm {
   readonly labelSelector?: LabelSelector;
 
   /**
-   * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.
+   * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
    *
    * @schema io.k8s.api.core.v1.PodAffinityTerm#namespaceSelector
    */
   readonly namespaceSelector?: LabelSelector;
 
   /**
-   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace"
+   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
    *
    * @schema io.k8s.api.core.v1.PodAffinityTerm#namespaces
    */
@@ -27671,39 +25215,39 @@ export function toJson_SecretEnvSource(obj: SecretEnvSource | undefined): Record
 /* eslint-enable max-len, quote-props */
 
 /**
- * Handler defines a specific action that should be taken
+ * LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.
  *
- * @schema io.k8s.api.core.v1.Handler
+ * @schema io.k8s.api.core.v1.LifecycleHandler
  */
-export interface Handler {
+export interface LifecycleHandler {
   /**
-   * One and only one of the following should be specified. Exec specifies the action to take.
+   * Exec specifies the action to take.
    *
-   * @schema io.k8s.api.core.v1.Handler#exec
+   * @schema io.k8s.api.core.v1.LifecycleHandler#exec
    */
   readonly exec?: ExecAction;
 
   /**
    * HTTPGet specifies the http request to perform.
    *
-   * @schema io.k8s.api.core.v1.Handler#httpGet
+   * @schema io.k8s.api.core.v1.LifecycleHandler#httpGet
    */
   readonly httpGet?: HttpGetAction;
 
   /**
-   * TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
+   * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
    *
-   * @schema io.k8s.api.core.v1.Handler#tcpSocket
+   * @schema io.k8s.api.core.v1.LifecycleHandler#tcpSocket
    */
   readonly tcpSocket?: TcpSocketAction;
 
 }
 
 /**
- * Converts an object of type 'Handler' to JSON representation.
+ * Converts an object of type 'LifecycleHandler' to JSON representation.
  */
 /* eslint-disable max-len, quote-props */
-export function toJson_Handler(obj: Handler | undefined): Record<string, any> | undefined {
+export function toJson_LifecycleHandler(obj: LifecycleHandler | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'exec': toJson_ExecAction(obj.exec),
@@ -27738,6 +25282,43 @@ export function toJson_ExecAction(obj: ExecAction | undefined): Record<string, a
   if (obj === undefined) { return undefined; }
   const result = {
     'command': obj.command?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema io.k8s.api.core.v1.GRPCAction
+ */
+export interface GrpcAction {
+  /**
+   * Port number of the gRPC service. Number must be in the range 1 to 65535.
+   *
+   * @schema io.k8s.api.core.v1.GRPCAction#port
+   */
+  readonly port: number;
+
+  /**
+   * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).
+   *
+   * If this is not specified, the default behavior is defined by gRPC.
+   *
+   * @schema io.k8s.api.core.v1.GRPCAction#service
+   */
+  readonly service?: string;
+
+}
+
+/**
+ * Converts an object of type 'GrpcAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GrpcAction(obj: GrpcAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'port': obj.port,
+    'service': obj.service,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -27780,6 +25361,8 @@ export interface HttpGetAction {
 
   /**
    * Scheme to use for connecting to the host. Defaults to HTTP.
+   *
+   *
    *
    * @default HTTP.
    * @schema io.k8s.api.core.v1.HTTPGetAction#scheme
@@ -27887,21 +25470,21 @@ export function toJson_Capabilities(obj: Capabilities | undefined): Record<strin
  */
 export interface KeyToPath {
   /**
-   * The key to project.
+   * key is the key to project.
    *
    * @schema io.k8s.api.core.v1.KeyToPath#key
    */
   readonly key: string;
 
   /**
-   * Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    *
    * @schema io.k8s.api.core.v1.KeyToPath#mode
    */
   readonly mode?: number;
 
   /**
-   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
    *
    * @schema io.k8s.api.core.v1.KeyToPath#path
    */
@@ -28022,28 +25605,28 @@ export function toJson_PersistentVolumeClaimTemplate(obj: PersistentVolumeClaimT
  */
 export interface VolumeProjection {
   /**
-   * information about the configMap data to project
+   * configMap information about the configMap data to project
    *
    * @schema io.k8s.api.core.v1.VolumeProjection#configMap
    */
   readonly configMap?: ConfigMapProjection;
 
   /**
-   * information about the downwardAPI data to project
+   * downwardAPI information about the downwardAPI data to project
    *
    * @schema io.k8s.api.core.v1.VolumeProjection#downwardAPI
    */
   readonly downwardApi?: DownwardApiProjection;
 
   /**
-   * information about the secret data to project
+   * secret information about the secret data to project
    *
    * @schema io.k8s.api.core.v1.VolumeProjection#secret
    */
   readonly secret?: SecretProjection;
 
   /**
-   * information about the serviceAccountToken data to project
+   * serviceAccountToken is information about the serviceAccountToken data to project
    *
    * @schema io.k8s.api.core.v1.VolumeProjection#serviceAccountToken
    */
@@ -28209,6 +25792,146 @@ export function toJson_QueuingConfigurationV1Beta1(obj: QueuingConfigurationV1Be
 /* eslint-enable max-len, quote-props */
 
 /**
+ * GroupSubject holds detailed information for group-kind subject.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.GroupSubject
+ */
+export interface GroupSubjectV1Beta2 {
+  /**
+   * name is the user group that matches, or "*" to match all user groups. See https://github.com/kubernetes/apiserver/blob/master/pkg/authentication/user/user.go for some well-known group names. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.GroupSubject#name
+   */
+  readonly name: string;
+
+}
+
+/**
+ * Converts an object of type 'GroupSubjectV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroupSubjectV1Beta2(obj: GroupSubjectV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * ServiceAccountSubject holds detailed information for service-account-kind subject.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.ServiceAccountSubject
+ */
+export interface ServiceAccountSubjectV1Beta2 {
+  /**
+   * `name` is the name of matching ServiceAccount objects, or "*" to match regardless of name. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.ServiceAccountSubject#name
+   */
+  readonly name: string;
+
+  /**
+   * `namespace` is the namespace of matching ServiceAccount objects. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.ServiceAccountSubject#namespace
+   */
+  readonly namespace: string;
+
+}
+
+/**
+ * Converts an object of type 'ServiceAccountSubjectV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ServiceAccountSubjectV1Beta2(obj: ServiceAccountSubjectV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * UserSubject holds detailed information for user-kind subject.
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.UserSubject
+ */
+export interface UserSubjectV1Beta2 {
+  /**
+   * `name` is the username that matches, or "*" to match all usernames. Required.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.UserSubject#name
+   */
+  readonly name: string;
+
+}
+
+/**
+ * Converts an object of type 'UserSubjectV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_UserSubjectV1Beta2(obj: UserSubjectV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * QueuingConfiguration holds the configuration parameters for queuing
+ *
+ * @schema io.k8s.api.flowcontrol.v1beta2.QueuingConfiguration
+ */
+export interface QueuingConfigurationV1Beta2 {
+  /**
+   * `handSize` is a small positive number that configures the shuffle sharding of requests into queues.  When enqueuing a request at this priority level the request's flow identifier (a string pair) is hashed and the hash value is used to shuffle the list of queues and deal a hand of the size specified here.  The request is put into one of the shortest queues in that hand. `handSize` must be no larger than `queues`, and should be significantly smaller (so that a few heavy flows do not saturate most of the queues).  See the user-facing documentation for more extensive guidance on setting this field.  This field has a default value of 8.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.QueuingConfiguration#handSize
+   */
+  readonly handSize?: number;
+
+  /**
+   * `queueLengthLimit` is the maximum number of requests allowed to be waiting in a given queue of this priority level at a time; excess requests are rejected.  This value must be positive.  If not specified, it will be defaulted to 50.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.QueuingConfiguration#queueLengthLimit
+   */
+  readonly queueLengthLimit?: number;
+
+  /**
+   * `queues` is the number of queues for this priority level. The queues exist independently at each apiserver. The value must be positive.  Setting it to 1 effectively precludes shufflesharding and thus makes the distinguisher method of associated flow schemas irrelevant.  This field has a default value of 64.
+   *
+   * @schema io.k8s.api.flowcontrol.v1beta2.QueuingConfiguration#queues
+   */
+  readonly queues?: number;
+
+}
+
+/**
+ * Converts an object of type 'QueuingConfigurationV1Beta2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QueuingConfigurationV1Beta2(obj: QueuingConfigurationV1Beta2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'handSize': obj.handSize,
+    'queueLengthLimit': obj.queueLengthLimit,
+    'queues': obj.queues,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * ServiceBackendPort is the service port being referenced.
  *
  * @schema io.k8s.api.networking.v1.ServiceBackendPort
@@ -28331,6 +26054,53 @@ export function toJson_IpBlock(obj: IpBlock | undefined): Record<string, any> | 
   const result = {
     'cidr': obj.cidr,
     'except': obj.except?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+ *
+ * @schema io.k8s.api.core.v1.NodeSelectorRequirement
+ */
+export interface NodeSelectorRequirement {
+  /**
+   * The label key that the selector applies to.
+   *
+   * @schema io.k8s.api.core.v1.NodeSelectorRequirement#key
+   */
+  readonly key: string;
+
+  /**
+   * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+   *
+   *
+   *
+   * @schema io.k8s.api.core.v1.NodeSelectorRequirement#operator
+   */
+  readonly operator: string;
+
+  /**
+   * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+   *
+   * @schema io.k8s.api.core.v1.NodeSelectorRequirement#values
+   */
+  readonly values?: string[];
+
+}
+
+/**
+ * Converts an object of type 'NodeSelectorRequirement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NodeSelectorRequirement(obj: NodeSelectorRequirement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'operator': obj.operator,
+    'values': obj.values?.map(y => y),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -28610,6 +26380,13 @@ export interface JsonSchemaProps {
    */
   readonly xKubernetesPreserveUnknownFields?: boolean;
 
+  /**
+   * x-kubernetes-validations describes a list of validation rules written in the CEL expression language. This field is an alpha-level. Using this field requires the feature gate `CustomResourceValidationExpressions` to be enabled.
+   *
+   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaProps#x-kubernetes-validations
+   */
+  readonly xKubernetesValidations?: ValidationRule[];
+
 }
 
 /**
@@ -28662,6 +26439,7 @@ export function toJson_JsonSchemaProps(obj: JsonSchemaProps | undefined): Record
     'x-kubernetes-list-type': obj.xKubernetesListType,
     'x-kubernetes-map-type': obj.xKubernetesMapType,
     'x-kubernetes-preserve-unknown-fields': obj.xKubernetesPreserveUnknownFields,
+    'x-kubernetes-validations': obj.xKubernetesValidations?.map(y => toJson_ValidationRule(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -28707,51 +26485,6 @@ export function toJson_CustomResourceSubresourceScale(obj: CustomResourceSubreso
     'labelSelectorPath': obj.labelSelectorPath,
     'specReplicasPath': obj.specReplicasPath,
     'statusReplicasPath': obj.statusReplicasPath,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
- *
- * @schema io.k8s.api.core.v1.NodeSelectorRequirement
- */
-export interface NodeSelectorRequirement {
-  /**
-   * The label key that the selector applies to.
-   *
-   * @schema io.k8s.api.core.v1.NodeSelectorRequirement#key
-   */
-  readonly key: string;
-
-  /**
-   * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-   *
-   * @schema io.k8s.api.core.v1.NodeSelectorRequirement#operator
-   */
-  readonly operator: string;
-
-  /**
-   * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-   *
-   * @schema io.k8s.api.core.v1.NodeSelectorRequirement#values
-   */
-  readonly values?: string[];
-
-}
-
-/**
- * Converts an object of type 'NodeSelectorRequirement' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_NodeSelectorRequirement(obj: NodeSelectorRequirement | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'operator': obj.operator,
-    'values': obj.values?.map(y => y),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -28976,7 +26709,7 @@ export function toJson_HttpHeader(obj: HttpHeader | undefined): Record<string, a
  */
 export interface ConfigMapProjection {
   /**
-   * If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+   * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
    *
    * @schema io.k8s.api.core.v1.ConfigMapProjection#items
    */
@@ -28990,7 +26723,7 @@ export interface ConfigMapProjection {
   readonly name?: string;
 
   /**
-   * Specify whether the ConfigMap or its keys must be defined
+   * optional specify whether the ConfigMap or its keys must be defined
    *
    * @schema io.k8s.api.core.v1.ConfigMapProjection#optional
    */
@@ -29052,7 +26785,7 @@ export function toJson_DownwardApiProjection(obj: DownwardApiProjection | undefi
  */
 export interface SecretProjection {
   /**
-   * If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+   * items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
    *
    * @schema io.k8s.api.core.v1.SecretProjection#items
    */
@@ -29066,7 +26799,7 @@ export interface SecretProjection {
   readonly name?: string;
 
   /**
-   * Specify whether the Secret or its key must be defined
+   * optional field specify whether the Secret or its key must be defined
    *
    * @schema io.k8s.api.core.v1.SecretProjection#optional
    */
@@ -29097,14 +26830,14 @@ export function toJson_SecretProjection(obj: SecretProjection | undefined): Reco
  */
 export interface ServiceAccountTokenProjection {
   /**
-   * Audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
+   * audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
    *
    * @schema io.k8s.api.core.v1.ServiceAccountTokenProjection#audience
    */
   readonly audience?: string;
 
   /**
-   * ExpirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
+   * expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
    *
    * @default 1 hour and must be at least 10 minutes.
    * @schema io.k8s.api.core.v1.ServiceAccountTokenProjection#expirationSeconds
@@ -29112,7 +26845,7 @@ export interface ServiceAccountTokenProjection {
   readonly expirationSeconds?: number;
 
   /**
-   * Path is the path relative to the mount point of the file to project the token into.
+   * path is the path relative to the mount point of the file to project the token into.
    *
    * @schema io.k8s.api.core.v1.ServiceAccountTokenProjection#path
    */
@@ -29163,6 +26896,67 @@ export function toJson_ExternalDocumentation(obj: ExternalDocumentation | undefi
   const result = {
     'description': obj.description,
     'url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * ValidationRule describes a validation rule written in the CEL expression language.
+ *
+ * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.ValidationRule
+ */
+export interface ValidationRule {
+  /**
+   * Message represents the message displayed when validation fails. The message is required if the Rule contains line breaks. The message must not contain line breaks. If unset, the message is "failed rule: {Rule}". e.g. "must be a URL with the host matching spec.host"
+   *
+   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.ValidationRule#message
+   */
+  readonly message?: string;
+
+  /**
+   * Rule represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec The Rule is scoped to the location of the x-kubernetes-validations extension in the schema. The `self` variable in the CEL expression is bound to the scoped value. Example: - Rule scoped to the root of a resource with a status subresource: {"rule": "self.status.actual <= self.spec.maxDesired"}
+   *
+   * If the Rule is scoped to an object with properties, the accessible properties of the object are field selectable via `self.field` and field presence can be checked via `has(self.field)`. Null valued fields are treated as absent fields in CEL expressions. If the Rule is scoped to an object with additionalProperties (i.e. a map) the value of the map are accessible via `self[mapKey]`, map containment can be checked via `mapKey in self` and all entries of the map are accessible via CEL macros and functions such as `self.all(...)`. If the Rule is scoped to an array, the elements of the array are accessible via `self[i]` and also by macros and functions. If the Rule is scoped to a scalar, `self` is bound to the scalar value. Examples: - Rule scoped to a map of objects: {"rule": "self.components['Widget'].priority < 10"} - Rule scoped to a list of integers: {"rule": "self.values.all(value, value >= 0 && value < 100)"} - Rule scoped to a string value: {"rule": "self.startsWith('kube')"}
+   *
+   * The `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object and from any x-kubernetes-embedded-resource annotated objects. No other metadata properties are accessible.
+   *
+   * Unknown data preserved in custom resources via x-kubernetes-preserve-unknown-fields is not accessible in CEL expressions. This includes: - Unknown field values that are preserved by object schemas with x-kubernetes-preserve-unknown-fields. - Object properties where the property schema is of an "unknown type". An "unknown type" is recursively defined as:
+   * - A schema with no type and x-kubernetes-preserve-unknown-fields set to true
+   * - An array where the items schema is of an "unknown type"
+   * - An object where the additionalProperties schema is of an "unknown type"
+   *
+   * Only property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:
+   * "true", "false", "null", "in", "as", "break", "const", "continue", "else", "for", "function", "if",
+   * "import", "let", "loop", "package", "namespace", "return".
+   * Examples:
+   * - Rule accessing a property named "namespace": {"rule": "self.__namespace__ > 0"}
+   * - Rule accessing a property named "x-prop": {"rule": "self.x__dash__prop > 0"}
+   * - Rule accessing a property named "redact__d": {"rule": "self.redact__underscores__d > 0"}
+   *
+   * Equality on arrays with x-kubernetes-list-type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:
+   * - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and
+   * non-intersecting elements in `Y` are appended, retaining their partial order.
+   * - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values
+   * are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with
+   * non-intersecting keys are appended, retaining their partial order.
+   *
+   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.ValidationRule#rule
+   */
+  readonly rule: string;
+
+}
+
+/**
+ * Converts an object of type 'ValidationRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ValidationRule(obj: ValidationRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'message': obj.message,
+    'rule': obj.rule,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});

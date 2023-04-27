@@ -41,7 +41,7 @@ export class CdkEksFargateStack extends cdk.Stack {
 
     // Create a EKS cluster with Fargate profile.
     const cluster = new eks.FargateCluster(this, 'my-cluster', {
-      version: eks.KubernetesVersion.V1_20,
+      version: eks.KubernetesVersion.V1_26,
       mastersRole: masterRole,
       clusterName: props.clusterName,
       outputClusterName: true,
@@ -57,7 +57,7 @@ export class CdkEksFargateStack extends cdk.Stack {
         props.vpcId == undefined
           ? undefined
           : ec2.Vpc.fromLookup(this, 'vpc', { vpcId: props?.vpcId }),
-      vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_NAT }] // you can also specify the subnets by other attributes
+      vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS }] // you can also specify the subnets by other attributes
     });
 
     // Deploy AWS LoadBalancer Controller onto EKS.
@@ -118,7 +118,7 @@ export class CdkEksFargateStack extends cdk.Stack {
       'customer-app-profile',
       {
         selectors: [{ namespace: k8sAppNameSpace }],
-        subnetSelection: { subnetType: ec2.SubnetType.PRIVATE_WITH_NAT },
+        subnetSelection: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },
         vpc: cluster.vpc
       }
     );
