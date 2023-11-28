@@ -1,5 +1,5 @@
 {
-  "name": "cdk-eks-fargate",
+  "name": "@aws-samples/cdk-eks-fargate",
   "version": "0.1.0",
   "bin": {
     "cdk-eks-fargate": "bin/cdk-eks-fargate.js"
